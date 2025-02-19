@@ -5,8 +5,8 @@ namespace FestivalHoa.Properties.Interfaces.MonitorApi
 {
     public interface IMonitorService
     {
-        Task<CallHistory> CallApiAsync(MonitorRequestDto request);
+        Task CreateCallHistoryAsync(CallHistory history);
         Task<List<CallHistory>> GetCallHistoriesAsync();
-        List<CommonModelShort> GetCommonList();
+        Task<List<CallHistory>> GetFailedCallsAsync();
     }
 }

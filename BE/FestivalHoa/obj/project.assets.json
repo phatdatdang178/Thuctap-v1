@@ -6927,11 +6927,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\phatd\\OneDrive\\Máy tính\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\FestivalHoa.csproj",
+      "projectUniqueName": "C:\\Users\\phatd\\OneDrive\\Máy tính\\THUCTAP\\ThucTap_V1-main\\BE\\FestivalHoa\\FestivalHoa.csproj",
       "projectName": "FestivalHoa",
-      "projectPath": "C:\\Users\\phatd\\OneDrive\\Máy tính\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\FestivalHoa.csproj",
+      "projectPath": "C:\\Users\\phatd\\OneDrive\\Máy tính\\THUCTAP\\ThucTap_V1-main\\BE\\FestivalHoa\\FestivalHoa.csproj",
       "packagesPath": "C:\\Users\\phatd\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\phatd\\OneDrive\\Máy tính\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\obj\\",
+      "outputPath": "C:\\Users\\phatd\\OneDrive\\Máy tính\\THUCTAP\\ThucTap_V1-main\\BE\\FestivalHoa\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

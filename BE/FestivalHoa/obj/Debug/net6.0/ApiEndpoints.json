@@ -1,5 +1,57 @@
 [
   {
+    "ContainingType": "FestivalHoa.Properties.Controllers.MonitorApi.MonitorController",
+    "Method": "CallApi",
+    "RelativePath": "api/Monitor/call",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "FestivalHoa.Properties.Models.MonitorApi.MonitorRequestDto",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FestivalHoa.Properties.Controllers.MonitorApi.MonitorController",
+    "Method": "GetHistory",
+    "RelativePath": "api/Monitor/history",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FestivalHoa.Properties.Controllers.MonitorApi.ScheduleController",
+    "Method": "GetSchedules",
+    "RelativePath": "api/Schedule",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FestivalHoa.Properties.Controllers.MonitorApi.ScheduleController",
+    "Method": "CreateOrUpdateSchedule",
+    "RelativePath": "api/Schedule",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "schedule",
+        "Type": "FestivalHoa.Properties.Models.MonitorApi.ScheduledCall",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "FestivalHoa.Properties.Controllers.Auth.AuthController",
     "Method": "Login",
     "RelativePath": "api/v1/Auth/login",
@@ -122,112 +174,6 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "FestivalHoa.Properties.Controllers.NghiepVu.DoanhNghiepController",
-    "Method": "Create",
-    "RelativePath": "api/v1/DoanhNghiep/create",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "model",
-        "Type": "FestivalHoa.Properties.Models.CongDan.DoanhNghiepModel",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "FestivalHoa.Properties.Controllers.Core.DefaultReposityController\u00601[[FestivalHoa.Properties.Models.CongDan.DoanhNghiepModel, FestivalHoa, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-    "Method": "Delete",
-    "RelativePath": "api/v1/DoanhNghiep/delete",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "model",
-        "Type": "FestivalHoa.Properties.FromBodyModels.IdFromBodyModel",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "FestivalHoa.Properties.Controllers.Core.DefaultReposityController\u00601[[FestivalHoa.Properties.Models.CongDan.DoanhNghiepModel, FestivalHoa, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-    "Method": "Deleted",
-    "RelativePath": "api/v1/DoanhNghiep/deleted",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "model",
-        "Type": "FestivalHoa.Properties.FromBodyModels.IdFromBodyModel",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "FestivalHoa.Properties.Controllers.Core.DefaultReposityController\u00601[[FestivalHoa.Properties.Models.CongDan.DoanhNghiepModel, FestivalHoa, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-    "Method": "GetAllData",
-    "RelativePath": "api/v1/DoanhNghiep/get-all-core",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "FestivalHoa.Properties.Controllers.Core.DefaultReposityController\u00601[[FestivalHoa.Properties.Models.CongDan.DoanhNghiepModel, FestivalHoa, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-    "Method": "GetById",
-    "RelativePath": "api/v1/DoanhNghiep/get-by-id-core",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "model",
-        "Type": "FestivalHoa.Properties.FromBodyModels.IdFromBodyModel",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "FestivalHoa.Properties.Controllers.Core.DefaultReposityController\u00601[[FestivalHoa.Properties.Models.CongDan.DoanhNghiepModel, FestivalHoa, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-    "Method": "GetPagingCore",
-    "RelativePath": "api/v1/DoanhNghiep/get-paging-params-core",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "pagingParam",
-        "Type": "FestivalHoa.Properties.Models.PagingParam.PagingParamDefault",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "FestivalHoa.Properties.Controllers.NghiepVu.DoanhNghiepController",
-    "Method": "Update",
-    "RelativePath": "api/v1/DoanhNghiep/update",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "model",
-        "Type": "FestivalHoa.Properties.Models.CongDan.DoanhNghiepModel",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
     "ContainingType": "FestivalHoa.Properties.Controllers.Core.FilesMinioController",
     "Method": "Delete",
     "RelativePath": "api/v1/filesminio/delete/{id}",
@@ -305,180 +251,6 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "FestivalHoa.Properties.Controllers.NghiepVu.HoaController",
-    "Method": "Create",
-    "RelativePath": "api/v1/Hoa/create",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "model",
-        "Type": "FestivalHoa.Properties.Models.CongDan.HoaModel",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "FestivalHoa.Properties.Controllers.Core.DefaultReposityController\u00601[[FestivalHoa.Properties.Models.CongDan.HoaModel, FestivalHoa, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-    "Method": "Delete",
-    "RelativePath": "api/v1/Hoa/delete",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "model",
-        "Type": "FestivalHoa.Properties.FromBodyModels.IdFromBodyModel",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "FestivalHoa.Properties.Controllers.Core.DefaultReposityController\u00601[[FestivalHoa.Properties.Models.CongDan.HoaModel, FestivalHoa, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-    "Method": "Deleted",
-    "RelativePath": "api/v1/Hoa/deleted",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "model",
-        "Type": "FestivalHoa.Properties.FromBodyModels.IdFromBodyModel",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "FestivalHoa.Properties.Controllers.Core.DefaultReposityController\u00601[[FestivalHoa.Properties.Models.CongDan.HoaModel, FestivalHoa, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-    "Method": "GetAllData",
-    "RelativePath": "api/v1/Hoa/get-all-core",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "FestivalHoa.Properties.Controllers.NghiepVu.HoaController",
-    "Method": "GetByCode",
-    "RelativePath": "api/v1/Hoa/get-by-code/{code}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "code",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "FestivalHoa.Properties.Controllers.Core.DefaultReposityController\u00601[[FestivalHoa.Properties.Models.CongDan.HoaModel, FestivalHoa, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-    "Method": "GetById",
-    "RelativePath": "api/v1/Hoa/get-by-id-core",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "model",
-        "Type": "FestivalHoa.Properties.FromBodyModels.IdFromBodyModel",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "FestivalHoa.Properties.Controllers.NghiepVu.HoaController",
-    "Method": "GetPagingCore",
-    "RelativePath": "api/v1/Hoa/get-paging-params",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "pagingParam",
-        "Type": "FestivalHoa.Properties.Models.PagingParam.PagingParam",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "FestivalHoa.Properties.Controllers.Core.DefaultReposityController\u00601[[FestivalHoa.Properties.Models.CongDan.HoaModel, FestivalHoa, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-    "Method": "GetPagingCore",
-    "RelativePath": "api/v1/Hoa/get-paging-params-core",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "pagingParam",
-        "Type": "FestivalHoa.Properties.Models.PagingParam.PagingParamDefault",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "FestivalHoa.Properties.Controllers.NghiepVu.HoaController",
-    "Method": "QRCode",
-    "RelativePath": "api/v1/Hoa/Qrcode",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "link",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "FestivalHoa.Properties.Controllers.NghiepVu.HoaController",
-    "Method": "QRCode2",
-    "RelativePath": "api/v1/Hoa/Qrcode2",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "FestivalHoa.Properties.Controllers.NghiepVu.HoaController",
-    "Method": "Update",
-    "RelativePath": "api/v1/Hoa/update",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "model",
-        "Type": "FestivalHoa.Properties.Models.CongDan.HoaModel",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "FestivalHoa.Properties.Controllers.NghiepVu.HoaController",
-    "Method": "View",
-    "RelativePath": "api/v1/Hoa/View",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
     "ReturnTypes": []
   },
   {

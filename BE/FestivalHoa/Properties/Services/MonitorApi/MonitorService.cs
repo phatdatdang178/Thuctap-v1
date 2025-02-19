@@ -8,77 +8,35 @@ using System.Text.Json;
 
 namespace FestivalHoa.Properties.Services.MonitorApi
 {
-    public class MonitorService : IMonitorService
+    public class CallHistoryService : IMonitorService
     {
-        private readonly IMongoCollection<CallHistory> _callHistoryCollection;
-        private readonly IHttpClientFactory _httpClientFactory;
+        private readonly IMongoCollection<CallHistory> _callHistories;
 
-        public MonitorService(IMongoClient mongoClient, IHttpClientFactory httpClientFactory)
+        public CallHistoryService(IConfiguration configuration)
         {
-            var database = mongoClient.GetDatabase("MonitorDb");
-            _callHistoryCollection = database.GetCollection<CallHistory>("CallHistories");
-            _httpClientFactory = httpClientFactory;
-        }
-
-        public async Task<CallHistory> CallApiAsync(MonitorRequestDto request)
-        {
-            var client = _httpClientFactory.CreateClient();
-            HttpResponseMessage response;
-            string responseContent = string.Empty;
-            int statusCode = 0;
-            bool isSuccess = false;
-
-            try
-            {
-                if (request.Method.ToUpper() == "GET")
-                {
-                    response = await client.GetAsync(request.ApiUrl);
-                }
-                else if (request.Method.ToUpper() == "POST")
-                {
-                    string jsonPayload = request.Payload != null ? JsonSerializer.Serialize(request.Payload) : "";
-                    var content = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
-                    response = await client.PostAsync(request.ApiUrl, content);
-                }
-                else
-                {
-                    throw new Exception("Chỉ hỗ trợ GET và POST.");
-                }
-
-                statusCode = (int)response.StatusCode;
-                responseContent = await response.Content.ReadAsStringAsync();
-                isSuccess = response.IsSuccessStatusCode;
-            }
-            catch (Exception ex)
-            {
-                responseContent = ex.Message;
-                statusCode = 500;
-                isSuccess = false;
-            }
-
-            var callHistory = new CallHistory
-            {
-                ApiUrl = request.ApiUrl,
-                Method = request.Method.ToUpper(),
-                RequestPayload = request.Payload != null ? JsonSerializer.Serialize(request.Payload) : "",
-                CallTime = DateTime.UtcNow.AddHours(7),
-                Note = request.Note,
-                Status = isSuccess ? "Success" : "Failure",
-                StatusCode = statusCode
-            };
-
-            await _callHistoryCollection.InsertOneAsync(callHistory);
-            return callHistory;
+            var client = new MongoClient(configuration.GetValue<string>("DbSettings:ConnectionString"));
+            var database = client.GetDatabase(configuration.GetValue<string>("DbSettings:DatabaseName"));
+            _callHistories = database.GetCollection<CallHistory>("CallHistories");
         }
 
         public async Task<List<CallHistory>> GetCallHistoriesAsync()
         {
-            return await _callHistoryCollection.Find(_ => true).ToListAsync();
+            // Lấy tất cả lịch sử call, có thể sắp xếp sao cho các call thất bại được ưu tiên (ở đây sắp xếp theo trường Status)
+            var sort = Builders<CallHistory>.Sort.Ascending(x => x.Status);
+            return await _callHistories.Find(_ => true).Sort(sort).ToListAsync();
         }
 
-        public List<CommonModelShort> GetCommonList()
+        public async Task<List<CallHistory>> GetFailedCallsAsync()
         {
-            return ListCommon.listCommon;
+            return await _callHistories
+                .Find(x => x.Status == "Failure")
+                .SortByDescending(x => x.CallTime)
+                .ToListAsync();
+        }
+
+        public async Task CreateCallHistoryAsync(CallHistory history)
+        {
+            await _callHistories.InsertOneAsync(history);
         }
     }
 }

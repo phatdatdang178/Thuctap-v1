@@ -42,6 +42,4 @@ public class CommonController : CommonRepositoryController<CommonModel, string>
         }
     }
 
-
-
 }
