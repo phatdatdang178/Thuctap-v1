@@ -12,6 +12,7 @@ namespace FestivalHoa.Properties.Models.MonitorApi
 
         public string ApiUrl { get; set; }
 
+        public string Name { get; set; }
         public string Method { get; set; }
 
         public string RequestPayload { get; set; }

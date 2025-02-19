@@ -74,6 +74,7 @@ namespace FestivalHoa.Properties.Controllers.MonitorApi
             {
                 ApiUrl = request.ApiUrl,
                 Method = request.Method.ToUpper(),
+                Name = request.Name,
                 RequestPayload = request.Payload != null ? JsonSerializer.Serialize(request.Payload) : "",
                 CallTime = callTimeVietnam, // Lưu trực tiếp giờ Việt Nam
                 Note = request.Note,
@@ -87,6 +88,7 @@ namespace FestivalHoa.Properties.Controllers.MonitorApi
             {
                 ApiUrl = request.ApiUrl,
                 Method = request.Method.ToUpper(),
+                Name = request.Name,
                 StatusCode = statusCode,
                 IsSuccess = isSuccess,
                 Response = responseContent,

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9LNG+zufQHw=",
+  "dgSpecHash": "w6tq+V8vOxg=",
   "success": true,
-  "projectFilePath": "C:\\Users\\phatd\\OneDrive\\Máy tính\\THUCTAP\\ThucTap_V1-main\\BE\\FestivalHoa\\FestivalHoa.csproj",
+  "projectFilePath": "C:\\Users\\phatd\\OneDrive\\Máy tính\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\FestivalHoa.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\phatd\\.nuget\\packages\\awssdk.core\\3.7.100.14\\awssdk.core.3.7.100.14.nupkg.sha512",
     "C:\\Users\\phatd\\.nuget\\packages\\awssdk.securitytoken\\3.7.100.14\\awssdk.securitytoken.3.7.100.14.nupkg.sha512",
