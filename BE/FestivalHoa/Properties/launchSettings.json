@@ -8,10 +8,10 @@
     }
   },
   "profiles": {
-    "MonitorApi": {
+    "FestivalHoa": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "https://localhost:7039;https://localhost:5001",
+      "applicationUrl": "https://localhost:5001",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

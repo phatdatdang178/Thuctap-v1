@@ -7,6 +7,7 @@ namespace FestivalHoa.Properties.FromBodyModels
     {
         [JsonProperty(PropertyName = "_id")]
         public string? Id { get; set; }
+        public string Code { get; set; }
     }
     public class IdFromBodyDaoTaoModel : IdFromBodyModel
     {

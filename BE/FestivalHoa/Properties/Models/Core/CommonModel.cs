@@ -9,6 +9,9 @@ public class CommonModel:Audit, IIdEntity<string>, TEntity<string>
 
     public string Code { get; set; } // Code của hệ thống mới của mình 
     
+    
+  
+
    // public string FullName => $"{Name} khong : " + $"{Code}"; 
     // public bool Bool => !string.IsNullOrEmpty(Name);
 
@@ -16,6 +19,9 @@ public class CommonModel:Audit, IIdEntity<string>, TEntity<string>
 
     [BsonIgnore] public string CollectionName { get; set; }
 }
+
+
+
 
 
 public class CommonModelShort
@@ -37,7 +43,7 @@ public class CommonModelShort
     public CommonModelShort(string id, string code, string name)
     {
         this.Id = id;
-        this.Code = code; 
+        this.Code = code;
         this.Name = name; 
     }
 

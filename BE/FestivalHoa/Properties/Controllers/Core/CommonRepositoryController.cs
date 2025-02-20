@@ -110,7 +110,29 @@ namespace FestivalHoa.Properties.Controllers.Core
                 );
             }
         }
+        [HttpPost]
+        [Route("get-by-code")]
+        public async Task<IActionResult> GetByCOde([FromBody] IdFromBodyCommonModel Id)
+        {
+            try
+            {
+                var response = await Repository.GetByCodeAsync(Id);
 
+                return Ok(
+                    new ResultMessageResponse()
+                        .WithData(response)
+                        .WithCode(DefaultCode.SUCCESS)
+                        .WithMessage(DefaultMessage.GET_DATA_SUCCESS)
+                );
+            }
+            catch (ResponseMessageException ex)
+            {
+                return Ok(
+                    new ResultMessageResponse().WithCode(ex.ResultCode)
+                        .WithMessage(ex.ResultString)
+                );
+            }
+        }
         [HttpPost]
         [Route("get-paging-params")]
         public async Task<IActionResult> GetPagingParam([FromBody] CommonPaging param)

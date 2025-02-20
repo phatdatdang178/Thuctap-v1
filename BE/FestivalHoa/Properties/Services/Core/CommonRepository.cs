@@ -80,7 +80,47 @@ public class CommmonRepository<TEntity, UEntityId> : BaseService,  ICommonReposi
             throw new ResponseMessageException().WithCode(DefaultCode.EXCEPTION).WithMessage(e.Message);
         }
     }
-        
+    public virtual async Task<TEntity> GetByCodeAsync(IdFromBodyCommonModel model)
+    {
+        try
+        {
+            if (model == null || model.Code == null || model.CollectionName == null)
+            {
+                throw new ResponseMessageException().WithException(DefaultCode.ERROR_STRUCTURE);
+            }
+
+            var value = ListCommon.listCommon.Where(x => x.Code == model.CollectionName).FirstOrDefault();
+            if (value == null)
+                throw new ResponseMessageException().WithException(DefaultCode.COMMON_NOT_FOUND);
+            _collection = (IMongoCollection<TEntity>)_context.GetCategoryCollectionAs(model.CollectionName);
+            if (_collection.CollectionNamespace.DatabaseNamespace == null)
+                throw new ResponseMessageException().WithException(DefaultCode.COMMON_NOT_FOUND);
+            
+            var entity = await _collection.Find(x => x.Code == model.Code && !x.IsDeleted).FirstOrDefaultAsync();
+            if (entity == default)
+            {
+                throw new ResponseMessageException().WithException(DefaultCode.DATA_NOT_FOUND);
+            }
+
+            return entity;
+        }
+        catch (ResponseMessageException e)
+        {
+            throw new ResponseMessageException()
+                .WithCode(DefaultCode.EXCEPTION)
+                .WithMessage(e.ResultString);
+        }
+        catch (Exception e)
+        {
+            if (e.Message.Contains("is not a valid 24 digit hex string."))
+            {
+                throw new ResponseMessageException().WithException(DefaultCode.ID_NOT_CORRECT_FORMAT);
+            }
+
+            throw new ResponseMessageException().WithCode(DefaultCode.EXCEPTION).WithMessage(e.Message);
+        }
+    }
+
 
     public virtual async Task<TEntity> CreateAsync(TEntity entity)
     {

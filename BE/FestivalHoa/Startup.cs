@@ -4,10 +4,7 @@ using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.OpenApi.Models;
 using Minio;
 using Newtonsoft.Json.Serialization;
-using MongoDB.Driver;
 using FestivalHoa.Properties.Installers;
-using FestivalHoa.Properties.Interfaces.MonitorApi;
-using FestivalHoa.Properties.Services.MonitorApi;
 
 namespace FestivalHoa
 {
@@ -20,56 +17,47 @@ namespace FestivalHoa
 
         public IConfiguration Configuration { get; }
 
+        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // Đọc chuỗi kết nối từ cấu hình
-            string mongoConnectionString = Configuration["DbSettings:ConnectionString"];
-            string databaseName = Configuration["DbSettings:DatabaseName"];
-
-            // Đăng ký MongoClient vào DI container
-            services.AddSingleton<IMongoClient>(new MongoClient(mongoConnectionString));
-
-            // Đăng ký IMongoDatabase để inject trực tiếp
-            services.AddScoped<IMongoDatabase>(provider =>
-            {
-                var client = provider.GetRequiredService<IMongoClient>();
-                return client.GetDatabase(databaseName);
-            });
-
-            // **Thêm HttpClientFactory**
-            services.AddHttpClient();
-
-            // Đăng ký MonitorService
-            services.AddScoped<IMonitorService, CallHistoryService>();
-            services.AddSingleton<IScheduledCallService, ScheduledCallService>(); // Service quản lý lịch gọi API
-
-            // Đăng ký Background Service chạy tự động
-            services.AddHostedService<ApiCallScheduler>();
-            // Cấu hình Minio
             string endpoint = "minio.dongthap.gov.vn:9000";
-            string accessKey = "CKghMslGxFQhnlTN";
-            string secretKey = "UKnz2ype9MTCKNZqH2wbFcxS1Vph7ncx";
+          string accessKey = "CKghMslGxFQhnlTN";
+         string secretKey = "UKnz2ype9MTCKNZqH2wbFcxS1Vph7ncx";
+            
+            
+         
 
+            // Add Minio using the default endpoint
             services.AddMinio(accessKey, secretKey);
+
+            // Add Minio using the custom endpoint and configure additional settings for default MinioClient initialization
             services.AddMinio(configureClient => configureClient
                 .WithEndpoint(endpoint)
                 .WithCredentials(accessKey, secretKey));
 
-            services.AddHttpContextAccessor();
+            // NOTE: SSL and Build are called by the build-in services already.
 
+           
+            
+            
+            services.AddHttpContextAccessor();
+            
             services.Configure<ApiBehaviorOptions>(options =>
             {
                 options.SuppressModelStateInvalidFilter = true;
             });
-
-            services.AddControllers(x => x.AllowEmptyInputInBodyModelBinding = true)
-                .AddNewtonsoftJson(options =>
-                {
-                    options.SerializerSettings.DateTimeZoneHandling = Newtonsoft.Json.DateTimeZoneHandling.Utc;
-                    options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-                });
-
+            services.AddControllers(
+                x => x.AllowEmptyInputInBodyModelBinding = true
+            ).AddNewtonsoftJson(options =>
+            {
+                options.SerializerSettings.DateTimeZoneHandling = Newtonsoft.Json.DateTimeZoneHandling.Utc;
+                options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+               // options.SerializerSettings.Converters.Add(new TimeConvertExtenstion());
+            });
+     
+            
             services.InstallServicesInAssembly(Configuration);
+            services.AddControllers();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
             services.AddSwaggerGen(c =>
@@ -93,8 +81,13 @@ namespace FestivalHoa
                             "https://hoasadec.com.vn",
                             "http://hoasadec.com.vn"
                         )
-                        .AllowCredentials());
+                        .AllowCredentials()
+                );
             });
+
+
+
+
 
             services.Configure<IISServerOptions>(options =>
             {
@@ -103,18 +96,21 @@ namespace FestivalHoa
 
             services.Configure<KestrelServerOptions>(options =>
             {
-                options.Limits.MaxRequestBodySize = long.MaxValue;
+                options.Limits.MaxRequestBodySize = long.MaxValue; // if don't set default value is: 30 MB
             });
         }
 
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.Use(async (context, next) =>
             {
-                var culture = CultureInfo.CurrentCulture.Clone() as CultureInfo;
+                var culture = CultureInfo.CurrentCulture.Clone() as CultureInfo;// Set user culture here
                 culture.DateTimeFormat.ShortDatePattern = "dd/MM/yyyy";
                 CultureInfo.CurrentCulture = culture;
                 CultureInfo.CurrentUICulture = culture;
+
+                // Call the next delegate/middleware in the pipeline
                 await next();
             });
 
@@ -124,17 +120,18 @@ namespace FestivalHoa
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "FestivalHoa.WebAPI v1"));
             }
-
             app.UseHttpsRedirection();
             app.UseCors("CorsPolicy");
             app.UseRouting();
+
             app.UseAuthentication();
             app.UseAuthorization();
-            app.UseStaticFiles();
 
+            app.UseStaticFiles();
+       
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                 endpoints.MapControllers();
             });
         }
     }

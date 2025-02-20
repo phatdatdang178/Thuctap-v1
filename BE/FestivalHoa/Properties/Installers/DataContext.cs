@@ -3,6 +3,7 @@ using FestivalHoa.Properties.Constants;
 using FestivalHoa.Properties.Models.Auth;
 using FestivalHoa.Properties.Models.CongDan;
 using FestivalHoa.Properties.Models.Core;
+using FestivalHoa.Properties.Models.NghiepVu;
 
 namespace FestivalHoa.Properties.Installers
 {
@@ -50,6 +51,7 @@ namespace FestivalHoa.Properties.Installers
 
         private readonly IMongoCollection<DoanhNghiepModel> _doanhNghiep;
         private readonly IMongoCollection<HoaModel> _hoa;
+        private readonly IMongoCollection<MonitorApiModel> _test;
         #endregion
 
 
@@ -83,6 +85,7 @@ namespace FestivalHoa.Properties.Installers
                 #region NghiepVu
                 _doanhNghiep = _context.GetCollection<DoanhNghiepModel>(DefaultNameCollection.DOANHNGHIEP);
                 _hoa = _context.GetCollection<HoaModel>(DefaultNameCollection.HOA);
+                _test = _context.GetCollection<MonitorApiModel>(DefaultNameCollection.LOGCALLAPI);
 
                 #endregion
 
@@ -137,6 +140,7 @@ namespace FestivalHoa.Properties.Installers
 
         public IMongoCollection<DoanhNghiepModel> DOANHNGHIEP { get => _doanhNghiep; }
         public IMongoCollection<HoaModel> HOA { get => _hoa; }
+        public IMongoCollection<MonitorApiModel> TEST { get => _test; }
 
         #endregion
     }
