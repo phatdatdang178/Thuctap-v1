@@ -56,7 +56,7 @@ namespace FestivalHoa.Properties.Installers
 
             #region Nghiệp vụ  
 
-            services.AddScoped<IDoanhNghiepService, DoanhNghiepService>();
+            
             //services.AddScoped<IHoaService, HoaService>();
             services.AddScoped<IMonitorApiService, MonitorApiService>();
             #endregion

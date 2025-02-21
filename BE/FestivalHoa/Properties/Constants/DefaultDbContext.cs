@@ -15,6 +15,7 @@ namespace FestivalHoa.Properties.Constants
 
         public const string FILES = "CR_FILES";
         public const string LOGCALLAPI = "CR_LOG_API";
+        public const string LICHCALL = "CR_LICHCALL";
 
 
         #region nghiepvu

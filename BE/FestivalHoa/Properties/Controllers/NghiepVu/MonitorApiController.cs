@@ -17,10 +17,12 @@ namespace FestivalHoa.Properties.Controllers.NghiepVu
     public class MonitorApiController : DefaultReposityController<MonitorApiModel>
     {
         private readonly IMonitorApiService _service;
+        private readonly IMonitorApiService _callHistoryService;
         private DataContext _dataContext;
         private static string NameCollection = DefaultNameCollection.LOGCALLAPI;
         public MonitorApiController(DataContext context, IMonitorApiService service) : base(context, NameCollection)
         {
+
             _service = service;
             _dataContext = context;
         }
@@ -73,30 +75,28 @@ namespace FestivalHoa.Properties.Controllers.NghiepVu
                 );
             }
         }
-
-
-        //[HttpPost]
-        //[Route("get-paging-params")]
-        //public virtual async Task<IActionResult> GetPagingCore([FromBody] PagingParam pagingParam)
-        //{
-        //    try
-        //    {
-        //        var response = await _service.GetPaging(pagingParam);
-        //        return Ok(
-        //            new ResultMessageResponse()
-        //                .WithData(response)
-        //                .WithCode(DefaultCode.SUCCESS)
-        //                .WithMessage(DefaultMessage.GET_DATA_SUCCESS)
-        //        );
-        //    }
-        //    catch (ResponseMessageException ex)
-        //    {
-        //        return Ok(
-        //            new ResultMessageResponse().WithCode(ex.ResultCode)
-        //                .WithMessage(ex.ResultString)
-        //        );
-        //    }
-        //}
+        [HttpPost]
+        [Route("get-paging-params")]
+        public virtual async Task<IActionResult> GetPagingCore([FromBody] PagingParam pagingParam)
+        {
+            try
+            {
+                var response = await _service.GetPaging(pagingParam);
+                return Ok(
+                    new ResultMessageResponse()
+                        .WithData(response)
+                        .WithCode(DefaultCode.SUCCESS)
+                        .WithMessage(DefaultMessage.GET_DATA_SUCCESS)
+                );
+            }
+            catch (ResponseMessageException ex)
+            {
+                return Ok(
+                    new ResultMessageResponse().WithCode(ex.ResultCode)
+                        .WithMessage(ex.ResultString)
+                );
+            }
+        }
 
 
 

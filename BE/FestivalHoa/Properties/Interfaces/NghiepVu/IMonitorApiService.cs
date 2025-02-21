@@ -10,7 +10,7 @@ namespace FestivalHoa.Properties.Interfaces.NghiepVu
     {
         Task<dynamic> Create(MonitorApiModel model);
         Task<dynamic> AutoCall(MonitorApiModel model);
+        Task<dynamic> GetPaging(PagingParam pagingParam);
 
     }
 }
-

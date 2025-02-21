@@ -13,8 +13,9 @@ namespace FestivalHoa.Properties.Models.PagingParam
         public bool SortDesc { get; set; }
         public string? Content { get; set; }
         public int? Level { get; set; } = null;
-        
-        
+
+
+        public string TrangThaiCode { get; set; }
         
         public int? IdDonViCha { get; set; } = null;
         
