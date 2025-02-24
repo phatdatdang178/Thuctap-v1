@@ -545,22 +545,6 @@
   },
   {
     "ContainingType": "FestivalHoa.Properties.Controllers.NghiepVu.MonitorApiController",
-    "Method": "AutoCall",
-    "RelativePath": "api/v1/MonitorApi/autoCall",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "model",
-        "Type": "FestivalHoa.Properties.Models.NghiepVu.MonitorApiModel",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "FestivalHoa.Properties.Controllers.NghiepVu.MonitorApiController",
     "Method": "Create",
     "RelativePath": "api/v1/MonitorApi/create",
     "HttpMethod": "POST",

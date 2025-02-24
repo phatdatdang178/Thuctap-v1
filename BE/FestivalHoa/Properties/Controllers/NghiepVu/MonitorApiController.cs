@@ -50,31 +50,6 @@ namespace FestivalHoa.Properties.Controllers.NghiepVu
                 );
             }
         }
-
-        [HttpPost]
-        [Route("autoCall")]
-        public async Task<IActionResult> AutoCall([FromBody] MonitorApiModel model)
-        {
-            try
-            {
-                var data = await _service.AutoCall(model);
-                return Ok(
-                    new ResultMessageResponse()
-                        .WithData(data)
-                        .WithCode(DefaultCode.SUCCESS)
-                        .WithMessage("Auto call executed successfully")
-                );
-            }
-            catch (ResponseMessageException ex)
-            {
-                return Ok(
-                    new ResultMessageResponse()
-                        .WithCode(ex.ResultCode)
-                        .WithMessage(ex.ResultString)
-                        .WithDetail(ex.Error)
-                );
-            }
-        }
         [HttpPost]
         [Route("get-paging-params")]
         public virtual async Task<IActionResult> GetPagingCore([FromBody] PagingParam pagingParam)

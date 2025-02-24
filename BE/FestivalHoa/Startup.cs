@@ -21,11 +21,11 @@ namespace FestivalHoa
         public void ConfigureServices(IServiceCollection services)
         {
             string endpoint = "minio.dongthap.gov.vn:9000";
-          string accessKey = "CKghMslGxFQhnlTN";
-         string secretKey = "UKnz2ype9MTCKNZqH2wbFcxS1Vph7ncx";
-            
-            
-         
+            string accessKey = "CKghMslGxFQhnlTN";
+            string secretKey = "UKnz2ype9MTCKNZqH2wbFcxS1Vph7ncx";
+
+
+
 
             // Add Minio using the default endpoint
             services.AddMinio(accessKey, secretKey);
@@ -37,11 +37,11 @@ namespace FestivalHoa
 
             // NOTE: SSL and Build are called by the build-in services already.
 
-           
-            
-            
+
+
+
             services.AddHttpContextAccessor();
-            
+
             services.Configure<ApiBehaviorOptions>(options =>
             {
                 options.SuppressModelStateInvalidFilter = true;
@@ -52,10 +52,10 @@ namespace FestivalHoa
             {
                 options.SerializerSettings.DateTimeZoneHandling = Newtonsoft.Json.DateTimeZoneHandling.Utc;
                 options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-               // options.SerializerSettings.Converters.Add(new TimeConvertExtenstion());
+                // options.SerializerSettings.Converters.Add(new TimeConvertExtenstion());
             });
-     
-            
+
+
             services.InstallServicesInAssembly(Configuration);
             services.AddControllers();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
@@ -128,10 +128,10 @@ namespace FestivalHoa
             app.UseAuthorization();
 
             app.UseStaticFiles();
-       
+
             app.UseEndpoints(endpoints =>
             {
-                 endpoints.MapControllers();
+                endpoints.MapControllers();
             });
         }
     }

@@ -243,3 +243,5 @@ C:\Users\phatd\OneDrive\Máy tính\THUCTAP\ThucTapNew\Thuctap-v1\BE\FestivalHoa\
 C:\Users\phatd\OneDrive\Máy tính\THUCTAP\ThucTapNew\Thuctap-v1\BE\FestivalHoa\obj\Debug\net6.0\Festival.59AAB0FC.Up2Date
 C:\Users\phatd\OneDrive\Máy tính\THUCTAP\ThucTapNew\Thuctap-v1\BE\FestivalHoa\obj\Debug\net6.0\FestivalHoa.genruntimeconfig.cache
 C:\Users\phatd\OneDrive\Máy tính\THUCTAP\ThucTapNew\Thuctap-v1\BE\FestivalHoa\obj\Debug\net6.0\ref\FestivalHoa.dll
+C:\Users\phatd\OneDrive\Máy tính\THUCTAP\ThucTapNew\Thuctap-v1\BE\FestivalHoa\bin\Debug\net6.0\Quartz.dll
+C:\Users\phatd\OneDrive\Máy tính\THUCTAP\ThucTapNew\Thuctap-v1\BE\FestivalHoa\bin\Debug\net6.0\Quartz.Extensions.DependencyInjection.dll
