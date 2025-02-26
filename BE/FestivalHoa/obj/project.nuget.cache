@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "2Yi0eUydCvE=",
+  "dgSpecHash": "TVbGTDdSEFo=",
   "success": true,
   "projectFilePath": "C:\\Users\\phatd\\OneDrive\\Máy tính\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\FestivalHoa.csproj",
   "expectedPackageFiles": [
@@ -22,6 +22,8 @@
     "C:\\Users\\phatd\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\phatd\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\7.0.0\\microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",
     "C:\\Users\\phatd\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\phatd\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\6.0.0\\microsoft.extensions.fileproviders.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\phatd\\.nuget\\packages\\microsoft.extensions.hosting.abstractions\\6.0.0\\microsoft.extensions.hosting.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\phatd\\.nuget\\packages\\microsoft.extensions.logging\\7.0.0\\microsoft.extensions.logging.7.0.0.nupkg.sha512",
     "C:\\Users\\phatd\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.0\\microsoft.extensions.logging.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\phatd\\.nuget\\packages\\microsoft.extensions.options\\7.0.0\\microsoft.extensions.options.7.0.0.nupkg.sha512",
@@ -47,6 +49,7 @@
     "C:\\Users\\phatd\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512",
     "C:\\Users\\phatd\\.nuget\\packages\\quartz\\3.13.1\\quartz.3.13.1.nupkg.sha512",
     "C:\\Users\\phatd\\.nuget\\packages\\quartz.extensions.dependencyinjection\\3.13.1\\quartz.extensions.dependencyinjection.3.13.1.nupkg.sha512",
+    "C:\\Users\\phatd\\.nuget\\packages\\quartz.extensions.hosting\\3.13.1\\quartz.extensions.hosting.3.13.1.nupkg.sha512",
     "C:\\Users\\phatd\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.2\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512",
     "C:\\Users\\phatd\\.nuget\\packages\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.2\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512",
     "C:\\Users\\phatd\\.nuget\\packages\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl\\4.3.2\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512",

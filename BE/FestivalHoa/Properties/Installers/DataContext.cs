@@ -51,7 +51,7 @@ namespace FestivalHoa.Properties.Installers
 
         private readonly IMongoCollection<DoanhNghiepModel> _doanhNghiep;
         private readonly IMongoCollection<HoaModel> _hoa;
-        private readonly IMongoCollection<MonitorApiModel> _test;
+        private readonly IMongoCollection<MonitorApiModel> _apidb;
         private readonly IMongoCollection<ScheduleApiCallRequest> _scheduledcall;
         #endregion
 
@@ -86,7 +86,7 @@ namespace FestivalHoa.Properties.Installers
                 #region NghiepVu
                 _doanhNghiep = _context.GetCollection<DoanhNghiepModel>(DefaultNameCollection.DOANHNGHIEP);
                 _hoa = _context.GetCollection<HoaModel>(DefaultNameCollection.HOA);
-                _test = _context.GetCollection<MonitorApiModel>(DefaultNameCollection.LOGCALLAPI);
+                _apidb = _context.GetCollection<MonitorApiModel>(DefaultNameCollection.LOGCALLAPI);
                 _scheduledcall = _context.GetCollection<ScheduleApiCallRequest>(DefaultNameCollection.LICHCALL);
 
                 #endregion
@@ -142,7 +142,7 @@ namespace FestivalHoa.Properties.Installers
 
         public IMongoCollection<DoanhNghiepModel> DOANHNGHIEP { get => _doanhNghiep; }
         public IMongoCollection<HoaModel> HOA { get => _hoa; }
-        public IMongoCollection<MonitorApiModel> TEST { get => _test; }
+        public IMongoCollection<MonitorApiModel> APIDB { get => _apidb; }
         public IMongoCollection<ScheduleApiCallRequest> SCHEDUL { get => _scheduledcall; }
 
         #endregion

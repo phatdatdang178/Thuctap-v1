@@ -1,79 +1,79 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using FestivalHoa.Properties.Constants;
-using FestivalHoa.Properties.Installers;
-using FestivalHoa.Properties.Interfaces.NghiepVu;
-using FestivalHoa.Properties.Controllers.Core;
-using FestivalHoa.Properties.Models.CongDan;
+using FestivalHoa.Properties.Models.NghiepVu;
 using FestivalHoa.Properties.Exceptions;
-using FestivalHoa.Properties.Helpers;
 using FestivalHoa.Properties.Models.PagingParam;
 using FestivalHoa.Properties.FromBodyModels;
-using FestivalHoa.Properties.Models.NghiepVu;
-using FestivalHoa.Properties.Models.NghiepVu;
+using FestivalHoa.Properties.Interfaces.NghiepVu;
+using FestivalHoa.Properties.Constants;
+using System.Threading.Tasks;
+using FestivalHoa.Properties.Helpers;
 
 namespace FestivalHoa.Properties.Controllers.NghiepVu
 {
     [Route("api/v1/[controller]")]
-    public class MonitorApiController : DefaultReposityController<MonitorApiModel>
+    public class MonitorApiController : ControllerBase
     {
-        private readonly IMonitorApiService _service;
-        private readonly IMonitorApiService _callHistoryService;
-        private DataContext _dataContext;
-        private static string NameCollection = DefaultNameCollection.LOGCALLAPI;
-        public MonitorApiController(DataContext context, IMonitorApiService service) : base(context, NameCollection)
-        {
+        private readonly IMonitorApiService _monitorApiService;
 
-            _service = service;
-            _dataContext = context;
+        public MonitorApiController(IMonitorApiService monitorApiService)
+        {
+            _monitorApiService = monitorApiService;
         }
 
-        [HttpPost]
-        [Route("create")]
+        [HttpPost("create")]
         public async Task<IActionResult> Create([FromBody] MonitorApiModel model)
         {
             try
             {
-
-                var data = await _service.Create(model);
-                return Ok(
-                    new ResultMessageResponse()
-                        .WithData(data)
-                        .WithCode(DefaultCode.SUCCESS)
-                        .WithMessage(DefaultMessage.CREATE_SUCCESS)
-                );
+                var data = await _monitorApiService.Create(model);
+                return Ok(new ResultMessageResponse()
+                    .WithData(data)
+                    .WithCode(DefaultCode.SUCCESS)
+                    .WithMessage(DefaultMessage.CREATE_SUCCESS));
             }
             catch (ResponseMessageException ex)
             {
-                return Ok(
-                    new ResultMessageResponse().WithCode(ex.ResultCode)
-                        .WithMessage(ex.ResultString).WithDetail(ex.Error)
-                );
+                return Ok(new ResultMessageResponse()
+                    .WithCode(ex.ResultCode)
+                    .WithMessage(ex.ResultString)
+                    .WithDetail(ex.Error));
             }
         }
-        [HttpPost]
-        [Route("get-paging-params")]
-        public virtual async Task<IActionResult> GetPagingCore([FromBody] PagingParam pagingParam)
+
+        [HttpPost("create-schedule")]
+        public async Task<IActionResult> CreateSchedule([FromBody] ScheduleApiCallRequest request)
         {
             try
             {
-                var response = await _service.GetPaging(pagingParam);
-                return Ok(
-                    new ResultMessageResponse()
-                        .WithData(response)
-                        .WithCode(DefaultCode.SUCCESS)
-                        .WithMessage(DefaultMessage.GET_DATA_SUCCESS)
-                );
+                await _monitorApiService.ScheduleApiCalls(request);
+                return Ok("Lịch gọi API đã được tạo thành công!");
             }
             catch (ResponseMessageException ex)
             {
-                return Ok(
-                    new ResultMessageResponse().WithCode(ex.ResultCode)
-                        .WithMessage(ex.ResultString)
-                );
+                return Ok(new ResultMessageResponse()
+                    .WithCode(ex.ResultCode)
+                    .WithMessage(ex.ResultString)
+                    .WithDetail(ex.Error));
             }
         }
 
-
-
+        [HttpPost("get-paging-params")]
+        public async Task<IActionResult> GetPagingCore([FromBody] PagingParam pagingParam)
+        {
+            try
+            {
+                var response = await _monitorApiService.GetPaging(pagingParam);
+                return Ok(new ResultMessageResponse()
+                    .WithData(response)
+                    .WithCode(DefaultCode.SUCCESS)
+                    .WithMessage(DefaultMessage.GET_DATA_SUCCESS));
+            }
+            catch (ResponseMessageException ex)
+            {
+                return Ok(new ResultMessageResponse()
+                    .WithCode(ex.ResultCode)
+                    .WithMessage(ex.ResultString));
+            }
+        }
     }
 }

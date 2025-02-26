@@ -1,10 +1,17 @@
 ﻿using System.Globalization;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Minio;
 using Newtonsoft.Json.Serialization;
 using FestivalHoa.Properties.Installers;
+using Quartz;            // Quartz core
+using Quartz.Impl;       // StdSchedulerFactory
 
 namespace FestivalHoa
 {
@@ -17,28 +24,24 @@ namespace FestivalHoa
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
+        // Phương thức này được gọi để thêm các dịch vụ vào container.
         public void ConfigureServices(IServiceCollection services)
         {
             string endpoint = "minio.dongthap.gov.vn:9000";
             string accessKey = "CKghMslGxFQhnlTN";
             string secretKey = "UKnz2ype9MTCKNZqH2wbFcxS1Vph7ncx";
 
+            // Tạo Scheduler thông qua StdSchedulerFactory, start và đăng ký vào DI
+            var schedulerFactory = new StdSchedulerFactory();
+            var scheduler = schedulerFactory.GetScheduler().Result;
+            scheduler.Start();
+            services.AddSingleton<IScheduler>(scheduler);
 
-
-
-            // Add Minio using the default endpoint
+            // Cấu hình Minio
             services.AddMinio(accessKey, secretKey);
-
-            // Add Minio using the custom endpoint and configure additional settings for default MinioClient initialization
             services.AddMinio(configureClient => configureClient
                 .WithEndpoint(endpoint)
                 .WithCredentials(accessKey, secretKey));
-
-            // NOTE: SSL and Build are called by the build-in services already.
-
-
-
 
             services.AddHttpContextAccessor();
 
@@ -46,18 +49,18 @@ namespace FestivalHoa
             {
                 options.SuppressModelStateInvalidFilter = true;
             });
-            services.AddControllers(
-                x => x.AllowEmptyInputInBodyModelBinding = true
-            ).AddNewtonsoftJson(options =>
-            {
-                options.SerializerSettings.DateTimeZoneHandling = Newtonsoft.Json.DateTimeZoneHandling.Utc;
-                options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-                // options.SerializerSettings.Converters.Add(new TimeConvertExtenstion());
-            });
 
+            // Đăng ký Controllers với cấu hình Newtonsoft JSON
+            services.AddControllers(x => x.AllowEmptyInputInBodyModelBinding = true)
+                .AddNewtonsoftJson(options =>
+                {
+                    options.SerializerSettings.DateTimeZoneHandling = Newtonsoft.Json.DateTimeZoneHandling.Utc;
+                    options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+                });
 
+            // Gọi InstallServicesInAssembly (đảm bảo nó không đăng ký duplicate authentication)
             services.InstallServicesInAssembly(Configuration);
-            services.AddControllers();
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
             services.AddSwaggerGen(c =>
@@ -81,13 +84,8 @@ namespace FestivalHoa
                             "https://hoasadec.com.vn",
                             "http://hoasadec.com.vn"
                         )
-                        .AllowCredentials()
-                );
+                        .AllowCredentials());
             });
-
-
-
-
 
             services.Configure<IISServerOptions>(options =>
             {
@@ -96,21 +94,19 @@ namespace FestivalHoa
 
             services.Configure<KestrelServerOptions>(options =>
             {
-                options.Limits.MaxRequestBodySize = long.MaxValue; // if don't set default value is: 30 MB
+                options.Limits.MaxRequestBodySize = long.MaxValue;
             });
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        // Phương thức này được gọi để cấu hình pipeline xử lý HTTP requests.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.Use(async (context, next) =>
             {
-                var culture = CultureInfo.CurrentCulture.Clone() as CultureInfo;// Set user culture here
+                var culture = CultureInfo.CurrentCulture.Clone() as CultureInfo;
                 culture.DateTimeFormat.ShortDatePattern = "dd/MM/yyyy";
                 CultureInfo.CurrentCulture = culture;
                 CultureInfo.CurrentUICulture = culture;
-
-                // Call the next delegate/middleware in the pipeline
                 await next();
             });
 
@@ -118,8 +114,10 @@ namespace FestivalHoa
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "FestivalHoa.WebAPI v1"));
+                app.UseSwaggerUI(c =>
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "FestivalHoa.WebAPI v1"));
             }
+
             app.UseHttpsRedirection();
             app.UseCors("CorsPolicy");
             app.UseRouting();

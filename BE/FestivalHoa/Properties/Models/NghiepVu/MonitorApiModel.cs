@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using FestivalHoa.Properties.Converters;
 using FestivalHoa.Properties.Models.Core;
+using Newtonsoft.Json;
 
 namespace FestivalHoa.Properties.Models.NghiepVu
 {
@@ -10,14 +12,12 @@ namespace FestivalHoa.Properties.Models.NghiepVu
         public string ServiceId { get; set; }
         public CommonModelShort TrangThai { get; set; }
         public CommonModelShort PhuongThuc { get; set; }
-        // Đổi kiểu BodyParams thành dynamic để hỗ trợ truyền cấu trúc JSON động
-        public dynamic BodyParams { get; set; }
+        // Áp dụng converter để chuyển đổi dữ liệu vào BodyParams
+        [JsonConverter(typeof(ObjectToStringJsonConverter))]
+        public string BodyParams { get; set; }
         public string GhiChu { get; set; }
         public DateTime? Time { get; set; }
         public List<string> CallTimes { get; set; } = new(); // Danh sách thời gian (HH:mm)
-        public string StartTime { get; set; }    // Ví dụ: "08:00"
-        public string EndTime { get; set; }      // Ví dụ: "10:00"
-        public int? CallFrequency { get; set; }  // Số lần gọi trong khoảng, ví dụ: 2
         public bool IsActive { get; set; } = true; // Cho phép bật/tắt lịch
     }
 }
