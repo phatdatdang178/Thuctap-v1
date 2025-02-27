@@ -19,6 +19,7 @@ namespace FestivalHoa.Properties.Interfaces.NghiepVu
         Task Execute(IJobExecutionContext context);
 
         Task<List<MonitorApiModel>> GetAllCallHistory();
+        Task<List<ScheduleApiCallRequest>> GetAllSchedule();
         Task ResumeScheduledCalls();
     }
 }

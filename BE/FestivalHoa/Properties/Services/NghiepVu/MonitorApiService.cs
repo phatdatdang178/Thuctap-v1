@@ -110,7 +110,8 @@ namespace FestivalHoa.Properties.Services.NghiepVu
                     Name = model.Name,
                     PhuongThuc = model.PhuongThuc,
                     BodyParams = model.BodyParams,
-                    GhiChu = $"Call API thất bại với mã: {statusCode}"
+                    GhiChu = model.GhiChu,
+                    Code = $"{ statusCode }"
                 };
 
                 await _baseMongoDb.CreateAsync(logModel);
@@ -144,8 +145,8 @@ namespace FestivalHoa.Properties.Services.NghiepVu
                     CallTimes = model.CallTimes,
                     Name = model.Name,
                     PhuongThuc = model.PhuongThuc,
-                    BodyParams = model.BodyParams,
-                    GhiChu = $"Call API thành công với mã: {statusCode}"
+                    GhiChu = model.GhiChu,
+                    Code = $"{ statusCode }"
                 };
 
                 var result = await _baseMongoDb.CreateAsync(logModel);
@@ -406,6 +407,25 @@ namespace FestivalHoa.Properties.Services.NghiepVu
                 throw new ResponseMessageException()
                     .WithCode(DefaultCode.EXCEPTION)
                     .WithMessage("Lỗi khi lấy lịch sử call: " + ex.Message);
+            }
+        }
+
+        #endregion
+        #region Get All Schedule
+
+        public async Task<List<ScheduleApiCallRequest>> GetAllSchedule()
+        {
+            try
+            {
+                var filter = Builders<ScheduleApiCallRequest>.Filter.Empty;
+                var allRecords = await _context.SCHEDUL.Find(filter).ToListAsync();
+                return allRecords;
+            }
+            catch (Exception ex)
+            {
+                throw new ResponseMessageException()
+                    .WithCode(DefaultCode.EXCEPTION)
+                    .WithMessage("Lỗi khi lấy lịch call: " + ex.Message);
             }
         }
 

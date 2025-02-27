@@ -14,11 +14,14 @@ namespace FestivalHoa.Properties.Controllers.NghiepVu
     public class MonitorApiController : ControllerBase
     {
         private readonly IMonitorApiService _monitorApiService;
+        private readonly IMonitorApiService _scheduleService;
 
-        public MonitorApiController(IMonitorApiService monitorApiService)
+        public MonitorApiController(IMonitorApiService monitorApiService, IMonitorApiService scheduleService)
         {
             _monitorApiService = monitorApiService;
+            _scheduleService = scheduleService;
         }
+
 
         [HttpPost("create")]
         public async Task<IActionResult> Create([FromBody] MonitorApiModel model)
@@ -85,6 +88,26 @@ namespace FestivalHoa.Properties.Controllers.NghiepVu
                     .WithData(callHistory)
                     .WithCode(DefaultCode.SUCCESS)
                     .WithMessage("Lấy lịch sử call thành công"));
+            }
+            catch (ResponseMessageException ex)
+            {
+                return Ok(new ResultMessageResponse()
+                    .WithCode(ex.ResultCode)
+                    .WithMessage(ex.ResultString)
+                    .WithDetail(ex.Error));
+            }
+        }
+
+        [HttpGet("get-all-schedule")]
+        public async Task<IActionResult> GetAllSchedule()
+        {
+            try
+            {
+                List<ScheduleApiCallRequest> schedule = await _scheduleService.GetAllSchedule();
+                return Ok(new ResultMessageResponse()
+                    .WithData(schedule)
+                    .WithCode(DefaultCode.SUCCESS)
+                    .WithMessage("Lấy lịch call thành công"));
             }
             catch (ResponseMessageException ex)
             {
