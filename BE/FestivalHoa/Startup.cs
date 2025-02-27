@@ -24,7 +24,7 @@ namespace FestivalHoa
 
         public IConfiguration Configuration { get; }
 
-        // Phương thức này được gọi để thêm các dịch vụ vào container.
+        // Thêm các dịch vụ cần thiết
         public void ConfigureServices(IServiceCollection services)
         {
             string endpoint = "minio.dongthap.gov.vn:9000";
@@ -50,7 +50,6 @@ namespace FestivalHoa
                 options.SuppressModelStateInvalidFilter = true;
             });
 
-            // Đăng ký Controllers với cấu hình Newtonsoft JSON
             services.AddControllers(x => x.AllowEmptyInputInBodyModelBinding = true)
                 .AddNewtonsoftJson(options =>
                 {
@@ -58,9 +57,7 @@ namespace FestivalHoa
                     options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
                 });
 
-            // Gọi InstallServicesInAssembly (đảm bảo nó không đăng ký duplicate authentication)
             services.InstallServicesInAssembly(Configuration);
-
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
             services.AddSwaggerGen(c =>
@@ -98,7 +95,6 @@ namespace FestivalHoa
             });
         }
 
-        // Phương thức này được gọi để cấu hình pipeline xử lý HTTP requests.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.Use(async (context, next) =>
@@ -124,13 +120,21 @@ namespace FestivalHoa
 
             app.UseAuthentication();
             app.UseAuthorization();
-
             app.UseStaticFiles();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
+
+            // Gọi ResumeScheduledCalls khi ứng dụng khởi động lại
+            using (var scope = app.ApplicationServices.CreateScope())
+            {
+                var monitorService = scope.ServiceProvider.GetService<FestivalHoa.Properties.Interfaces.NghiepVu.IMonitorApiService>();
+                // Chạy re-schedule các job dựa trên lịch lưu trong DB.
+                // Bạn có thể chờ đồng bộ nếu cần (GetAwaiter().GetResult()) hoặc chạy dưới dạng Task.
+                monitorService.ResumeScheduledCalls().GetAwaiter().GetResult();
+            }
         }
     }
 }

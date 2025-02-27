@@ -3,6 +3,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 using FestivalHoa.Properties.Exceptions;
 using FestivalHoa.Properties.Models.NghiepVu;
 using FestivalHoa.Properties.Models.PagingParam;
@@ -19,13 +20,12 @@ using Newtonsoft.Json.Linq;
 using FestivalHoa.Properties.Extensions;
 using FestivalHoa.Properties.Installers;
 using FestivalHoa.Properties.Models.Core;
-using System.Collections.Generic;
 
 namespace FestivalHoa.Properties.Services.NghiepVu
 {
     public class MonitorApiService : IMonitorApiService
     {
-        // Dùng để cho job truy cập instance hiện tại (nếu MonitorApiService là singleton)
+        // Cho phép các job truy cập instance hiện tại (nếu sử dụng singleton)
         public static MonitorApiService Instance { get; private set; }
 
         private readonly DataContext _context;
@@ -86,7 +86,7 @@ namespace FestivalHoa.Properties.Services.NghiepVu
                     response = await client.GetAsync(finalUrl);
                 }
             }
-
+            int statusCode = (int)response.StatusCode;
             if (!response.IsSuccessStatusCode)
             {
                 var trangThaiEntity = await _commonService.GetByCodeAsync(new IdFromBodyCommonModel
@@ -110,7 +110,7 @@ namespace FestivalHoa.Properties.Services.NghiepVu
                     Name = model.Name,
                     PhuongThuc = model.PhuongThuc,
                     BodyParams = model.BodyParams,
-                    GhiChu = $"Call API thất bại với mã: {response.StatusCode}"
+                    GhiChu = $"Call API thất bại với mã: {statusCode}"
                 };
 
                 await _baseMongoDb.CreateAsync(logModel);
@@ -118,7 +118,7 @@ namespace FestivalHoa.Properties.Services.NghiepVu
                 {
                     throw new ResponseMessageException()
                         .WithException(DefaultCode.DATA_EXISTED)
-                        .WithMessage($"Call API thất bại với mã: {response.StatusCode}");
+                        .WithMessage($"Call API thất bại với mã: {statusCode}");
                 }
                 return logModel;
             }
@@ -134,7 +134,7 @@ namespace FestivalHoa.Properties.Services.NghiepVu
                 {
                     Id = BsonObjectId.GenerateNewId().ToString(),
                     Url = model.Url,
-                    TrangThai = new CommonModelShort
+                    TrangThai = new CommonModelShort()
                     {
                         Id = trangThaiEntity.Id,
                         Code = trangThaiEntity.Code,
@@ -145,7 +145,7 @@ namespace FestivalHoa.Properties.Services.NghiepVu
                     Name = model.Name,
                     PhuongThuc = model.PhuongThuc,
                     BodyParams = model.BodyParams,
-                    GhiChu = $"Call API thành công với mã: {response.StatusCode}"
+                    GhiChu = $"Call API thành công với mã: {statusCode}"
                 };
 
                 var result = await _baseMongoDb.CreateAsync(logModel);
@@ -200,55 +200,42 @@ namespace FestivalHoa.Properties.Services.NghiepVu
 
         #region Schedule API Calls (lên lịch gọi API)
 
+        // Hỗ trợ độc lập hai loại cấu hình: specificTimes và range (StartTime, EndTime, CallFrequency)
         public async Task<dynamic> ScheduleApiCalls(ScheduleApiCallRequest request)
         {
-            // Lặp qua từng lịch set (theo danh sách giờ cụ thể hoặc theo khoảng thời gian)
+            // Xử lý cấu hình theo specificTimes (danh sách giờ cụ thể)
             if (request.SpecificTimes != null && request.SpecificTimes.Any())
             {
                 foreach (var timeStr in request.SpecificTimes)
                 {
                     if (TimeSpan.TryParse(timeStr, out TimeSpan parsedTime))
                     {
-                        DateTime now = DateTime.Now;
-                        DateTime scheduledTime = new DateTime(now.Year, now.Month, now.Day,
-                            parsedTime.Hours, parsedTime.Minutes, 0);
-                        if (scheduledTime < now)
-                            scheduledTime = scheduledTime.AddDays(1);
-                        await ScheduleJobAt(request.MonitorApiModel, scheduledTime);
+                        await ScheduleJobAt(request, parsedTime);
                     }
                 }
             }
-            else if (!string.IsNullOrEmpty(request.StartTime) &&
-                     !string.IsNullOrEmpty(request.EndTime) &&
-                     request.CallFrequency.HasValue && request.CallFrequency.Value > 0)
+
+            // Xử lý cấu hình theo khoảng thời gian (StartTime, EndTime, CallFrequency)
+            if (!string.IsNullOrEmpty(request.StartTime) &&
+                !string.IsNullOrEmpty(request.EndTime) &&
+                request.CallFrequency.HasValue && request.CallFrequency.Value > 0)
             {
                 if (TimeSpan.TryParse(request.StartTime, out TimeSpan start) &&
                     TimeSpan.TryParse(request.EndTime, out TimeSpan end))
                 {
-                    DateTime now = DateTime.Now;
-                    DateTime startDateTime = new DateTime(now.Year, now.Month, now.Day,
-                        start.Hours, start.Minutes, 0);
-                    DateTime endDateTime = new DateTime(now.Year, now.Month, now.Day,
-                        end.Hours, end.Minutes, 0);
-                    if (endDateTime <= startDateTime)
-                        endDateTime = endDateTime.AddDays(1);
-
                     int frequency = request.CallFrequency.Value;
                     if (frequency == 1)
                     {
-                        if (startDateTime < now)
-                            startDateTime = startDateTime.AddDays(1);
-                        await ScheduleJobAt(request.MonitorApiModel, startDateTime);
+                        await ScheduleJobAt(request, start);
                     }
                     else
                     {
-                        TimeSpan interval = TimeSpan.FromTicks((endDateTime - startDateTime).Ticks / (frequency - 1));
+                        // Tính khoảng cách đều nhau giữa các lần gọi: (end - start) / (frequency - 1)
+                        TimeSpan interval = TimeSpan.FromTicks((end - start).Ticks / (frequency - 1));
                         for (int i = 0; i < frequency; i++)
                         {
-                            DateTime scheduledTime = startDateTime.AddTicks(interval.Ticks * i);
-                            if (scheduledTime < now)
-                                scheduledTime = scheduledTime.AddDays(1);
-                            await ScheduleJobAt(request.MonitorApiModel, scheduledTime);
+                            TimeSpan scheduledTime = start.Add(TimeSpan.FromTicks(interval.Ticks * i));
+                            await ScheduleJobAt(request, scheduledTime);
                         }
                     }
                 }
@@ -256,33 +243,118 @@ namespace FestivalHoa.Properties.Services.NghiepVu
             return new { Message = "Đã lên lịch call API thành công" };
         }
 
-        // Lên lịch job tại thời điểm xác định và lưu lịch vào DB (dành cho quản lý lịch)
-        public async Task ScheduleJobAt(MonitorApiModel monitorApiModel, DateTime scheduledTime)
+        // Lên lịch job theo một TimeSpan (giờ:phút) với Cron trigger hàng ngày.
+        // Mỗi job được lên lịch hàng ngày dựa trên giờ và phút đã set.
+        public async Task ScheduleJobAt(ScheduleApiCallRequest request, TimeSpan scheduledTime)
         {
-            // Serialize đối tượng MonitorApiModel để truyền qua JobDataMap
-            string monitorApiModelJson = JsonConvert.SerializeObject(monitorApiModel);
-
+            // Tạo Cron expression: "0 {minute} {hour} * * ?" (chạy hàng ngày vào giờ và phút đó)
+            string cronExpression = $"0 {scheduledTime.Minutes} {scheduledTime.Hours} * * ?";
             IJobDetail job = JobBuilder.Create<ApiCallJob>()
                 .WithIdentity(Guid.NewGuid().ToString())
-                .UsingJobData("MonitorApiModel", monitorApiModelJson)
+                .UsingJobData("MonitorApiModel", JsonConvert.SerializeObject(request.MonitorApiModel))
                 .Build();
 
             ITrigger trigger = TriggerBuilder.Create()
-                .StartAt(scheduledTime)
-                .WithSimpleSchedule(x => x.WithMisfireHandlingInstructionFireNow())
+                .WithCronSchedule(cronExpression, x => x.WithMisfireHandlingInstructionFireAndProceed())
                 .Build();
 
             await _scheduler.ScheduleJob(job, trigger);
-            Console.WriteLine($"Đã lên lịch call API tại: {scheduledTime}");
+            Console.WriteLine($"Đã lên lịch call API hàng ngày lúc: {scheduledTime:hh\\:mm}");
 
-            // Lưu lịch gọi API vào DB để quản lý
-            var scheduleRecord = new ScheduleApiCallRequest
+            // Cập nhật (hoặc tạo mới) record lịch trong DB cho đầu API này.
+            var filter = Builders<ScheduleApiCallRequest>.Filter.Eq(s => s.MonitorApiModel.Url, request.MonitorApiModel.Url);
+            var existingRecord = await _scheduledCallCollection.Find(filter).FirstOrDefaultAsync();
+            string scheduledTimeStr = scheduledTime.ToString(@"hh\:mm");
+            if (existingRecord != null)
             {
-                MonitorApiModel = monitorApiModel,
-                SpecificTimes = new List<string> { scheduledTime.ToString("HH:mm") },
-                // có thể lưu thêm thông tin như StartTime, EndTime, CallFrequency nếu cần
-            };
-            await _scheduledCallCollection.InsertOneAsync(scheduleRecord);
+                if (existingRecord.SpecificTimes == null)
+                    existingRecord.SpecificTimes = new List<string>();
+                // Nếu chưa có giờ này trong danh sách, thêm vào
+                if (!existingRecord.SpecificTimes.Contains(scheduledTimeStr))
+                {
+                    existingRecord.SpecificTimes.Add(scheduledTimeStr);
+                    // Cập nhật lại các thông tin khác nếu cần (StartTime, EndTime, CallFrequency)
+                    existingRecord.StartTime = request.StartTime;
+                    existingRecord.EndTime = request.EndTime;
+                    existingRecord.CallFrequency = request.CallFrequency;
+                    await _scheduledCallCollection.ReplaceOneAsync(filter, existingRecord);
+                }
+            }
+            else
+            {
+                var scheduleRecord = new ScheduleApiCallRequest
+                {
+                    MonitorApiModel = request.MonitorApiModel,
+                    SpecificTimes = new List<string> { scheduledTimeStr },
+                    StartTime = request.StartTime,
+                    EndTime = request.EndTime,
+                    CallFrequency = request.CallFrequency
+                };
+                await _scheduledCallCollection.InsertOneAsync(scheduleRecord);
+            }
+        }
+
+        #endregion
+
+        #region Resume Scheduled Calls (Re-schedule khi ứng dụng khởi động lại)
+
+        /// <summary>
+        /// Phương thức này được gọi khi ứng dụng khởi động lại để re-schedule các job Quartz
+        /// dựa trên các record lịch trong DB. Nếu thời gian trong record (theo SpecificTimes)
+        /// chưa qua, sẽ lên lịch lại cho hôm nay; nếu đã qua, lên lịch cho ngày mai.
+        /// </summary>
+        public async Task ResumeScheduledCalls()
+        {
+            // Lấy tất cả các record lịch từ DB (collection SCHEDUL)
+            var records = await _scheduledCallCollection.Find(Builders<ScheduleApiCallRequest>.Filter.Empty).ToListAsync();
+            foreach (var record in records)
+            {
+                if (record.SpecificTimes != null)
+                {
+                    foreach (var timeStr in record.SpecificTimes)
+                    {
+                        if (TimeSpan.TryParse(timeStr, out TimeSpan ts))
+                        {
+                            // Tính thời gian dự kiến cho ngày hôm nay dựa trên giá trị ts
+                            DateTime scheduledDateTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day,
+                                ts.Hours, ts.Minutes, 0);
+                            // Nếu thời gian này đã qua, lên lịch cho ngày mai
+                            if (scheduledDateTime < DateTime.Now)
+                                scheduledDateTime = scheduledDateTime.AddDays(1);
+                            // Re-schedule job với Cron trigger hàng ngày, sử dụng .TimeOfDay
+                            await ScheduleJobAt(record, scheduledDateTime.TimeOfDay);
+                        }
+                    }
+                }
+            }
+        }
+
+        #endregion
+
+        #region Nested Job Class
+
+        public class ApiCallJob : IJob
+        {
+            public async Task Execute(IJobExecutionContext context)
+            {
+                var dataMap = context.JobDetail.JobDataMap;
+                string monitorApiModelJson = dataMap.GetString("MonitorApiModel");
+                if (string.IsNullOrEmpty(monitorApiModelJson))
+                    throw new ArgumentException("MonitorApiModel không tồn tại trong JobDataMap.");
+
+                MonitorApiModel monitorApiModel = JsonConvert.DeserializeObject<MonitorApiModel>(monitorApiModelJson);
+
+                // Kiểm tra xem lịch call cho đầu API này (theo URL) có còn tồn tại trong DB hay không
+                bool isScheduled = await MonitorApiService.Instance.IsUrlScheduled(monitorApiModel.Url);
+                if (!isScheduled)
+                {
+                    Console.WriteLine($"Không tìm thấy lịch call cho URL: {monitorApiModel.Url}. Bỏ qua việc call API.");
+                    return;
+                }
+
+                // Nếu có lịch, tiến hành gọi API và lưu log (không ném exception nếu thất bại)
+                await MonitorApiService.Instance.CallAndLog(monitorApiModel, throwOnFailure: false);
+            }
         }
 
         #endregion
@@ -319,6 +391,26 @@ namespace FestivalHoa.Properties.Services.NghiepVu
 
         #endregion
 
+        #region Get All Call History
+
+        public async Task<List<MonitorApiModel>> GetAllCallHistory()
+        {
+            try
+            {
+                var filter = Builders<MonitorApiModel>.Filter.Empty;
+                var allRecords = await _context.APIDB.Find(filter).ToListAsync();
+                return allRecords;
+            }
+            catch (Exception ex)
+            {
+                throw new ResponseMessageException()
+                    .WithCode(DefaultCode.EXCEPTION)
+                    .WithMessage("Lỗi khi lấy lịch sử call: " + ex.Message);
+            }
+        }
+
+        #endregion
+
         #region Helper
 
         private string ConvertToQueryString(JObject jObj)
@@ -331,21 +423,13 @@ namespace FestivalHoa.Properties.Services.NghiepVu
 
         #endregion
 
-        #region Nested Job Class
+        #region Check Scheduled API (Kiểm tra lịch theo URL)
 
-        public class ApiCallJob : IJob
+        public async Task<bool> IsUrlScheduled(string url)
         {
-            public async Task Execute(IJobExecutionContext context)
-            {
-                var dataMap = context.JobDetail.JobDataMap;
-                string monitorApiModelJson = dataMap.GetString("MonitorApiModel");
-                if (string.IsNullOrEmpty(monitorApiModelJson))
-                    throw new ArgumentException("MonitorApiModel không tồn tại trong JobDataMap.");
-
-                MonitorApiModel monitorApiModel = JsonConvert.DeserializeObject<MonitorApiModel>(monitorApiModelJson);
-                // Gọi API và lưu log vào DB (không ném exception nếu thất bại)
-                await MonitorApiService.Instance.CallAndLog(monitorApiModel, throwOnFailure: false);
-            }
+            var filter = Builders<ScheduleApiCallRequest>.Filter.Eq(s => s.MonitorApiModel.Url, url);
+            long count = await _scheduledCallCollection.CountDocumentsAsync(filter);
+            return count > 0;
         }
 
         #endregion

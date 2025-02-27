@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using FestivalHoa.Properties.Models.Core;
+using System.Collections.Generic;
 namespace FestivalHoa.Properties.Models.NghiepVu
 {
-    public class ScheduleApiCallRequest
+    public class ScheduleApiCallRequest : Audit, TEntity<string>
     {
         // Cấu hình API call (đã bao gồm URL, phương thức, bodyParams,...)
         public MonitorApiModel MonitorApiModel { get; set; }

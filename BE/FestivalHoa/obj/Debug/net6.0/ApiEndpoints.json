@@ -577,6 +577,16 @@
   },
   {
     "ContainingType": "FestivalHoa.Properties.Controllers.NghiepVu.MonitorApiController",
+    "Method": "GetAllCallHistory",
+    "RelativePath": "api/v1/MonitorApi/get-all-call-history",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FestivalHoa.Properties.Controllers.NghiepVu.MonitorApiController",
     "Method": "GetPagingCore",
     "RelativePath": "api/v1/MonitorApi/get-paging-params",
     "HttpMethod": "POST",

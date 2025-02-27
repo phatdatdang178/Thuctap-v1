@@ -821,6 +821,19 @@
           }
         }
       },
+      "Quartz.MongoDB/0.1.5": {
+        "type": "package",
+        "dependencies": {
+          "MongoDB.Driver": "2.3.0",
+          "Quartz": "2.4.1"
+        },
+        "compile": {
+          "lib/net45/Quartz.MongoDB.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Quartz.MongoDB.dll": {}
+        }
+      },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {
         "type": "package",
         "runtimeTargets": {
@@ -3401,6 +3414,18 @@
         "quartz-logo-small.png",
         "quartz.extensions.hosting.3.13.1.nupkg.sha512",
         "quartz.extensions.hosting.nuspec"
+      ]
+    },
+    "Quartz.MongoDB/0.1.5": {
+      "sha512": "zlXhjYwyeDjF003DC3b3cmhcPG/aKYRQIv6/xQnCe9fR0FOhmOpxr1uRtRs/o35Vq7nWSfQlX5+bQHk0QZIivA==",
+      "type": "package",
+      "path": "quartz.mongodb/0.1.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/Quartz.MongoDB.dll",
+        "quartz.mongodb.0.1.5.nupkg.sha512",
+        "quartz.mongodb.nuspec"
       ]
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {
@@ -7142,6 +7167,7 @@
       "Quartz >= 3.13.1",
       "Quartz.Extensions.DependencyInjection >= 3.13.1",
       "Quartz.Extensions.Hosting >= 3.13.1",
+      "Quartz.MongoDB >= 0.1.5",
       "Swashbuckle.AspNetCore.Swagger >= 6.5.0",
       "Swashbuckle.AspNetCore.SwaggerGen >= 6.5.0",
       "Swashbuckle.AspNetCore.SwaggerUI >= 6.5.0",
@@ -7243,6 +7269,10 @@
             "target": "Package",
             "version": "[3.13.1, )"
           },
+          "Quartz.MongoDB": {
+            "target": "Package",
+            "version": "[0.1.5, )"
+          },
           "Swashbuckle.AspNetCore.Swagger": {
             "target": "Package",
             "version": "[6.5.0, )"
@@ -7304,5 +7334,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Quartz.MongoDB 0.1.5' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Quartz.MongoDB",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }

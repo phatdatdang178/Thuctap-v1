@@ -94,6 +94,10 @@
               "target": "Package",
               "version": "[3.13.1, )"
             },
+            "Quartz.MongoDB": {
+              "target": "Package",
+              "version": "[0.1.5, )"
+            },
             "Swashbuckle.AspNetCore.Swagger": {
               "target": "Package",
               "version": "[6.5.0, )"

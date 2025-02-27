@@ -75,5 +75,24 @@ namespace FestivalHoa.Properties.Controllers.NghiepVu
                     .WithMessage(ex.ResultString));
             }
         }
+        [HttpGet("get-all-call-history")]
+        public async Task<IActionResult> GetAllCallHistory()
+        {
+            try
+            {
+                List<MonitorApiModel> callHistory = await _monitorApiService.GetAllCallHistory();
+                return Ok(new ResultMessageResponse()
+                    .WithData(callHistory)
+                    .WithCode(DefaultCode.SUCCESS)
+                    .WithMessage("Lấy lịch sử call thành công"));
+            }
+            catch (ResponseMessageException ex)
+            {
+                return Ok(new ResultMessageResponse()
+                    .WithCode(ex.ResultCode)
+                    .WithMessage(ex.ResultString)
+                    .WithDetail(ex.Error));
+            }
+        }
     }
 }

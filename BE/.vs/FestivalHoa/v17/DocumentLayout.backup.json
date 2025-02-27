@@ -7,16 +7,24 @@
       "RelativeMoniker": "D:0:0:{F2D79978-154F-432D-97A5-018761DD728F}|FestivalHoa\\FestivalHoa.csproj|solutionrelative:festivalhoa\\properties\\services\\nghiepvu\\monitorapiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F2D79978-154F-432D-97A5-018761DD728F}|FestivalHoa\\FestivalHoa.csproj|c:\\users\\phatd\\onedrive\\m\u00E1y t\u00EDnh\\thuctap\\thuctapnew\\thuctap-v1\\be\\festivalhoa\\properties\\installers\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F2D79978-154F-432D-97A5-018761DD728F}|FestivalHoa\\FestivalHoa.csproj|solutionrelative:festivalhoa\\properties\\installers\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F2D79978-154F-432D-97A5-018761DD728F}|FestivalHoa\\FestivalHoa.csproj|c:\\users\\phatd\\onedrive\\m\u00E1y t\u00EDnh\\thuctap\\thuctapnew\\thuctap-v1\\be\\festivalhoa\\properties\\interfaces\\nghiepvu\\imonitorapiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2D79978-154F-432D-97A5-018761DD728F}|FestivalHoa\\FestivalHoa.csproj|solutionrelative:festivalhoa\\properties\\interfaces\\nghiepvu\\imonitorapiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F2D79978-154F-432D-97A5-018761DD728F}|FestivalHoa\\FestivalHoa.csproj|c:\\users\\phatd\\onedrive\\m\u00E1y t\u00EDnh\\thuctap\\thuctapnew\\thuctap-v1\\be\\festivalhoa\\properties\\controllers\\nghiepvu\\monitorapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F2D79978-154F-432D-97A5-018761DD728F}|FestivalHoa\\FestivalHoa.csproj|solutionrelative:festivalhoa\\properties\\controllers\\nghiepvu\\monitorapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F2D79978-154F-432D-97A5-018761DD728F}|FestivalHoa\\FestivalHoa.csproj|c:\\users\\phatd\\onedrive\\m\u00E1y t\u00EDnh\\thuctap\\thuctapnew\\thuctap-v1\\be\\festivalhoa\\properties\\interfaces\\nghiepvu\\imonitorapiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F2D79978-154F-432D-97A5-018761DD728F}|FestivalHoa\\FestivalHoa.csproj|solutionrelative:festivalhoa\\properties\\interfaces\\nghiepvu\\imonitorapiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F2D79978-154F-432D-97A5-018761DD728F}|FestivalHoa\\FestivalHoa.csproj|c:\\users\\phatd\\onedrive\\m\u00E1y t\u00EDnh\\thuctap\\thuctapnew\\thuctap-v1\\be\\festivalhoa\\properties\\helpers\\defaultmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2D79978-154F-432D-97A5-018761DD728F}|FestivalHoa\\FestivalHoa.csproj|solutionrelative:festivalhoa\\properties\\helpers\\defaultmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2D79978-154F-432D-97A5-018761DD728F}|FestivalHoa\\FestivalHoa.csproj|c:\\users\\phatd\\onedrive\\m\u00E1y t\u00EDnh\\thuctap\\thuctapnew\\thuctap-v1\\be\\festivalhoa\\properties\\helpers\\defaultcode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2D79978-154F-432D-97A5-018761DD728F}|FestivalHoa\\FestivalHoa.csproj|solutionrelative:festivalhoa\\properties\\helpers\\defaultcode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2D79978-154F-432D-97A5-018761DD728F}|FestivalHoa\\FestivalHoa.csproj|c:\\users\\phatd\\onedrive\\m\u00E1y t\u00EDnh\\thuctap\\thuctapnew\\thuctap-v1\\be\\festivalhoa\\properties\\helpers\\resultresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2D79978-154F-432D-97A5-018761DD728F}|FestivalHoa\\FestivalHoa.csproj|solutionrelative:festivalhoa\\properties\\helpers\\resultresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F2D79978-154F-432D-97A5-018761DD728F}|FestivalHoa\\FestivalHoa.csproj|c:\\users\\phatd\\onedrive\\m\u00E1y t\u00EDnh\\thuctap\\thuctapnew\\thuctap-v1\\be\\festivalhoa\\properties\\models\\nghiepvu\\scheduleapicallrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -27,14 +35,6 @@
       "RelativeMoniker": "D:0:0:{F2D79978-154F-432D-97A5-018761DD728F}|FestivalHoa\\FestivalHoa.csproj|solutionrelative:festivalhoa\\properties\\models\\nghiepvu\\monitorapimodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F2D79978-154F-432D-97A5-018761DD728F}|FestivalHoa\\FestivalHoa.csproj|c:\\users\\phatd\\onedrive\\m\u00E1y t\u00EDnh\\thuctap\\thuctapnew\\thuctap-v1\\be\\festivalhoa\\properties\\services\\core\\commonrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F2D79978-154F-432D-97A5-018761DD728F}|FestivalHoa\\FestivalHoa.csproj|solutionrelative:festivalhoa\\properties\\services\\core\\commonrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F2D79978-154F-432D-97A5-018761DD728F}|FestivalHoa\\FestivalHoa.csproj|c:\\users\\phatd\\onedrive\\m\u00E1y t\u00EDnh\\thuctap\\thuctapnew\\thuctap-v1\\be\\festivalhoa\\properties\\controllers\\common\\commoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F2D79978-154F-432D-97A5-018761DD728F}|FestivalHoa\\FestivalHoa.csproj|solutionrelative:festivalhoa\\properties\\controllers\\common\\commoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F2D79978-154F-432D-97A5-018761DD728F}|FestivalHoa\\FestivalHoa.csproj|c:\\users\\phatd\\onedrive\\m\u00E1y t\u00EDnh\\thuctap\\thuctapnew\\thuctap-v1\\be\\festivalhoa\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F2D79978-154F-432D-97A5-018761DD728F}|FestivalHoa\\FestivalHoa.csproj|solutionrelative:festivalhoa\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -43,12 +43,28 @@
       "RelativeMoniker": "D:0:0:{F2D79978-154F-432D-97A5-018761DD728F}|FestivalHoa\\FestivalHoa.csproj|solutionrelative:festivalhoa\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F2D79978-154F-432D-97A5-018761DD728F}|FestivalHoa\\FestivalHoa.csproj|c:\\users\\phatd\\onedrive\\m\u00E1y t\u00EDnh\\thuctap\\thuctapnew\\thuctap-v1\\be\\festivalhoa\\properties\\services\\common\\commonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F2D79978-154F-432D-97A5-018761DD728F}|FestivalHoa\\FestivalHoa.csproj|solutionrelative:festivalhoa\\properties\\services\\common\\commonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F2D79978-154F-432D-97A5-018761DD728F}|FestivalHoa\\FestivalHoa.csproj|c:\\users\\phatd\\onedrive\\m\u00E1y t\u00EDnh\\thuctap\\thuctapnew\\thuctap-v1\\be\\festivalhoa\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{F2D79978-154F-432D-97A5-018761DD728F}|FestivalHoa\\FestivalHoa.csproj|solutionrelative:festivalhoa\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F2D79978-154F-432D-97A5-018761DD728F}|FestivalHoa\\FestivalHoa.csproj|c:\\users\\phatd\\onedrive\\m\u00E1y t\u00EDnh\\thuctap\\thuctapnew\\thuctap-v1\\be\\festivalhoa\\festivalhoa.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{F2D79978-154F-432D-97A5-018761DD728F}|FestivalHoa\\FestivalHoa.csproj|solutionrelative:festivalhoa\\festivalhoa.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2D79978-154F-432D-97A5-018761DD728F}|FestivalHoa\\FestivalHoa.csproj|c:\\users\\phatd\\onedrive\\m\u00E1y t\u00EDnh\\thuctap\\thuctapnew\\thuctap-v1\\be\\festivalhoa\\properties\\installers\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2D79978-154F-432D-97A5-018761DD728F}|FestivalHoa\\FestivalHoa.csproj|solutionrelative:festivalhoa\\properties\\installers\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2D79978-154F-432D-97A5-018761DD728F}|FestivalHoa\\FestivalHoa.csproj|c:\\users\\phatd\\onedrive\\m\u00E1y t\u00EDnh\\thuctap\\thuctapnew\\thuctap-v1\\be\\festivalhoa\\properties\\services\\core\\commonrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2D79978-154F-432D-97A5-018761DD728F}|FestivalHoa\\FestivalHoa.csproj|solutionrelative:festivalhoa\\properties\\services\\core\\commonrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2D79978-154F-432D-97A5-018761DD728F}|FestivalHoa\\FestivalHoa.csproj|c:\\users\\phatd\\onedrive\\m\u00E1y t\u00EDnh\\thuctap\\thuctapnew\\thuctap-v1\\be\\festivalhoa\\properties\\controllers\\common\\commoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2D79978-154F-432D-97A5-018761DD728F}|FestivalHoa\\FestivalHoa.csproj|solutionrelative:festivalhoa\\properties\\controllers\\common\\commoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2D79978-154F-432D-97A5-018761DD728F}|FestivalHoa\\FestivalHoa.csproj|c:\\users\\phatd\\onedrive\\m\u00E1y t\u00EDnh\\thuctap\\thuctapnew\\thuctap-v1\\be\\festivalhoa\\properties\\services\\common\\commonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2D79978-154F-432D-97A5-018761DD728F}|FestivalHoa\\FestivalHoa.csproj|solutionrelative:festivalhoa\\properties\\services\\common\\commonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F2D79978-154F-432D-97A5-018761DD728F}|FestivalHoa\\FestivalHoa.csproj|c:\\users\\phatd\\onedrive\\m\u00E1y t\u00EDnh\\thuctap\\thuctapnew\\thuctap-v1\\be\\festivalhoa\\properties\\models\\core\\commonmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -61,10 +77,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{F2D79978-154F-432D-97A5-018761DD728F}|FestivalHoa\\FestivalHoa.csproj|c:\\users\\phatd\\onedrive\\m\u00E1y t\u00EDnh\\thuctap\\thuctapnew\\thuctap-v1\\be\\festivalhoa\\properties\\models\\core\\listcomom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F2D79978-154F-432D-97A5-018761DD728F}|FestivalHoa\\FestivalHoa.csproj|solutionrelative:festivalhoa\\properties\\models\\core\\listcomom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F2D79978-154F-432D-97A5-018761DD728F}|FestivalHoa\\FestivalHoa.csproj|c:\\users\\phatd\\onedrive\\m\u00E1y t\u00EDnh\\thuctap\\thuctapnew\\thuctap-v1\\be\\festivalhoa\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{F2D79978-154F-432D-97A5-018761DD728F}|FestivalHoa\\FestivalHoa.csproj|solutionrelative:festivalhoa\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F2D79978-154F-432D-97A5-018761DD728F}|FestivalHoa\\FestivalHoa.csproj|c:\\users\\phatd\\onedrive\\m\u00E1y t\u00EDnh\\thuctap\\thuctapnew\\thuctap-v1\\be\\festivalhoa\\properties\\converters\\objecttostringjsonconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -144,7 +156,7 @@
               "RelativeDocumentMoniker": "FestivalHoa\\Properties\\Controllers\\NghiepVu\\MonitorApiController.cs",
               "ToolTip": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\Properties\\Controllers\\NghiepVu\\MonitorApiController.cs",
               "RelativeToolTip": "FestivalHoa\\Properties\\Controllers\\NghiepVu\\MonitorApiController.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAswDcAAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAkwBsAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-19T02:07:11.19Z",
               "IsPinned": true,
@@ -152,7 +164,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 13,
               "Title": "CommonRepository.cs",
               "DocumentMoniker": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\Properties\\Services\\Core\\CommonRepository.cs",
               "RelativeDocumentMoniker": "FestivalHoa\\Properties\\Services\\Core\\CommonRepository.cs",
@@ -161,8 +173,7 @@
               "ViewState": "AgIAAGIAAAAAAAAAAAAswC8AAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-19T07:16:42.236Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -172,7 +183,7 @@
               "RelativeDocumentMoniker": "FestivalHoa\\Properties\\Services\\NghiepVu\\MonitorApiService.cs",
               "ToolTip": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\Properties\\Services\\NghiepVu\\MonitorApiService.cs",
               "RelativeToolTip": "FestivalHoa\\Properties\\Services\\NghiepVu\\MonitorApiService.cs",
-              "ViewState": "AgIAAE0BAAAAAAAAAAAowDUBAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAAG8BAAAAAAAAAAAowH4BAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-19T02:13:52.642Z",
               "IsPinned": true,
@@ -208,39 +219,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "MonitorApiModel.cs",
-              "DocumentMoniker": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\Properties\\Models\\NghiepVu\\MonitorApiModel.cs",
-              "RelativeDocumentMoniker": "FestivalHoa\\Properties\\Models\\NghiepVu\\MonitorApiModel.cs",
-              "ToolTip": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\Properties\\Models\\NghiepVu\\MonitorApiModel.cs",
-              "RelativeToolTip": "FestivalHoa\\Properties\\Models\\NghiepVu\\MonitorApiModel.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAQwBcAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "DefaultMessage.cs",
+              "DocumentMoniker": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\Properties\\Helpers\\DefaultMessage.cs",
+              "RelativeDocumentMoniker": "FestivalHoa\\Properties\\Helpers\\DefaultMessage.cs",
+              "ToolTip": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\Properties\\Helpers\\DefaultMessage.cs",
+              "RelativeToolTip": "FestivalHoa\\Properties\\Helpers\\DefaultMessage.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAABJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-20T03:30:26.696Z",
+              "WhenOpened": "2025-02-26T09:31:43.584Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "DataContext.cs",
-              "DocumentMoniker": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\Properties\\Installers\\DataContext.cs",
-              "RelativeDocumentMoniker": "FestivalHoa\\Properties\\Installers\\DataContext.cs",
-              "ToolTip": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\Properties\\Installers\\DataContext.cs",
-              "RelativeToolTip": "FestivalHoa\\Properties\\Installers\\DataContext.cs",
-              "ViewState": "AgIAAGEAAAAAAAAAAAAQwJMAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T02:15:12.962Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
               "Title": "IMonitorApiService.cs",
               "DocumentMoniker": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\Properties\\Interfaces\\NghiepVu\\IMonitorApiService.cs",
               "RelativeDocumentMoniker": "FestivalHoa\\Properties\\Interfaces\\NghiepVu\\IMonitorApiService.cs",
               "ToolTip": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\Properties\\Interfaces\\NghiepVu\\IMonitorApiService.cs",
               "RelativeToolTip": "FestivalHoa\\Properties\\Interfaces\\NghiepVu\\IMonitorApiService.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAIwBEAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-19T02:09:10.736Z",
               "EditorCaption": ""
@@ -248,12 +246,38 @@
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "DefaultCode.cs",
+              "DocumentMoniker": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\Properties\\Helpers\\DefaultCode.cs",
+              "RelativeDocumentMoniker": "FestivalHoa\\Properties\\Helpers\\DefaultCode.cs",
+              "ToolTip": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\Properties\\Helpers\\DefaultCode.cs",
+              "RelativeToolTip": "FestivalHoa\\Properties\\Helpers\\DefaultCode.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAAwC8AAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-26T09:31:52.95Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ResultResponse.cs",
+              "DocumentMoniker": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\Properties\\Helpers\\ResultResponse.cs",
+              "RelativeDocumentMoniker": "FestivalHoa\\Properties\\Helpers\\ResultResponse.cs",
+              "ToolTip": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\Properties\\Helpers\\ResultResponse.cs",
+              "RelativeToolTip": "FestivalHoa\\Properties\\Helpers\\ResultResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-26T09:32:05.33Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "ScheduleApiCallRequest.cs",
               "DocumentMoniker": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\Properties\\Models\\NghiepVu\\ScheduleApiCallRequest.cs",
               "RelativeDocumentMoniker": "FestivalHoa\\Properties\\Models\\NghiepVu\\ScheduleApiCallRequest.cs",
               "ToolTip": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\Properties\\Models\\NghiepVu\\ScheduleApiCallRequest.cs",
               "RelativeToolTip": "FestivalHoa\\Properties\\Models\\NghiepVu\\ScheduleApiCallRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-24T03:48:59.57Z",
               "EditorCaption": ""
@@ -261,14 +285,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "CommonController.cs",
-              "DocumentMoniker": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\Properties\\Controllers\\Common\\CommonController.cs",
-              "RelativeDocumentMoniker": "FestivalHoa\\Properties\\Controllers\\Common\\CommonController.cs",
-              "ToolTip": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\Properties\\Controllers\\Common\\CommonController.cs",
-              "RelativeToolTip": "FestivalHoa\\Properties\\Controllers\\Common\\CommonController.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAADwvw8AAAAYAAAAAAAAAA==",
+              "Title": "MonitorApiModel.cs",
+              "DocumentMoniker": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\Properties\\Models\\NghiepVu\\MonitorApiModel.cs",
+              "RelativeDocumentMoniker": "FestivalHoa\\Properties\\Models\\NghiepVu\\MonitorApiModel.cs",
+              "ToolTip": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\Properties\\Models\\NghiepVu\\MonitorApiModel.cs",
+              "RelativeToolTip": "FestivalHoa\\Properties\\Models\\NghiepVu\\MonitorApiModel.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAQwAgAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-20T02:59:52.293Z",
+              "WhenOpened": "2025-02-20T03:30:26.696Z",
               "EditorCaption": ""
             },
             {
@@ -279,9 +303,9 @@
               "RelativeDocumentMoniker": "FestivalHoa\\Startup.cs",
               "ToolTip": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\Startup.cs",
               "RelativeToolTip": "FestivalHoa\\Startup.cs",
-              "ViewState": "AgIAAC8AAAAAAAAAAAAgwIgAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAH0AAAAAAAAAAAAmwIwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-25T04:19:59.847Z",
+              "WhenOpened": "2025-02-26T07:20:40.852Z",
               "EditorCaption": ""
             },
             {
@@ -292,7 +316,7 @@
               "RelativeDocumentMoniker": "FestivalHoa\\Program.cs",
               "ToolTip": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\Program.cs",
               "RelativeToolTip": "FestivalHoa\\Program.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAA1wAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-25T07:04:48.007Z",
               "EditorCaption": ""
@@ -300,6 +324,56 @@
             {
               "$type": "Document",
               "DocumentIndex": 10,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\appsettings.json",
+              "RelativeDocumentMoniker": "FestivalHoa\\appsettings.json",
+              "ToolTip": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\appsettings.json",
+              "RelativeToolTip": "FestivalHoa\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-02-26T07:19:56.266Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "DataContext.cs",
+              "DocumentMoniker": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\Properties\\Installers\\DataContext.cs",
+              "RelativeDocumentMoniker": "FestivalHoa\\Properties\\Installers\\DataContext.cs",
+              "ToolTip": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\Properties\\Installers\\DataContext.cs",
+              "RelativeToolTip": "FestivalHoa\\Properties\\Installers\\DataContext.cs",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAQwJEAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-26T03:39:47.309Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "FestivalHoa.csproj",
+              "DocumentMoniker": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\FestivalHoa.csproj",
+              "RelativeDocumentMoniker": "FestivalHoa\\FestivalHoa.csproj",
+              "ToolTip": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\FestivalHoa.csproj",
+              "RelativeToolTip": "FestivalHoa\\FestivalHoa.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-02-24T02:38:45.462Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "CommonController.cs",
+              "DocumentMoniker": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\Properties\\Controllers\\Common\\CommonController.cs",
+              "RelativeDocumentMoniker": "FestivalHoa\\Properties\\Controllers\\Common\\CommonController.cs",
+              "ToolTip": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\Properties\\Controllers\\Common\\CommonController.cs",
+              "RelativeToolTip": "FestivalHoa\\Properties\\Controllers\\Common\\CommonController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAADwvw8AAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-20T02:59:52.293Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
               "Title": "CommonService.cs",
               "DocumentMoniker": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\Properties\\Services\\Common\\CommonService.cs",
               "RelativeDocumentMoniker": "FestivalHoa\\Properties\\Services\\Common\\CommonService.cs",
@@ -311,31 +385,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "FestivalHoa.csproj",
-              "DocumentMoniker": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\FestivalHoa.csproj",
-              "RelativeDocumentMoniker": "FestivalHoa\\FestivalHoa.csproj",
-              "ToolTip": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\FestivalHoa.csproj",
-              "RelativeToolTip": "FestivalHoa\\FestivalHoa.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-02-24T02:38:45.462Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 16,
               "Title": "CommonModel.cs",
               "DocumentMoniker": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\Properties\\Models\\Core\\CommonModel.cs",
               "RelativeDocumentMoniker": "FestivalHoa\\Properties\\Models\\Core\\CommonModel.cs",
               "ToolTip": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\Properties\\Models\\Core\\CommonModel.cs",
               "RelativeToolTip": "FestivalHoa\\Properties\\Models\\Core\\CommonModel.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAAAADAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACAAAAAAAAAAAIBQwDAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-24T01:12:17.601Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 17,
               "Title": "ListCommon.cs",
               "DocumentMoniker": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\Properties\\Constants\\ListCommon.cs",
               "RelativeDocumentMoniker": "FestivalHoa\\Properties\\Constants\\ListCommon.cs",
@@ -347,7 +409,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 18,
               "Title": "ListComom.cs",
               "DocumentMoniker": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\Properties\\Models\\Core\\ListComom.cs",
               "RelativeDocumentMoniker": "FestivalHoa\\Properties\\Models\\Core\\ListComom.cs",
@@ -359,19 +421,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\appsettings.json",
-              "RelativeDocumentMoniker": "FestivalHoa\\appsettings.json",
-              "ToolTip": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\appsettings.json",
-              "RelativeToolTip": "FestivalHoa\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-02-20T03:00:02.668Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 19,
               "Title": "ObjectToStringJsonConverter.cs",
               "DocumentMoniker": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\Properties\\Converters\\ObjectToStringJsonConverter.cs",
               "RelativeDocumentMoniker": "FestivalHoa\\Properties\\Converters\\ObjectToStringJsonConverter.cs",
@@ -383,7 +433,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 20,
               "Title": "ApiCallJob.cs",
               "DocumentMoniker": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\Properties\\Jobs\\ApiCallJob.cs",
               "RelativeDocumentMoniker": "FestivalHoa\\Properties\\Jobs\\ApiCallJob.cs",
@@ -395,7 +445,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 21,
               "Title": "DbInstaller.cs",
               "DocumentMoniker": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\Properties\\Installers\\DbInstaller.cs",
               "RelativeDocumentMoniker": "FestivalHoa\\Properties\\Installers\\DbInstaller.cs",
@@ -407,7 +457,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 22,
               "Title": "InstallerExtensions.cs",
               "DocumentMoniker": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\Properties\\Installers\\InstallerExtensions.cs",
               "RelativeDocumentMoniker": "FestivalHoa\\Properties\\Installers\\InstallerExtensions.cs",
@@ -419,7 +469,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 23,
               "Title": "DefaultDbContext.cs",
               "DocumentMoniker": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\Properties\\Constants\\DefaultDbContext.cs",
               "RelativeDocumentMoniker": "FestivalHoa\\Properties\\Constants\\DefaultDbContext.cs",
@@ -431,7 +481,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 24,
               "Title": "DefaultRepositoryController.cs",
               "DocumentMoniker": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\Properties\\Controllers\\Core\\DefaultRepositoryController.cs",
               "RelativeDocumentMoniker": "FestivalHoa\\Properties\\Controllers\\Core\\DefaultRepositoryController.cs",
@@ -443,7 +493,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 25,
               "Title": "PagingParam.cs",
               "DocumentMoniker": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\Properties\\Models\\PagingParam\\PagingParam.cs",
               "RelativeDocumentMoniker": "FestivalHoa\\Properties\\Models\\PagingParam\\PagingParam.cs",
@@ -455,7 +505,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 26,
               "Title": "UsersController.cs",
               "DocumentMoniker": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\Properties\\Controllers\\Core\\UsersController.cs",
               "RelativeDocumentMoniker": "FestivalHoa\\Properties\\Controllers\\Core\\UsersController.cs",
@@ -467,19 +517,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 27,
               "Title": "UnitRoleController.cs",
               "DocumentMoniker": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\Properties\\Controllers\\Core\\UnitRoleController.cs",
               "RelativeDocumentMoniker": "FestivalHoa\\Properties\\Controllers\\Core\\UnitRoleController.cs",
               "ToolTip": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\Properties\\Controllers\\Core\\UnitRoleController.cs",
               "RelativeToolTip": "FestivalHoa\\Properties\\Controllers\\Core\\UnitRoleController.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAACBjwAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAIBpwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-20T08:57:25.416Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 28,
               "Title": "CommonRepositoryController.cs",
               "DocumentMoniker": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\Properties\\Controllers\\Core\\CommonRepositoryController.cs",
               "RelativeDocumentMoniker": "FestivalHoa\\Properties\\Controllers\\Core\\CommonRepositoryController.cs",
@@ -491,7 +541,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 30,
               "Title": "IdFromBodyCommonModel.cs",
               "DocumentMoniker": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\Properties\\FromBodyModels\\IdFromBodyCommonModel.cs",
               "RelativeDocumentMoniker": "FestivalHoa\\Properties\\FromBodyModels\\IdFromBodyCommonModel.cs",
@@ -503,7 +553,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 29,
               "Title": "IdFromBodyModel.cs",
               "DocumentMoniker": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\Properties\\FromBodyModels\\IdFromBodyModel.cs",
               "RelativeDocumentMoniker": "FestivalHoa\\Properties\\FromBodyModels\\IdFromBodyModel.cs",
@@ -515,7 +565,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 31,
               "Title": "ICommonRepository.cs",
               "DocumentMoniker": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\Properties\\Interfaces\\Core\\ICommonRepository.cs",
               "RelativeDocumentMoniker": "FestivalHoa\\Properties\\Interfaces\\Core\\ICommonRepository.cs",
@@ -527,7 +577,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 32,
               "Title": "IInstaller.cs",
               "DocumentMoniker": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\Properties\\Installers\\IInstaller.cs",
               "RelativeDocumentMoniker": "FestivalHoa\\Properties\\Installers\\IInstaller.cs",
@@ -539,7 +589,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 33,
               "Title": "DefaultRepositoryService.cs",
               "DocumentMoniker": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\Properties\\Services\\Core\\DefaultRepositoryService.cs",
               "RelativeDocumentMoniker": "FestivalHoa\\Properties\\Services\\Core\\DefaultRepositoryService.cs",

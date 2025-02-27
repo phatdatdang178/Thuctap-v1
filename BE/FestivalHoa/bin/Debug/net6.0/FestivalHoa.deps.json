@@ -19,6 +19,7 @@
           "Quartz": "3.13.1",
           "Quartz.Extensions.DependencyInjection": "3.13.1",
           "Quartz.Extensions.Hosting": "3.13.1",
+          "Quartz.MongoDB": "0.1.5",
           "Swashbuckle.AspNetCore.Swagger": "6.5.0",
           "Swashbuckle.AspNetCore.SwaggerGen": "6.5.0",
           "Swashbuckle.AspNetCore.SwaggerUI": "6.5.0",
@@ -549,6 +550,18 @@
           "lib/net6.0/Quartz.Extensions.Hosting.dll": {
             "assemblyVersion": "3.13.1.0",
             "fileVersion": "3.13.1.0"
+          }
+        }
+      },
+      "Quartz.MongoDB/0.1.5": {
+        "dependencies": {
+          "MongoDB.Driver": "2.22.0",
+          "Quartz": "3.13.1"
+        },
+        "runtime": {
+          "lib/net45/Quartz.MongoDB.dll": {
+            "assemblyVersion": "0.1.5.0",
+            "fileVersion": "0.1.5.0"
           }
         }
       },
@@ -1606,6 +1619,13 @@
       "sha512": "sha512-pwGofFs0VoIwq8JFXBEeEKFrA/6wJDFekLzQA5oev7+Ow0+lqBlZlzBpPd10hkgVAItL+uZ2SEjP8Ual3QZTww==",
       "path": "quartz.extensions.hosting/3.13.1",
       "hashPath": "quartz.extensions.hosting.3.13.1.nupkg.sha512"
+    },
+    "Quartz.MongoDB/0.1.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zlXhjYwyeDjF003DC3b3cmhcPG/aKYRQIv6/xQnCe9fR0FOhmOpxr1uRtRs/o35Vq7nWSfQlX5+bQHk0QZIivA==",
+      "path": "quartz.mongodb/0.1.5",
+      "hashPath": "quartz.mongodb.0.1.5.nupkg.sha512"
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {
       "type": "package",
