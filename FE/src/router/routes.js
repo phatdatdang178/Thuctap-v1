@@ -1,5 +1,4 @@
 import store from "@/state/store";
-import { component } from "vue/types/umd";
 export default [
   {
     path: "/quan-ly-doanh-nghiep",
@@ -33,10 +32,9 @@ export default [
     component: () => import("../pages/congdan/background"),
   },
   {
-    path:"/",
-    name:"monitor",
-    meta:{},
-    component:()=>import("../pages/monitor/monitorapi"),
+    path: "/monitor",
+    name: "monitor",
+    component: () => import("../pages/monitor/monitorapi"),
   },
 
   // QUAN TRI

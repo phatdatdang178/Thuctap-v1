@@ -50,9 +50,9 @@ namespace FestivalHoa.Properties.Services.NghiepVu
         private async Task<MonitorApiModel> CallAndLog(MonitorApiModel model, bool throwOnFailure)
         {
             HttpResponseMessage response;
-            string methodName = "GET";
-            if (model.PhuongThuc != null && !string.IsNullOrEmpty(model.PhuongThuc.Name))
-                methodName = model.PhuongThuc.Name.ToUpper();
+
+            // Xác định phương thức gọi API (GET/POST)
+            string methodName = model.PhuongThuc?.Name?.Trim().ToUpper() ?? "GET";
 
             using (HttpClient client = new HttpClient())
             {
@@ -62,7 +62,7 @@ namespace FestivalHoa.Properties.Services.NghiepVu
                     var content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
                     response = await client.PostAsync(model.Url, content);
                 }
-                else // GET
+                else // Mặc định là GET
                 {
                     string finalUrl = model.Url;
                     if (!string.IsNullOrEmpty(model.BodyParams))
@@ -80,84 +80,57 @@ namespace FestivalHoa.Properties.Services.NghiepVu
                         }
                         catch (Exception)
                         {
-                            // Nếu không parse được BodyParams, bỏ qua
+                            // Bỏ qua nếu không parse được BodyParams
                         }
                     }
                     response = await client.GetAsync(finalUrl);
                 }
             }
+
             int statusCode = (int)response.StatusCode;
-            if (!response.IsSuccessStatusCode)
+
+            // Lấy trạng thái tương ứng (thất bại hoặc thành công)
+            string trangThaiCode = response.IsSuccessStatusCode ? "TC" : "TB";
+            var trangThaiEntity = await _commonService.GetByCodeAsync(new IdFromBodyCommonModel
             {
-                var trangThaiEntity = await _commonService.GetByCodeAsync(new IdFromBodyCommonModel
-                {
-                    Code = "TB",
-                    CollectionName = "DM_TRANGTHAI"
-                });
+                Code = trangThaiCode,
+                CollectionName = "DM_TRANGTHAI"
+            });
 
-                var logModel = new MonitorApiModel()
+            var logModel = new MonitorApiModel()
+            {
+                Id = BsonObjectId.GenerateNewId().ToString(),
+                Url = model.Url,
+                TrangThai = new CommonModelShort
                 {
-                    Id = BsonObjectId.GenerateNewId().ToString(),
-                    Url = model.Url,
-                    TrangThai = new CommonModelShort
-                    {
-                        Id = trangThaiEntity.Id,
-                        Code = trangThaiEntity.Code,
-                        Name = trangThaiEntity.Name,
-                    },
-                    Time = DateTime.UtcNow.AddHours(7),
-                    CallTimes = model.CallTimes,
-                    Name = model.Name,
-                    PhuongThuc = model.PhuongThuc,
-                    BodyParams = model.BodyParams,
-                    GhiChu = model.GhiChu,
-                    Code = $"{ statusCode }"
-                };
+                    Id = trangThaiEntity.Id,
+                    Code = trangThaiEntity.Code,
+                    Name = trangThaiEntity.Name,
+                },
+                Time = DateTime.UtcNow.AddHours(7),
+                CallTimes = model.CallTimes,
+                Name = model.Name,
+                PhuongThuc = model.PhuongThuc, // Lưu phương thức dựa trên Name
+                BodyParams = model.BodyParams,
+                GhiChu = model.GhiChu,
+                Code = $"{statusCode}"
+            };
 
-                await _baseMongoDb.CreateAsync(logModel);
+            var result = await _baseMongoDb.CreateAsync(logModel);
+
+            if (!response.IsSuccessStatusCode || result.Entity.Id == default || !result.Success)
+            {
                 if (throwOnFailure)
                 {
                     throw new ResponseMessageException()
-                        .WithException(DefaultCode.DATA_EXISTED)
+                        .WithException(DefaultCode.CREATE_FAILURE)
                         .WithMessage($"Call API thất bại với mã: {statusCode}");
                 }
-                return logModel;
             }
-            else
-            {
-                var trangThaiEntity = await _commonService.GetByCodeAsync(new IdFromBodyCommonModel
-                {
-                    Code = "TC",
-                    CollectionName = "DM_TRANGTHAI"
-                });
 
-                var logModel = new MonitorApiModel()
-                {
-                    Id = BsonObjectId.GenerateNewId().ToString(),
-                    Url = model.Url,
-                    TrangThai = new CommonModelShort()
-                    {
-                        Id = trangThaiEntity.Id,
-                        Code = trangThaiEntity.Code,
-                        Name = trangThaiEntity.Name,
-                    },
-                    Time = DateTime.UtcNow.AddHours(7),
-                    CallTimes = model.CallTimes,
-                    Name = model.Name,
-                    PhuongThuc = model.PhuongThuc,
-                    GhiChu = model.GhiChu,
-                    Code = $"{ statusCode }"
-                };
-
-                var result = await _baseMongoDb.CreateAsync(logModel);
-                if (result.Entity.Id == default || !result.Success)
-                {
-                    if (throwOnFailure)
-                        throw new ResponseMessageException().WithException(DefaultCode.CREATE_FAILURE);
-                }
-                return logModel;
-            }
+            return logModel;
         }
+
 
         #endregion
 
@@ -170,14 +143,11 @@ namespace FestivalHoa.Properties.Services.NghiepVu
                 if (model == null || string.IsNullOrEmpty(model.Url))
                     throw new ResponseMessageException().WithException(DefaultCode.ERROR_STRUCTURE);
 
-                if (model.PhuongThuc != null)
+                if (model.PhuongThuc == null || string.IsNullOrEmpty(model.PhuongThuc.Name))
                 {
-                    if (!ObjectId.TryParse(model.PhuongThuc.Id, out _))
-                    {
-                        throw new ResponseMessageException()
-                            .WithException(DefaultCode.ERROR_STRUCTURE)
-                            .WithMessage("Trường _id của PhuongThuc không hợp lệ.");
-                    }
+                    throw new ResponseMessageException()
+                        .WithException(DefaultCode.ERROR_STRUCTURE)
+                        .WithMessage("PhuongThuc.Name không được để trống.");
                 }
 
                 return await CallAndLog(model, true);
@@ -196,6 +166,7 @@ namespace FestivalHoa.Properties.Services.NghiepVu
                 throw new ResponseMessageException().WithCode(DefaultCode.EXCEPTION).WithMessage(ex.Message);
             }
         }
+
 
         #endregion
 

@@ -19,6 +19,8 @@ import { VTree, VSelectTree } from 'vue-tree-halower'
 import acl from './plugins/acl';
 import 'vue-slick-carousel/dist/vue-slick-carousel.css';
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css';
+
+
 Vue.use (VTree)
 Vue.use (VSelectTree)
 import VJstree from 'vue-jstree'

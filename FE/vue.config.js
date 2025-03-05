@@ -7,5 +7,14 @@ module.exports = {
       enableInSFC: false
     }
   },
-  outputDir : '../release/webquanly'
-}
+  outputDir: '../release/webquanly',
+  devServer: {
+    proxy: {
+      '^/api': {
+        target: 'https://localhost:5001',
+        changeOrigin: true,
+        secure: false
+      }
+    }
+  }
+};

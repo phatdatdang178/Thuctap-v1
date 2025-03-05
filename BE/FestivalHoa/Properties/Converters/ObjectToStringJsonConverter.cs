@@ -4,43 +4,48 @@ using Newtonsoft.Json;
 
 namespace FestivalHoa.Properties.Converters
 {
-    public class ObjectToStringJsonConverter : JsonConverter<string>
+    public class ObjectToStringJsonConverter : JsonConverter
     {
-        public override string ReadJson(JsonReader reader, Type objectType, string existingValue, bool hasExistingValue, JsonSerializer serializer)
+        public override bool CanConvert(Type objectType)
         {
-            if (reader.TokenType == JsonToken.StartObject)
+            return objectType == typeof(string) || objectType == typeof(object);
+        }
+
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        {
+            if (reader.TokenType == JsonToken.StartObject || reader.TokenType == JsonToken.StartArray)
             {
-                var jObj = JObject.Load(reader);
-                return jObj.ToString(Formatting.None);
+                return JToken.Load(reader).ToString(Formatting.None);
             }
             else if (reader.TokenType == JsonToken.String)
             {
-                return (string)reader.Value;
+                return reader.Value.ToString();
             }
             else if (reader.TokenType == JsonToken.Null)
             {
                 return null;
             }
-            else
-            {
-                return reader.Value?.ToString();
-            }
+            return reader.Value?.ToString();
         }
 
-        public override void WriteJson(JsonWriter writer, string value, JsonSerializer serializer)
+        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            if (!string.IsNullOrEmpty(value))
+            if (value is string strValue)
             {
                 try
                 {
-                    var token = JToken.Parse(value);
+                    var token = JToken.Parse(strValue);
                     token.WriteTo(writer);
                 }
                 catch
                 {
-                    writer.WriteValue(value);
+                    writer.WriteValue(strValue);
                 }
             }
+            else if (value != null)
+            {
+                serializer.Serialize(writer, value);
+            }   
             else
             {
                 writer.WriteNull();

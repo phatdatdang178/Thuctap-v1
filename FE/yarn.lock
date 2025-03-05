@@ -1007,7 +1007,7 @@
 
 "@blowstack/ckeditor-nuxt@^0.6.0":
   version "0.6.0"
-  resolved "https://registry.yarnpkg.com/@blowstack/ckeditor-nuxt/-/ckeditor-nuxt-0.6.0.tgz#3a8f49928db83f58cf99ae2d1eb7031894d569a1"
+  resolved "https://registry.npmjs.org/@blowstack/ckeditor-nuxt/-/ckeditor-nuxt-0.6.0.tgz"
   integrity sha512-IbCm6GQ0NWwZlhSL5BI2sV3cG6O0hRk17sAAMbLSB2cTJ6r+3ZAeB6AYuanQSppMIFNI/Nvssj6TLuCpinNPUA==
   dependencies:
     "@blowstack/ckeditor5-full-free-build" "^27.0.1"
@@ -1015,7 +1015,7 @@
 
 "@blowstack/ckeditor5-full-free-build@^27.0.1":
   version "27.0.1"
-  resolved "https://registry.yarnpkg.com/@blowstack/ckeditor5-full-free-build/-/ckeditor5-full-free-build-27.0.1.tgz#d087cebb66abdf14cda987d0e55b7a4b6a0ed49c"
+  resolved "https://registry.npmjs.org/@blowstack/ckeditor5-full-free-build/-/ckeditor5-full-free-build-27.0.1.tgz"
   integrity sha512-JuzZhsFATSiH1NBtv5R/ym//uRuFHBo8DMcREzldyDF6vrxaAni8jimHHr9i9k7y3wXE4WgiRrjcZcENPNh/+g==
 
 "@ckeditor/ckeditor5-build-classic@^22.0.0":
@@ -1023,59 +1023,59 @@
   resolved "https://registry.npmjs.org/@ckeditor/ckeditor5-build-classic/-/ckeditor5-build-classic-22.0.0.tgz"
   integrity sha512-Vcy7vqSDv1xH6ACi2RW25+wIEEKrzEYb+dpgL/yTfhqv0wlswl4tn1VOfEbzGNrgQCio3djxkF813be29IfmWA==
 
-"@ckeditor/ckeditor5-core@40.1.0":
-  version "40.1.0"
-  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-core/-/ckeditor5-core-40.1.0.tgz#049e72d4f4e7f886a037560025f69528c5c43aac"
-  integrity sha512-VTPANdgrPvCshACLElgHF+ELLpoMvNoa/Y+dfnI5tNuX8hbALpmFm/rNzDIYGzNWBOjBq9WLWcvYLSrIgb3f8A==
+"@ckeditor/ckeditor5-core@40.2.0":
+  version "40.2.0"
+  resolved "https://registry.npmjs.org/@ckeditor/ckeditor5-core/-/ckeditor5-core-40.2.0.tgz"
+  integrity sha512-0fqIaN+ZhkXXA3mpBN+alycBzPMc8ruO8VrP0OnvCjowqZVS2HXC2AaXNBdxc75xGI3ScXIor7FsgFHxVJIYYQ==
   dependencies:
-    "@ckeditor/ckeditor5-engine" "40.1.0"
-    "@ckeditor/ckeditor5-utils" "40.1.0"
+    "@ckeditor/ckeditor5-engine" "40.2.0"
+    "@ckeditor/ckeditor5-utils" "40.2.0"
     lodash-es "4.17.21"
 
-"@ckeditor/ckeditor5-engine@40.1.0":
-  version "40.1.0"
-  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-engine/-/ckeditor5-engine-40.1.0.tgz#daf83af92e46a181c3beee2e912ab055dddf0d0b"
-  integrity sha512-z4UD6ncjgtpqlcCzfSaAX5uro6TNiJVuW0hUv2WH4WGt1cBWjvNZ9kkcaJAANJhDXxNDA+jgRAeRkowaxUGXIg==
+"@ckeditor/ckeditor5-engine@40.2.0":
+  version "40.2.0"
+  resolved "https://registry.npmjs.org/@ckeditor/ckeditor5-engine/-/ckeditor5-engine-40.2.0.tgz"
+  integrity sha512-sgboUX8Ps+LcEgywyT3BeK1nzLHjNVIiZU1qvRxR3ixzIw4w2xRNXCGfESWLW5Y5rv9+ypUCrX61oLnZU64PQQ==
   dependencies:
-    "@ckeditor/ckeditor5-utils" "40.1.0"
+    "@ckeditor/ckeditor5-utils" "40.2.0"
     lodash-es "4.17.21"
 
-"@ckeditor/ckeditor5-ui@40.1.0":
-  version "40.1.0"
-  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-ui/-/ckeditor5-ui-40.1.0.tgz#6a4feb2eec9db1a75030700233e4dd9ffc3be8b3"
-  integrity sha512-ROq/as1YnlfwPtqqWU8u+bw8pCFbqUhOU4Xq1VuFqN4dhrecz2NIkSHU8ht+vD4YmPqXTDa8GOwaBKnCjX7pZA==
+"@ckeditor/ckeditor5-ui@40.2.0":
+  version "40.2.0"
+  resolved "https://registry.npmjs.org/@ckeditor/ckeditor5-ui/-/ckeditor5-ui-40.2.0.tgz"
+  integrity sha512-K8oC9zrJokZD5Nl4uQjJMo8Couds0eHmfNI/go6iU4A4OAdDzph+W50QnyMed4etKnMdhvUSbnuZnPtQjnsvFA==
   dependencies:
-    "@ckeditor/ckeditor5-core" "40.1.0"
-    "@ckeditor/ckeditor5-utils" "40.1.0"
+    "@ckeditor/ckeditor5-core" "40.2.0"
+    "@ckeditor/ckeditor5-utils" "40.2.0"
     color-convert "2.0.1"
     color-parse "1.4.2"
     lodash-es "4.17.21"
     vanilla-colorful "0.7.2"
 
 "@ckeditor/ckeditor5-upload@^40.0.0":
-  version "40.1.0"
-  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-upload/-/ckeditor5-upload-40.1.0.tgz#4053236da461dd145474f1680a428f8df4456ac5"
-  integrity sha512-uTaP36PskRdBn2XvWTWPUm+D9xlXvzuD2OvbxLP2kAiU10c43KKPXdukf0N2ujStYcj/hwdPc6ZLt1otImazKw==
+  version "40.2.0"
+  resolved "https://registry.npmjs.org/@ckeditor/ckeditor5-upload/-/ckeditor5-upload-40.2.0.tgz"
+  integrity sha512-AdJSKvWEQbSSyA/DfxbCHRhFN6S4ew4kuYETO57e6AS3aOuYGLBRdu9Mub7IAQcOyy1LL6ktr9u5WEOoWS2h0w==
   dependencies:
-    "@ckeditor/ckeditor5-core" "40.1.0"
-    "@ckeditor/ckeditor5-ui" "40.1.0"
-    "@ckeditor/ckeditor5-utils" "40.1.0"
+    "@ckeditor/ckeditor5-core" "40.2.0"
+    "@ckeditor/ckeditor5-ui" "40.2.0"
+    "@ckeditor/ckeditor5-utils" "40.2.0"
 
-"@ckeditor/ckeditor5-utils@40.1.0":
-  version "40.1.0"
-  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-utils/-/ckeditor5-utils-40.1.0.tgz#d4aea02ea1540c5bf31859780545182e5cac7be1"
-  integrity sha512-QTpgbuPbQa88AMCOlDdlgK8fPg/IpPuxSU5QDVGR1rmuZRgC7fWCN027aLsJ2t1ppLfKjA/O49dhydm6mKgO9w==
+"@ckeditor/ckeditor5-utils@40.2.0":
+  version "40.2.0"
+  resolved "https://registry.npmjs.org/@ckeditor/ckeditor5-utils/-/ckeditor5-utils-40.2.0.tgz"
+  integrity sha512-f+kTJBwwk7Y/LXm8pEPxBTXVlJwQrH7Levzye9zxEDB0Jtj7+brGr87o666fPmL/ATQc5M+VPhbvnk2sOv7WKg==
   dependencies:
     lodash-es "4.17.21"
 
 "@ckeditor/ckeditor5-vue2@^1.0.5":
   version "1.0.5"
-  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-vue2/-/ckeditor5-vue2-1.0.5.tgz#719e7ab65f0c5d9aca91a41a7ec7cb904cbabb4c"
+  resolved "https://registry.npmjs.org/@ckeditor/ckeditor5-vue2/-/ckeditor5-vue2-1.0.5.tgz"
   integrity sha512-snsNB/2oWfKw0drGJAmMGpTatmt//L1rQsOwkBw+1uKUuOJPKN3xwyUZVWT906VguIMXm4E9OHzquZ3bdkijiA==
 
 "@ckeditor/ckeditor5-vue@^1.0.3":
   version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-vue/-/ckeditor5-vue-1.0.3.tgz#b73babe217e222614f0567bf858de8152c2071b2"
+  resolved "https://registry.npmjs.org/@ckeditor/ckeditor5-vue/-/ckeditor5-vue-1.0.3.tgz"
   integrity sha512-8pYcWkOSUTZ4KD6nT2JbD4rQycvhCaoOAJeOiaSrjWb3X/xRWoDEOOJzXC6VRk9AeNE1UYY9wKBAsq3VoR5V9w==
 
 "@firebase/analytics-types@0.6.0":
@@ -1985,15 +1985,6 @@
   version "2.7.14"
   resolved "https://registry.npmjs.org/@vue/compiler-sfc/-/compiler-sfc-2.7.14.tgz"
   integrity sha512-aNmNHyLPsw+sVvlQFQ2/8sjNuLtK54TC6cuKnVzAY93ks4ZBrvwQSnkkIh7bsbNhum5hJBS00wSDipQ937f5DA==
-  dependencies:
-    "@babel/parser" "^7.18.4"
-    postcss "^8.4.14"
-    source-map "^0.6.1"
-
-"@vue/compiler-sfc@2.7.15":
-  version "2.7.15"
-  resolved "https://registry.yarnpkg.com/@vue/compiler-sfc/-/compiler-sfc-2.7.15.tgz#62135fb2f69559fc723fd9c56b8e8b0ac7864a0b"
-  integrity sha512-FCvIEevPmgCgqFBH7wD+3B97y7u7oj/Wr69zADBf403Tui377bThTjBvekaZvlRr4IwUAu3M6hYZeULZFJbdYg==
   dependencies:
     "@babel/parser" "^7.18.4"
     postcss "^8.4.14"
@@ -3217,7 +3208,7 @@ chownr@^1.1.1, chownr@^1.1.2:
 
 chroma-js@^1.3.4:
   version "1.4.1"
-  resolved "https://registry.yarnpkg.com/chroma-js/-/chroma-js-1.4.1.tgz#eb2d9c4d1ff24616be84b35119f4d26f8205f134"
+  resolved "https://registry.npmjs.org/chroma-js/-/chroma-js-1.4.1.tgz"
   integrity sha512-jTwQiT859RTFN/vIf7s+Vl/Z2LcMrvMv3WUFmd/4u76AdlFC0NTNgqEEFPcRiHmAswPsMiQEDZLM8vX8qXpZNQ==
 
 chrome-trace-event@^1.0.2:
@@ -3398,7 +3389,7 @@ collection-visit@^1.0.0:
 
 color-convert@2.0.1, color-convert@^2.0.1:
   version "2.0.1"
-  resolved "https://registry.yarnpkg.com/color-convert/-/color-convert-2.0.1.tgz#72d3a68d598c9bdb3af2ad1e84f21d896abd4de3"
+  resolved "https://registry.npmjs.org/color-convert/-/color-convert-2.0.1.tgz"
   integrity sha512-RRECPsj7iu/xb5oKYcsFHSppFNnsj/52OVTRKb4zP5onXwVF3zVmmToNcOfGC+CRDpfK/U584fMg38ZHCaElKQ==
   dependencies:
     color-name "~1.1.4"
@@ -3422,7 +3413,7 @@ color-name@^1.0.0, color-name@~1.1.4:
 
 color-parse@1.4.2:
   version "1.4.2"
-  resolved "https://registry.yarnpkg.com/color-parse/-/color-parse-1.4.2.tgz#78651f5d34df1a57f997643d86f7f87268ad4eb5"
+  resolved "https://registry.npmjs.org/color-parse/-/color-parse-1.4.2.tgz"
   integrity sha512-RI7s49/8yqDj3fECFZjUI1Yi0z/Gq1py43oNJivAIIDSyJiOZLfYCRQEgn8HEVAj++PcRe8AnL2XF0fRJ3BTnA==
   dependencies:
     color-name "^1.0.0"
@@ -4995,7 +4986,7 @@ flat@^5.0.0:
 
 flatpickr@^4.6.13:
   version "4.6.13"
-  resolved "https://registry.yarnpkg.com/flatpickr/-/flatpickr-4.6.13.tgz#8a029548187fd6e0d670908471e43abe9ad18d94"
+  resolved "https://registry.npmjs.org/flatpickr/-/flatpickr-4.6.13.tgz"
   integrity sha512-97PMG/aywoYpB4IvbvUJi0RQi8vearvU0oov1WW3k0WZPBMrTQVqekSX5CjSG/M4Q3i6A/0FKXC7RyAoAUUSPw==
 
 flatted@^2.0.0:
@@ -5116,9 +5107,9 @@ fsevents@^1.2.7:
     nan "^2.12.1"
 
 fsevents@~2.3.2:
-  version "2.3.2"
-  resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-2.3.2.tgz#8a526f78b8fdf4623b709e0b975c52c24c02fd1a"
-  integrity sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-2.3.3.tgz#cac6407785d03675a2a5e1a5305c697b347d90d6"
+  integrity sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==
 
 function-bind@^1.1.1:
   version "1.1.1"
@@ -5660,7 +5651,7 @@ ignore@^4.0.3, ignore@^4.0.6:
 
 image-preview-vue@^1.2.11:
   version "1.2.11"
-  resolved "https://registry.yarnpkg.com/image-preview-vue/-/image-preview-vue-1.2.11.tgz#4d398740b87edf0591d2765b177033e42fd0265d"
+  resolved "https://registry.npmjs.org/image-preview-vue/-/image-preview-vue-1.2.11.tgz"
   integrity sha512-v0mNu5io6zy74xb/+2YKsTz4a3S/XiuT4NLeHtt8YYVvHizxV96Ro4I4SduVXKN5XR6HNu/fhVKGE9EZulLETw==
   dependencies:
     core-js "^3.6.5"
@@ -6242,7 +6233,7 @@ js-message@1.0.7:
 
 js-snip@^1.2.0:
   version "1.2.0"
-  resolved "https://registry.yarnpkg.com/js-snip/-/js-snip-1.2.0.tgz#fd3daf3a31abee98a284d94e64b669d1c8bee526"
+  resolved "https://registry.npmjs.org/js-snip/-/js-snip-1.2.0.tgz"
   integrity sha512-zGBNAM0xTHPNWXxwQipjER1sAvHYaXy8aOOV1EuOEErhyB+gLv+j/OZbhUvaGG5sMoCK8CsHD0ZX3UpgKTk05g==
 
 js-stringify@^1.0.1:
@@ -6252,7 +6243,7 @@ js-stringify@^1.0.1:
 
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"
-  resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
+  resolved "https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz"
   integrity sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==
 
 js-yaml@^3.13.0, js-yaml@^3.13.1:
@@ -6497,7 +6488,7 @@ locate-path@^5.0.0:
 
 lodash-es@4.17.21:
   version "4.17.21"
-  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.21.tgz#43e626c46e6591b7750beb2b50117390c609e3ee"
+  resolved "https://registry.npmjs.org/lodash-es/-/lodash-es-4.17.21.tgz"
   integrity sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==
 
 lodash.assign@^4.2.0:
@@ -6594,7 +6585,7 @@ longest@^1.0.1:
 
 loose-envify@^1.2.0:
   version "1.4.0"
-  resolved "https://registry.yarnpkg.com/loose-envify/-/loose-envify-1.4.0.tgz#71ee51fa7be4caec1a63839f7e682d8132d30caf"
+  resolved "https://registry.npmjs.org/loose-envify/-/loose-envify-1.4.0.tgz"
   integrity sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==
   dependencies:
     js-tokens "^3.0.0 || ^4.0.0"
@@ -6957,9 +6948,9 @@ mz@^2.4.0:
     thenify-all "^1.0.0"
 
 nan@^2.12.1:
-  version "2.17.0"
-  resolved "https://registry.yarnpkg.com/nan/-/nan-2.17.0.tgz#c0150a2368a182f033e9aa5195ec76ea41a199cb"
-  integrity sha512-2ZTgtl0nJsO0KQCjEpxcIr5D+Yv90plTitZt9JBfQvVJDS5seMl3FOvsh3+9CoYWXf/1l5OaZzzF6nDm4cagaQ==
+  version "2.22.2"
+  resolved "https://registry.yarnpkg.com/nan/-/nan-2.22.2.tgz#6b504fd029fb8f38c0990e52ad5c26772fdacfbb"
+  integrity sha512-DANghxFkS1plDdRsX0X9pm0Z6SJNN6gBdtXfanwoZ8hooC5gosGFSBGRYHUVPz1asKA/kMRqDRdHrluZ61SpBQ==
 
 nanoid@^3.3.6:
   version "3.3.6"
@@ -8835,7 +8826,7 @@ serialize-javascript@^4.0.0:
 
 serialize-javascript@^5.0.1:
   version "5.0.1"
-  resolved "https://registry.yarnpkg.com/serialize-javascript/-/serialize-javascript-5.0.1.tgz#7886ec848049a462467a97d3d918ebb2aaf934f4"
+  resolved "https://registry.npmjs.org/serialize-javascript/-/serialize-javascript-5.0.1.tgz"
   integrity sha512-SaaNal9imEO737H2c05Og0/8LUXG7EnsZyMa8MzkmuHoELfT6txuj0cMqRj6zfPKnmQ1yasR4PCJc8x+M4JSPA==
   dependencies:
     randombytes "^2.1.0"
@@ -9681,7 +9672,7 @@ token-stream@0.0.1:
 
 tooltip.js@^1.1.2:
   version "1.3.3"
-  resolved "https://registry.yarnpkg.com/tooltip.js/-/tooltip.js-1.3.3.tgz#2ad0d77bb6776a76e117eac0afcd3c7d3a237121"
+  resolved "https://registry.npmjs.org/tooltip.js/-/tooltip.js-1.3.3.tgz"
   integrity sha512-XWWuy/dBdF/F/YpRE955yqBZ4VdLfiTAUdOqoU+wJm6phJlMpEzl/iYHZ+qJswbeT9VG822bNfsETF9wzmoy5A==
   dependencies:
     popper.js "^1.0.2"
@@ -10032,7 +10023,7 @@ v-money@^0.8.1:
 
 v-tooltip@2.0.0-beta.1:
   version "2.0.0-beta.1"
-  resolved "https://registry.yarnpkg.com/v-tooltip/-/v-tooltip-2.0.0-beta.1.tgz#9d09a4ea96054ebfe268bf0b50c7845fd5d64b5b"
+  resolved "https://registry.npmjs.org/v-tooltip/-/v-tooltip-2.0.0-beta.1.tgz"
   integrity sha512-NNNDhEDf9VtMNqLOKJjw5hv73WEw1+Y3GzHEjF/oESHExzsa/3sBgOPBN89hF/9oViSXMGkmRUN6CXtk1cJGyA==
   dependencies:
     tooltip.js "^1.1.2"
@@ -10058,7 +10049,7 @@ validate-npm-package-license@^3.0.1:
 
 vanilla-colorful@0.7.2:
   version "0.7.2"
-  resolved "https://registry.yarnpkg.com/vanilla-colorful/-/vanilla-colorful-0.7.2.tgz#3fb1f4b9f15b797e20fd1ce8e0364f33b073f4a2"
+  resolved "https://registry.npmjs.org/vanilla-colorful/-/vanilla-colorful-0.7.2.tgz"
   integrity sha512-z2YZusTFC6KnLERx1cgoIRX2CjPRP0W75N+3CC6gbvdX5Ch47rZkEMGO2Xnf+IEmi3RiFLxS18gayMA27iU7Kg==
 
 vary@~1.1.2:
@@ -10097,7 +10088,7 @@ vue-apexcharts@^1.6.0:
 
 vue-avatar@^2.3.3:
   version "2.3.3"
-  resolved "https://registry.yarnpkg.com/vue-avatar/-/vue-avatar-2.3.3.tgz#e125bf4f4a6f4f9480da0c522020266a8609d2a8"
+  resolved "https://registry.npmjs.org/vue-avatar/-/vue-avatar-2.3.3.tgz"
   integrity sha512-Z57ILRTkFIAuCH9JiFBxX74C5zua5ub/jRDM/KZ+QKXNfscvmUOgWBs3kA2+wrpZMowIvfLHIT0gvQu1z+zpLg==
 
 vue-axios@^3.4.1:
@@ -10107,7 +10098,7 @@ vue-axios@^3.4.1:
 
 vue-booklet@^2.3.3:
   version "2.3.3"
-  resolved "https://registry.yarnpkg.com/vue-booklet/-/vue-booklet-2.3.3.tgz#bc1235ff862dbb7fb7e530291f69e050c74c6b8d"
+  resolved "https://registry.npmjs.org/vue-booklet/-/vue-booklet-2.3.3.tgz"
   integrity sha512-owlL9IggKAkPx0hu9RHIHFodOQBzUEHAZLrbe+3oldVtfYAA5Mpe6vddT3Jj22NUL0JJnOzJ81IKJJsaP0qlmA==
   dependencies:
     js-yaml "^3.13.1"
@@ -10117,7 +10108,7 @@ vue-booklet@^2.3.3:
 
 vue-browser-geolocation@^1.8.0:
   version "1.8.0"
-  resolved "https://registry.yarnpkg.com/vue-browser-geolocation/-/vue-browser-geolocation-1.8.0.tgz#dd7e1e7d7627e52cfecd322f81a1a20c3bd072dc"
+  resolved "https://registry.npmjs.org/vue-browser-geolocation/-/vue-browser-geolocation-1.8.0.tgz"
   integrity sha512-fI9fqQg1v5HP5LUR3juWIvWRIlyrqYrGDmXB8aux+mLnOV4V9c423InmTFK3UyRS0yHoBUGNIWO0GVufeczfNw==
   dependencies:
     vue "^2.0.1"
@@ -10147,7 +10138,7 @@ vue-chartjs@^3.5.1:
 
 vue-choropleth@^0.3.1:
   version "0.3.1"
-  resolved "https://registry.yarnpkg.com/vue-choropleth/-/vue-choropleth-0.3.1.tgz#05c7a86a5622cec59cac0ae91198d4570202eeee"
+  resolved "https://registry.npmjs.org/vue-choropleth/-/vue-choropleth-0.3.1.tgz"
   integrity sha512-JGzoWzmJew42V//jcoIpk9dxkH7IFWhpkF+k0D7VXJvSV/uxr/jEqFSiOC7iCyP+nCxqAjrIz6pXo3w7STxBdg==
   dependencies:
     chroma-js "^1.3.4"
@@ -10175,7 +10166,7 @@ vue-cli-plugin-i18n@~1.0.1:
 
 vue-clickaway@^2.1.0:
   version "2.2.2"
-  resolved "https://registry.yarnpkg.com/vue-clickaway/-/vue-clickaway-2.2.2.tgz#cecf6839575e8b2afc5d3edb3efb616d293dbb44"
+  resolved "https://registry.npmjs.org/vue-clickaway/-/vue-clickaway-2.2.2.tgz"
   integrity sha512-25SpjXKetL06GLYoLoC8pqAV6Cur9cQ//2g35GRFBV4FgoljbZZjTINR8g2NuVXXDMLSUXaKx5dutgO4PaDE7A==
   dependencies:
     loose-envify "^1.2.0"
@@ -10220,7 +10211,7 @@ vue-eslint-parser@^5.0.0:
 
 vue-fab@^2.3.1:
   version "2.3.1"
-  resolved "https://registry.yarnpkg.com/vue-fab/-/vue-fab-2.3.1.tgz#5f36c8595f6ceff576b01b97a40817fdf262bd85"
+  resolved "https://registry.npmjs.org/vue-fab/-/vue-fab-2.3.1.tgz"
   integrity sha512-suC4T0gfvDussE1HQ5+ts8D4VknKTiKJqZqDXCtaAc5ithkZYDk5HN7+qS/Svoj2GTaJc3jpG91aLWUgdd+YUw==
   dependencies:
     v-tooltip "2.0.0-beta.1"
@@ -10229,9 +10220,9 @@ vue-fab@^2.3.1:
     vue-ripple-directive "^1.0.0"
 
 vue-flatpickr-component@^11.0.3:
-  version "11.0.3"
-  resolved "https://registry.yarnpkg.com/vue-flatpickr-component/-/vue-flatpickr-component-11.0.3.tgz#774ec62156daa90efb8df5d540f1eaf5bcbb93f6"
-  integrity sha512-SYNW/lqK1q9gzr5kQpNDwnlgUIDnXJpG1AmoDxVyOYVtUD7mLaDU1w+MJLFI644NYtwh9NrCt5LpojlsjtbvqA==
+  version "11.0.5"
+  resolved "https://registry.npmjs.org/vue-flatpickr-component/-/vue-flatpickr-component-11.0.5.tgz"
+  integrity sha512-Vfwg5uVU+sanKkkLzUGC5BUlWd5wlqAMq/UpQ6lI2BCZq0DDrXhOMX7hrevt8bEgglIq2QUv0K2Nl84Me/VnlA==
   dependencies:
     flatpickr "^4.6.13"
 
@@ -10247,7 +10238,7 @@ vue-functional-data-merge@^3.1.0:
 
 vue-google-charts@^1.1.0:
   version "1.1.0"
-  resolved "https://registry.yarnpkg.com/vue-google-charts/-/vue-google-charts-1.1.0.tgz#bcd1e113ff5c305f3d3df7e52c4c778b947dc953"
+  resolved "https://registry.npmjs.org/vue-google-charts/-/vue-google-charts-1.1.0.tgz"
   integrity sha512-wGAgAynIIUKmP5eJUFlx69e8gjIDpyqHlVsvFyrnd2tGZk3a6FI83dRhdssxPyOc9y41+2QEfqUV9SsR+n6s5A==
 
 vue-highlightjs@^1.3.3:
@@ -10317,10 +10308,10 @@ vue-meta@^2.4.0:
   dependencies:
     deepmerge "^4.2.2"
 
-vue-multiselect@^2.1.6:
-  version "2.1.7"
-  resolved "https://registry.npmjs.org/vue-multiselect/-/vue-multiselect-2.1.7.tgz"
-  integrity sha512-KIegcN+Ntwg3cbkY/jhw2s/+XJUM0Lpi/LcKFYCS8PrZHcWBl2iKCVze7ZCnRj3w8H7/lUJ9v7rj9KQiNxApBw==
+vue-multiselect@^2.1.9:
+  version "2.1.9"
+  resolved "https://registry.npmjs.org/vue-multiselect/-/vue-multiselect-2.1.9.tgz"
+  integrity sha512-nGEppmzhQQT2iDz4cl+ZCX3BpeNhygK50zWFTIRS+r7K7i61uWXJWSioMuf+V/161EPQjexI8NaEBdUlF3dp+g==
 
 vue-notification@^1.3.20:
   version "1.3.20"
@@ -10348,7 +10339,7 @@ vue-recaptcha@^2.0.2:
 
 vue-ripple-directive@^1.0.0:
   version "1.1.1"
-  resolved "https://registry.yarnpkg.com/vue-ripple-directive/-/vue-ripple-directive-1.1.1.tgz#3399ea5c49f28899eea53d226f51ccacd27f202b"
+  resolved "https://registry.npmjs.org/vue-ripple-directive/-/vue-ripple-directive-1.1.1.tgz"
   integrity sha512-W25CDdrgopuRdAwmjEeBtmJMTvbHkoze7jn8qWVwLHXBj8yBRZc05O4OCTYqjwZLO1hrclMQ467wahb6wbRCZg==
   dependencies:
     vue "^2.2.1"
@@ -10380,7 +10371,7 @@ vue-simple-drawer@^1.0.6:
 
 vue-slick-carousel@^1.0.6:
   version "1.0.6"
-  resolved "https://registry.yarnpkg.com/vue-slick-carousel/-/vue-slick-carousel-1.0.6.tgz#8fbfe59a233b0fb7777e4934b60bbdf0a6a24f96"
+  resolved "https://registry.npmjs.org/vue-slick-carousel/-/vue-slick-carousel-1.0.6.tgz"
   integrity sha512-1CN/hpWC8m1U/eO7Kuc71jntJqdg6Z/ieLji21OPfQUhs8ZYnnGhQSu1covpa3IyuovM9T5puPCVgexs3DDF5A==
   dependencies:
     enquire.js "2.1.6"
@@ -10400,9 +10391,9 @@ vue-slide-bar@^1.2.0:
     vue "^2.5.22"
 
 vue-snip@^2.0.0:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/vue-snip/-/vue-snip-2.0.1.tgz#cc7399edb929c8f00986fa86329bb5d47617861d"
-  integrity sha512-d4cH1Hq5behslipCQ3Bj0LRCiWhqS5pZsmx+98Xm+ZIxp/VwIbX4KE+/2v8Xc4c/GYQwGo7qvL0j8MOhE5Md7A==
+  version "2.0.2"
+  resolved "https://registry.npmjs.org/vue-snip/-/vue-snip-2.0.2.tgz"
+  integrity sha512-Mk7Qud3+rw3KyoC78hnKDHMV1rnj0X4zhb+Owx1E6zVWZ5JGoI4Z9278p9VJVlY+WsztimbFqynjwO/wmdAVsg==
   dependencies:
     js-snip "^1.2.0"
 
@@ -10479,7 +10470,7 @@ vue2-datepicker@^3.8.2:
 
 vue2-dropzone@^3.6.0:
   version "3.6.0"
-  resolved "https://registry.yarnpkg.com/vue2-dropzone/-/vue2-dropzone-3.6.0.tgz#b4bb4b64de1cbbb3b88f04b24878e06780a51546"
+  resolved "https://registry.npmjs.org/vue2-dropzone/-/vue2-dropzone-3.6.0.tgz"
   integrity sha512-YXC1nCWIZvfa98e/i6h+EshZCkFSxFEh0Sxr9ODfThAPPDVhAzLLlz/4XIx0NGO1QeSy6htwSstte47R7vVhLQ==
   dependencies:
     dropzone "^5.5.1"
@@ -10494,7 +10485,7 @@ vue2-google-maps@^0.10.7:
 
 vue2-leaflet@2.1.1:
   version "2.1.1"
-  resolved "https://registry.yarnpkg.com/vue2-leaflet/-/vue2-leaflet-2.1.1.tgz#33ec8920bd1e273b312209a84ce355021226ee79"
+  resolved "https://registry.npmjs.org/vue2-leaflet/-/vue2-leaflet-2.1.1.tgz"
   integrity sha512-boJIObTHJOtiLqPDtcL8FdQMr/PLDyZ6/InQBU13mcmNtn4/hvzbyqLmVtvWbRFeGOifAMkJBlbj3gLjrhFdmw==
 
 vue2-leaflet@^2.6.0:
@@ -10510,15 +10501,7 @@ vue2-scrollspy@^2.3.1:
     "@tweenjs/tween.js" "^17.2.0"
     babel-runtime "^6.26.0"
 
-vue@^2.0.1, vue@^2.2.1, vue@^2.3.3:
-  version "2.7.15"
-  resolved "https://registry.yarnpkg.com/vue/-/vue-2.7.15.tgz#94cd34e6e9f22cd2d35a02143f96a5beac1c1f54"
-  integrity sha512-a29fsXd2G0KMRqIFTpRgpSbWaNBK3lpCTOLuGLEDnlHWdjB8fwl6zyYZ8xCrqkJdatwZb4mGHiEfJjnw0Q6AwQ==
-  dependencies:
-    "@vue/compiler-sfc" "2.7.15"
-    csstype "^3.1.0"
-
-vue@^2.2.6, vue@^2.4.4, vue@^2.5.13, vue@^2.5.17, vue@^2.5.22, vue@^2.6.10, vue@^2.6.11, vue@^2.6.12, vue@^2.6.14:
+vue@^2.0.1, vue@^2.2.1, vue@^2.2.6, vue@^2.3.3, vue@^2.4.4, vue@^2.5.13, vue@^2.5.17, vue@^2.5.22, vue@^2.6.10, vue@^2.6.11, vue@^2.6.12, vue@^2.6.14:
   version "2.7.14"
   resolved "https://registry.npmjs.org/vue/-/vue-2.7.14.tgz"
   integrity sha512-b2qkFyOM0kwqWFuQmgd4o+uHGU7T+2z3T+WQp8UBjADfEv2n4FEMffzBmCKNP0IGzOEEfYjvtcC62xaSKeQDrQ==
