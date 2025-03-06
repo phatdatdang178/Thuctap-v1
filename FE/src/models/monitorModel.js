@@ -11,6 +11,10 @@ const toJson = (item, listMenu) => {
       time:item.time,
       callTimes:item.callTimes,
       name: item.name,
+      specificTimes:item.specificTimes,
+      startTime:item.startTime,
+      endTime:item.endTime,
+      callFrequency:item.callFrequency,
       isActive:item.isActive
     };
   };
@@ -27,6 +31,10 @@ const toJson = (item, listMenu) => {
         time:item.time,
         callTimes:item.callTimes,
         name: item.name,
+        specificTimes:item.specificTimes,
+        startTime:item.startTime,
+        endTime:item.endTime,
+        callFrequency:item.callFrequency,
         isActive:item.isActive
     };
   };
@@ -55,7 +63,7 @@ const toJson = (item, listMenu) => {
     return [];
   };
 
-  export const doanhNghiepModel = {
+  export const monitorModel = {
     toJson,
     fromJson,
     baseJson,
