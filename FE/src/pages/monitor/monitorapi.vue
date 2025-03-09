@@ -251,7 +251,18 @@ export default {
                 <template #cell(phuongThuc)="row">
                   {{ row.item.phuongThuc?.name || "Không xác định" }}
                 </template>
-                <template #cell(trangThai)="row">{{ row.item.trangThai?.name || "N/A" }}</template>
+                <template #cell(name)="row">
+                  <span :class="{ 'text-danger': row.item.trangThai?.name !== 'Thành công' }">
+                    {{ row.item.name }}
+                  </span>
+                </template>
+
+                <template #cell(trangThai)="row">
+                  <span :class="{ 'text-danger': row.item.trangThai?.name !== 'Thành công' }">
+                    {{ row.item.trangThai?.name || "N/A" }}
+                  </span>
+                </template>
+
                 <template #cell(actions)="row">
                   <b-button size="sm" variant="danger">Xóa</b-button>
                 </template>

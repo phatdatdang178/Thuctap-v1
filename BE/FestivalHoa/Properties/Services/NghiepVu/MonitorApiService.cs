@@ -392,7 +392,14 @@ namespace FestivalHoa.Properties.Services.NghiepVu
             {
                 var filter = Builders<MonitorApiModel>.Filter.Empty;
                 var allRecords = await _context.APIDB.Find(filter).ToListAsync();
-                return allRecords;
+
+                // Sắp xếp API thất bại lên đầu, sau đó là theo thời gian giảm dần
+                var sortedRecords = allRecords
+                    .OrderBy(api => api.Code == "200") // Code khác 200 sẽ lên đầu (giả định thành công là "200")
+                    .ThenByDescending(api => api.Time) // Sau đó sắp xếp theo thời gian giảm dần
+                    .ToList();
+
+                return sortedRecords;
             }
             catch (Exception ex)
             {
@@ -401,6 +408,7 @@ namespace FestivalHoa.Properties.Services.NghiepVu
                     .WithMessage("Lỗi khi lấy lịch sử call: " + ex.Message);
             }
         }
+
 
         #endregion
         #region Get All Schedule
