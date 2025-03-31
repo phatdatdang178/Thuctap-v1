@@ -127,7 +127,7 @@ export default {
         <div class="col-12">
           <div class="card">
             <div class="">
-              <img src="@/assets/images/BANNER.png" alt="" style="width: 100%;">
+              <img src="@/assets/images/banner2.jpg" alt="" style="width: 100%;">
             </div>
           </div>
         </div>

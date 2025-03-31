@@ -7,19 +7,23 @@ using FestivalHoa.Properties.Interfaces.NghiepVu;
 using FestivalHoa.Properties.Constants;
 using System.Threading.Tasks;
 using FestivalHoa.Properties.Helpers;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FestivalHoa.Properties.Controllers.NghiepVu
 {
     [Route("api/v1/[controller]")]
+    [Authorize]
     public class MonitorApiController : ControllerBase
     {
         private readonly IMonitorApiService _monitorApiService;
         private readonly IMonitorApiService _scheduleService;
+        private readonly IMonitorApiService _exportCallHistoryToExcel;
 
-        public MonitorApiController(IMonitorApiService monitorApiService, IMonitorApiService scheduleService)
+        public MonitorApiController(IMonitorApiService monitorApiService, IMonitorApiService scheduleService, IMonitorApiService exportCallHistoryToExcel)
         {
             _monitorApiService = monitorApiService;
             _scheduleService = scheduleService;
+            _exportCallHistoryToExcel= exportCallHistoryToExcel;
         }
 
 
@@ -44,6 +48,7 @@ namespace FestivalHoa.Properties.Controllers.NghiepVu
         }
 
         [HttpPost("create-schedule")]
+        
         public async Task<IActionResult> CreateSchedule([FromBody] ScheduleApiCallRequest request)
         {
             try
@@ -79,6 +84,7 @@ namespace FestivalHoa.Properties.Controllers.NghiepVu
             }
         }
         [HttpGet("get-all-call-history")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetAllCallHistory()
         {
             try
@@ -117,5 +123,19 @@ namespace FestivalHoa.Properties.Controllers.NghiepVu
                     .WithDetail(ex.Error));
             }
         }
+        [HttpGet("export-excel")]
+        public async Task<IActionResult> ExportExcel()
+        {
+            try
+            {
+                var fileBytes = await _monitorApiService.ExportCallHistoryToExcel();
+                return File(fileBytes, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "LichSuGoiAPI.xlsx");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = "Lỗi khi xuất Excel: " + ex.Message });
+            }
+        }
+
     }
 }

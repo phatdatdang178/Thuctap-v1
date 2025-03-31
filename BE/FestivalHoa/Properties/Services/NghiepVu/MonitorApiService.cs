@@ -20,6 +20,8 @@ using Newtonsoft.Json.Linq;
 using FestivalHoa.Properties.Extensions;
 using FestivalHoa.Properties.Installers;
 using FestivalHoa.Properties.Models.Core;
+using System.IO;
+using ClosedXML.Excel;
 
 namespace FestivalHoa.Properties.Services.NghiepVu
 {
@@ -108,7 +110,6 @@ namespace FestivalHoa.Properties.Services.NghiepVu
                     Name = trangThaiEntity.Name,
                 },
                 Time = DateTime.UtcNow.AddHours(7),
-                CallTimes = model.CallTimes,
                 Name = model.Name,
                 PhuongThuc = model.PhuongThuc, // Lưu phương thức dựa trên Name
                 BodyParams = model.BodyParams,
@@ -278,7 +279,7 @@ namespace FestivalHoa.Properties.Services.NghiepVu
         public async Task ResumeScheduledCalls()
         {
             // Lấy tất cả các record lịch từ DB (collection SCHEDUL)
-            var records = await _scheduledCallCollection.Find(Builders<ScheduleApiCallRequest>.Filter.Empty).ToListAsync();
+            var records = await _scheduledCallCollection.Find(Builders<ScheduleApiCallRequest   >.Filter.Empty).ToListAsync();
             foreach (var record in records)
             {
                 if (record.SpecificTimes != null)
@@ -462,6 +463,58 @@ namespace FestivalHoa.Properties.Services.NghiepVu
             await job.Execute(context);
         }
 
+        #endregion
+        #region
+        public async Task<byte[]> ExportCallHistoryToExcel()
+        {
+            var history = await GetAllCallHistory(); // Lấy danh sách lịch sử gọi API
+
+            using (var workbook = new XLWorkbook())
+            {
+                var worksheet = workbook.Worksheets.Add("Lịch sử gọi API");
+
+                // Tạo tiêu đề cột
+                worksheet.Cell(1, 1).Value = "STT";
+                worksheet.Cell(1, 2).Value = "URL";
+                worksheet.Cell(1, 3).Value = "Phương thức";
+                worksheet.Cell(1, 4).Value = "Thời gian gọi";
+                worksheet.Cell(1, 5).Value = "Trạng thái";
+                worksheet.Cell(1, 6).Value = "Mã phản hồi";
+                worksheet.Cell(1, 7).Value = "Ghi chú";
+
+                // Định dạng tiêu đề
+                var headerRange = worksheet.Range("A1:G1");
+                headerRange.Style.Font.Bold = true;
+                headerRange.Style.Fill.BackgroundColor = XLColor.LightGray;
+                headerRange.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+
+                // Điền dữ liệu vào file Excel
+                int row = 2;
+                int index = 1;
+                foreach (var record in history)
+                {
+                    worksheet.Cell(row, 1).Value = index++;
+                    worksheet.Cell(row, 2).Value = record.Url;
+                    worksheet.Cell(row, 3).Value = record.PhuongThuc?.Name ?? "N/A";
+                    worksheet.Cell(row, 4).Value = record.Time?.ToString("yyyy-MM-dd HH:mm:ss") ?? "N/A";
+                    worksheet.Cell(row, 5).Value = record.TrangThai?.Name ?? "N/A";
+                    worksheet.Cell(row, 6).Value = record.Code;
+                    worksheet.Cell(row, 7).Value = record.GhiChu;
+
+                    row++;
+                }
+
+                // Tự động điều chỉnh độ rộng cột
+                worksheet.Columns().AdjustToContents();
+
+                // Xuất file Excel ra dạng byte[]
+                using (var stream = new MemoryStream())
+                {
+                    workbook.SaveAs(stream);
+                    return stream.ToArray();
+                }
+            }
+        }
         #endregion
     }
 }

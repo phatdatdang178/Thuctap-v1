@@ -9,7 +9,7 @@ export default {
   components: { Layout, PageHeader, Multiselect, DatePicker },
   data() {
     return {
-      title: "Giám sát API",
+      title: "Lên lịch gọi api",
       items: [{ text: "Monitor", href: "/monitor" }, { text: "Gọi API & Lịch trình", active: true }],
       fields: [
         { key: "name", label: "Tên API", sortable: true },
@@ -61,16 +61,6 @@ export default {
     removeSpecificTime(index) {
       this.scheduleRequest.specificTimes.splice(index, 1);
     },
-    async getCallHistory() {
-      try {
-        let response = await this.$store.dispatch("monitorStore/getallcallHistory");
-        console.log(" Lịch sử API:", response.data);
-        this.itemsData = response.data;
-      } catch (error) {
-        console.error(" Lỗi lấy lịch sử API:", error);
-      }
-    },
-
     async create() {
       try {
         if (!this.selectedPhuongThuc || !this.selectedPhuongThuc.name) {
@@ -91,13 +81,11 @@ export default {
         await this.$store.dispatch("monitorStore/create", requestData);
         this.$bvToast.toast("Gọi API thành công", { variant: "success" });
 
-        this.getCallHistory();
       } catch (error) {
         console.error("Lỗi khi gọi API:", error);
         this.$bvToast.toast("Lỗi khi gọi API", { variant: "danger" });
       }
     },
-
     async schedule() {
       try {
         if (!this.selectedSchedulePhuongThuc || !this.selectedSchedulePhuongThuc.name) {
@@ -131,7 +119,6 @@ export default {
         await this.$store.dispatch("monitorStore/createSchedule", scheduleData);
         this.$bvToast.toast("Lên lịch API thành công", { variant: "success" });
 
-        this.getCallHistory();
       } catch (error) {
         console.error("Lỗi khi lên lịch API:", error);
         this.$bvToast.toast("Lỗi khi lên lịch API", { variant: "danger" });
@@ -165,115 +152,55 @@ export default {
   },
 
   mounted() {
-    this.getCallHistory();
     this.getDropdownData();
   }
 };
 </script>
 <template>
   <Layout>
-    <div class="row">
+    <div class="container-fluid">
       <PageHeader :title="title" :items="items" />
-      <div>
-        <b-tabs content-class="mt-3">
-          <b-tab title="Gọi API" active>
-            <div class="row">
-              <div class=" col-6">
-                <b-card title="Gọi API">
-                  <b-form @submit.prevent="create">
-                    <b-form-group label="Phương thức API">
-                      <multiselect v-model="selectedPhuongThuc" :options="listPhuongThuc" label="name" track-by="name"
-                        placeholder="Chọn phương thức API" />
-                    </b-form-group>
-                    <b-form-group label="Tên API">
-                      <b-form-input v-model="apiRequest.name" required></b-form-input>
-                    </b-form-group>
-                    <b-form-group label="URL">
-                      <b-form-input v-model="apiRequest.url" required></b-form-input>
-                    </b-form-group>
-                    <b-form-group label="Body (JSON)">
-                      <b-form-textarea v-model="apiRequest.body" rows="5" required></b-form-textarea>
-                    </b-form-group>
-                    <b-button type="submit" variant="primary">Gọi API</b-button>
-                  </b-form>
-                </b-card>
-              </div>
-              <div class=" col-6">
-                <b-card title="Lịch gọi API">
-                  <b-form @submit.prevent="schedule">
-                    <b-form-group label="Phương thức API">
-                      <multiselect v-model="selectedSchedulePhuongThuc" :options="listPhuongThuc" label="name"
-                        track-by="name" placeholder="Chọn phương thức API" />
-                    </b-form-group>
-                    <b-form-group label="Tên API">
-                      <b-form-input v-model="scheduleRequest.name" required />
-                    </b-form-group>
-                    <b-form-group label="URL">
-                      <b-form-input v-model="scheduleRequest.url" required />
-                    </b-form-group>
-                    <b-form-group label="Body (JSON)">
-                      <b-form-textarea v-model="scheduleRequest.body" rows="5" required></b-form-textarea>
-                    </b-form-group>
-                    <b-form-group label="Giờ gọi cụ thể">
-                      <div v-for="(time, index) in scheduleRequest.specificTimes" :key="index"
-                        class="d-flex align-items-center">
-                        <date-picker v-model="scheduleRequest.specificTimes[index]" type="time" format="HH:mm"
-                          value-type="format" placeholder="Chọn giờ gọi" />
-                        <b-button variant="danger" size="sm" class="ml-2"
-                          @click="removeSpecificTime(index)">X</b-button>
-                      </div>
-                      <b-button variant="success" size="sm" class="mt-2" @click="addSpecificTime">+ Thêm giờ</b-button>
-                    </b-form-group>
-
-                    <div class="row">
-                      <div class="col-6 mt-3">
-                        <date-picker v-model="scheduleRequest.startTime" type="time" format="HH:mm" value-type="format"
-                          placeholder="Chọn giờ bắt đầu" />
-                      </div>
-                      <div class="col-6 mt-3">
-                        <date-picker v-model="scheduleRequest.endTime" type="time" format="HH:mm" value-type="format"
-                          placeholder="Chọn giờ kết thúc" />
-                      </div>
-                    </div>
-                    <b-form-group label="Số lần gọi">
-                      <b-form-input v-model="scheduleRequest.callFrequency" required />
-                    </b-form-group>
-                    <b-button class="mt-3" type="submit" variant="success">Lên lịch API</b-button>
-                  </b-form>
-                </b-card>
-              </div>
+      <b-card>
+        <b-form @submit.prevent="schedule">
+          <b-form-group label="Tên API">
+            <b-form-input v-model="scheduleRequest.name" required />
+          </b-form-group>
+          <div class="row">
+            <b-form-group class="col-md-3 col-sm-12" label="Phương thức API">
+              <multiselect v-model="selectedSchedulePhuongThuc" :options="listPhuongThuc" label="name" track-by="name" placeholder="Chọn phương thức API" />
+            </b-form-group>
+            <b-form-group class="col-md-9 col-sm-12" label="URL">
+              <b-form-input v-model="scheduleRequest.url" required />
+            </b-form-group>
+          </div>
+          <b-form-group class="mt-3" label="Body (JSON)">
+            <b-form-textarea v-model="scheduleRequest.body" rows="5" required></b-form-textarea>
+          </b-form-group>
+          <b-form-group class="mt-3" label="Giờ gọi cụ thể">
+            <div v-for="(time, index) in scheduleRequest.specificTimes" :key="index" class="d-flex align-items-center mb-2">
+              <date-picker v-model="scheduleRequest.specificTimes[index]" type="time" format="HH:mm" value-type="format" placeholder="Chọn giờ gọi" class="flex-grow-1" />
+              <b-button variant="danger" size="sm" class="m-2" @click="removeSpecificTime(index)">X</b-button>
             </div>
-          </b-tab>
-          <b-tab title="Lịch sử gọi API">
-            <b-card>
-              <b-table :items="filteredItems" :fields="fields" striped bordered responsive>
-                <template #cell(time)="row">{{ formatDate(row.item.time) }}</template>
-                <template #cell(phuongThuc)="row">
-                  {{ row.item.phuongThuc?.name || "Không xác định" }}
-                </template>
-                <template #cell(name)="row">
-                  <span :class="{ 'text-danger': row.item.trangThai?.name !== 'Thành công' }">
-                    {{ row.item.name }}
-                  </span>
-                </template>
-
-                <template #cell(trangThai)="row">
-                  <span :class="{ 'text-danger': row.item.trangThai?.name !== 'Thành công' }">
-                    {{ row.item.trangThai?.name || "N/A" }}
-                  </span>
-                </template>
-
-                <template #cell(actions)="row">
-                  <b-button size="sm" variant="danger">Xóa</b-button>
-                </template>
-              </b-table>
-            </b-card>
-          </b-tab>
-        </b-tabs>
-      </div>
+            <b-button class="cs-btn-primary " variant="success" size="sm" @click="addSpecificTime">+ Thêm giờ</b-button>
+          </b-form-group>
+          <div class="row">
+            <div class="col-md-6 col-sm-12 mt-3">
+              <date-picker v-model="scheduleRequest.startTime" type="time" format="HH:mm" value-type="format" placeholder="Chọn giờ bắt đầu" class="w-100" />
+            </div>
+            <div class="col-md-6 col-sm-12 mt-3">
+              <date-picker v-model="scheduleRequest.endTime" type="time" format="HH:mm" value-type="format" placeholder="Chọn giờ kết thúc" class="w-100" />
+            </div>
+          </div>
+          <b-form-group class="mt-3" label="Số lần gọi">
+            <b-form-input v-model="scheduleRequest.callFrequency" type="number" min="1" required />
+          </b-form-group>
+          <b-button  class="mt-3 cs-btn-primary" type="submit" variant="success" block>Lên lịch API</b-button>
+        </b-form>
+      </b-card>
     </div>
   </Layout>
 </template>
+
 <style>
 .table th {
   text-align: center;

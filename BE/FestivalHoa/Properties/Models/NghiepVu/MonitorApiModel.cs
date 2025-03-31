@@ -18,7 +18,5 @@ namespace FestivalHoa.Properties.Models.NghiepVu
         public string GhiChu { get; set; }
         public string Code { get; set; }
         public DateTime? Time { get; set; }
-        public List<string> CallTimes { get; set; } = new(); // Danh sách thời gian (HH:mm)
-        public bool IsActive { get; set; } = true; // Cho phép bật/tắt lịch
     }
 }

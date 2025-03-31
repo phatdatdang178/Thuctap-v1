@@ -251,7 +251,7 @@ export default {
                     </div>
                   </div>
                 </div>
-                    <div class="table-responsive-sm">
+                    <div class="">
                       <b-table
                           class="datatables table-admin"
                           :items="myProvider"

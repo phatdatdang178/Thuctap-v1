@@ -67,8 +67,6 @@ namespace FestivalHoa.Properties.Controllers.Core
                 );
             }
         }
-      
-
         [HttpPost]
         [Route("add-action")]
         public async Task<IActionResult> AddAC([FromBody] MenuList model)

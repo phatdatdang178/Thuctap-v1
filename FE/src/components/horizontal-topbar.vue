@@ -693,7 +693,7 @@ export default {
         <b-dropdown right variant="black" toggle-class="header-item">
           <template v-slot:button-content>
             <img
-              class="rounded-circle header-profile-user"
+              class="rounded-circle "
               src="@/assets/images/users/avatar-1.jpg"
               alt="Header Avatar"
             />

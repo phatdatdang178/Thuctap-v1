@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FestivalHoa")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+721258393b5218f070434192a469034ee8082396")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4c326c4deae1a6fdc5a0a604b5dad3c409c5854b")]
 [assembly: System.Reflection.AssemblyProductAttribute("FestivalHoa")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FestivalHoa")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

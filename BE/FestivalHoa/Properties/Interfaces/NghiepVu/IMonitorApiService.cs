@@ -17,6 +17,7 @@ namespace FestivalHoa.Properties.Interfaces.NghiepVu
         Task ScheduleJobAt(ScheduleApiCallRequest request, TimeSpan scheduledTime);
 
         Task Execute(IJobExecutionContext context);
+        Task<byte[]> ExportCallHistoryToExcel();
 
         Task<List<MonitorApiModel>> GetAllCallHistory();
         Task<List<ScheduleApiCallRequest>> GetAllSchedule();

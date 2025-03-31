@@ -23,7 +23,7 @@ export default [
     path: "/",
     name: "default",
     meta: {},
-    component: () => import("../pages/congdan/home"),
+    component: () => import("../pages/monitor/home-api"),
   },
   {
     path: "/bg",
@@ -32,9 +32,19 @@ export default [
     component: () => import("../pages/congdan/background"),
   },
   {
-    path: "/monitor",
-    name: "monitor",
-    component: () => import("../pages/monitor/monitorapi"),
+    path: "/goiapi",
+    name: "goiapi",
+    component: () => import("../pages/monitor/goiapi"),
+  },
+  {
+    path: "/lenlichgoi",
+    name: "lenlichgoi",
+    component: () => import("../pages/monitor/lenlichgoi"),
+  },
+  {
+    path: "/lichsugoi",
+    name: "lichsugoi",
+    component: () => import("../pages/monitor/lichsugoi"),
   },
 
   // QUAN TRI

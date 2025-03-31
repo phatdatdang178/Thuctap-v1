@@ -20,5 +20,8 @@ export const actions = {
   async getAllMethod({ commit }) {
     return apiClient.get(controller + "/get-all-method");
   },
+  async exportExcel({ commit }) {
+    return apiClient.get(controller + "/export-excel", { responseType: "blob" });
+  }
 };
 

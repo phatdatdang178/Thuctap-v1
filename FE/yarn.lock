@@ -1326,22 +1326,29 @@
   resolved "https://registry.npmjs.org/@firebase/webchannel-wrapper/-/webchannel-wrapper-0.5.1.tgz"
   integrity sha512-dZMzN0uAjwJXWYYAcnxIwXqRTZw3o14hGe7O6uhwjD1ZQWPVYA5lASgnNskEBra0knVBsOXB4KXg+HnlKewN/A==
 
+"@fortawesome/fontawesome-common-types@6.7.2":
+  version "6.7.2"
+  resolved "https://registry.npmjs.org/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-6.7.2.tgz"
+  integrity sha512-Zs+YeHUC5fkt7Mg1l6XTniei3k4bwG/yo3iFUtZWd/pMx9g3fdvkSK9E0FOC+++phXOka78uJcYb8JaFkW52Xg==
+
 "@fortawesome/fontawesome-common-types@^0.2.36":
   version "0.2.36"
   resolved "https://registry.npmjs.org/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.2.36.tgz"
   integrity sha512-a/7BiSgobHAgBWeN7N0w+lAhInrGxksn13uK7231n2m8EDPE3BMCl9NZLTGrj9ZXfCmC6LM0QLqXidIizVQ6yg==
 
-"@fortawesome/fontawesome-common-types@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.npmjs.org/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.3.0.tgz"
-  integrity sha512-CA3MAZBTxVsF6SkfkHXDerkhcQs0QPofy43eFdbWJJkZiq3SfiaH1msOkac59rQaqto5EqWnASboY1dBuKen5w==
-
 "@fortawesome/fontawesome-svg-core@^1.2.28":
-  version "1.3.0"
-  resolved "https://registry.npmjs.org/@fortawesome/fontawesome-svg-core/-/fontawesome-svg-core-1.3.0.tgz"
-  integrity sha512-UIL6crBWhjTNQcONt96ExjUnKt1D68foe3xjEensLDclqQ6YagwCRYVQdrp/hW0ALRp/5Fv/VKw+MqTUWYYvPg==
+  version "1.2.36"
+  resolved "https://registry.npmjs.org/@fortawesome/fontawesome-svg-core/-/fontawesome-svg-core-1.2.36.tgz"
+  integrity sha512-YUcsLQKYb6DmaJjIHdDWpBIGCcyE/W+p/LMGvjQem55Mm2XWVAP5kWTMKWLv9lwpCVjpLxPyOMOyUocP1GxrtA==
   dependencies:
-    "@fortawesome/fontawesome-common-types" "^0.3.0"
+    "@fortawesome/fontawesome-common-types" "^0.2.36"
+
+"@fortawesome/fontawesome-svg-core@^6.7.2":
+  version "6.7.2"
+  resolved "https://registry.npmjs.org/@fortawesome/fontawesome-svg-core/-/fontawesome-svg-core-6.7.2.tgz"
+  integrity sha512-yxtOBWDrdi5DD5o1pmVdq3WMCvnobT0LU6R8RyyVXPvFRd2o79/0NCuQoCjNTeZz9EzA9xS3JxNWfv54RIHFEA==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "6.7.2"
 
 "@fortawesome/free-brands-svg-icons@^5.13.0":
   version "5.15.4"
@@ -1350,12 +1357,26 @@
   dependencies:
     "@fortawesome/fontawesome-common-types" "^0.2.36"
 
+"@fortawesome/free-brands-svg-icons@^6.7.2":
+  version "6.7.2"
+  resolved "https://registry.npmjs.org/@fortawesome/free-brands-svg-icons/-/free-brands-svg-icons-6.7.2.tgz"
+  integrity sha512-zu0evbcRTgjKfrr77/2XX+bU+kuGfjm0LbajJHVIgBWNIDzrhpRxiCPNT8DW5AdmSsq7Mcf9D1bH0aSeSUSM+Q==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "6.7.2"
+
 "@fortawesome/free-regular-svg-icons@^5.13.0":
   version "5.15.4"
   resolved "https://registry.npmjs.org/@fortawesome/free-regular-svg-icons/-/free-regular-svg-icons-5.15.4.tgz"
   integrity sha512-9VNNnU3CXHy9XednJ3wzQp6SwNwT3XaM26oS4Rp391GsxVYA+0oDR2J194YCIWf7jNRCYKjUCOduxdceLrx+xw==
   dependencies:
     "@fortawesome/fontawesome-common-types" "^0.2.36"
+
+"@fortawesome/free-regular-svg-icons@^6.7.2":
+  version "6.7.2"
+  resolved "https://registry.npmjs.org/@fortawesome/free-regular-svg-icons/-/free-regular-svg-icons-6.7.2.tgz"
+  integrity sha512-7Z/ur0gvCMW8G93dXIQOkQqHo2M5HLhYrRVC0//fakJXxcF1VmMPsxnG6Ee8qEylA8b8Q3peQXWMNZ62lYF28g==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "6.7.2"
 
 "@fortawesome/free-solid-svg-icons@^5.13.0":
   version "5.15.4"
@@ -1364,10 +1385,22 @@
   dependencies:
     "@fortawesome/fontawesome-common-types" "^0.2.36"
 
+"@fortawesome/free-solid-svg-icons@^6.7.2":
+  version "6.7.2"
+  resolved "https://registry.npmjs.org/@fortawesome/free-solid-svg-icons/-/free-solid-svg-icons-6.7.2.tgz"
+  integrity sha512-GsBrnOzU8uj0LECDfD5zomZJIjrPhIlWU82AHwa2s40FKH+kcxQaBvBo3Z4TxyZHIyX8XTDxsyA33/Vx9eFuQA==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "6.7.2"
+
 "@fortawesome/vue-fontawesome@^0.1.9":
   version "0.1.10"
   resolved "https://registry.npmjs.org/@fortawesome/vue-fontawesome/-/vue-fontawesome-0.1.10.tgz"
   integrity sha512-b2+SLF31h32LSepVcXe+BQ63yvbq5qmTCy4KfFogCYm2bn68H5sDWUnX+U7MBqnM2aeEk9M7xSoqGnu+wSdY6w==
+
+"@fortawesome/vue-fontawesome@^2.0.10":
+  version "2.0.10"
+  resolved "https://registry.npmjs.org/@fortawesome/vue-fontawesome/-/vue-fontawesome-2.0.10.tgz"
+  integrity sha512-OTETSXz+3ygD2OK2/vy82cmUBpuJqeOAg4gfnnv+f2Rir1tDIhQg026Q3NQxznq83ZLz8iNqGG9XJm26inpDeg==
 
 "@fullcalendar/bootstrap@^5.3.1":
   version "5.11.5"
@@ -10463,7 +10496,7 @@ vue-verification-code-input@^1.0.0:
 
 vue2-datepicker@^3.11.1:
   version "3.11.1"
-  resolved "https://registry.yarnpkg.com/vue2-datepicker/-/vue2-datepicker-3.11.1.tgz#b2124e15f694d0fd43a92558f6929ec29338d241"
+  resolved "https://registry.npmjs.org/vue2-datepicker/-/vue2-datepicker-3.11.1.tgz"
   integrity sha512-6PU/+pnp2mgZAfnSXmbdwj9516XsEvTiw61Q5SNrvvdy8W/FCxk1GAe9UZn/m9YfS5A47yK6XkcjMHbp7aFApA==
   dependencies:
     date-format-parse "^0.2.7"
@@ -10518,7 +10551,7 @@ vuedraggable@^2.20.0, vuedraggable@^2.24.3:
 
 vuejs-datepicker@^1.6.2:
   version "1.6.2"
-  resolved "https://registry.yarnpkg.com/vuejs-datepicker/-/vuejs-datepicker-1.6.2.tgz#83c1e8fd4108e7f1d01c061a7e344918f25e47ae"
+  resolved "https://registry.npmjs.org/vuejs-datepicker/-/vuejs-datepicker-1.6.2.tgz"
   integrity sha512-PkC4vxzFBo7i6FSCUAJfnaWOx6VkKbOqxijSGHHlWxh8FIUKEZVtFychkonVWtK3iwWfhmYtqHcwsmgxefLpLQ==
 
 vuelidate@^0.7.6:

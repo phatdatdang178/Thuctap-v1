@@ -17,7 +17,7 @@ body {
 }
 
 .text-primary {
-    color: #b50027 !important;
+    color: #000046 !important;
 }
 
 .text-secondary {
@@ -25,11 +25,11 @@ body {
 }
 
 .cs-bg-primary {
-    background-color: #b50027 !important;
+    background-color: #000046 !important;
 }
 
 .background-primary {
-    color-primary: #b50027 !important;
+    color-primary: #000046 !important;
 }
 
 .cs-btn-primary {
@@ -48,12 +48,12 @@ body {
 .cs-btn-primary:hover {
     color: #fff !important;
     /*background-color: #103672;*/
-    background: linear-gradient(180deg, #ffafbe, #b50027) !important;
+    background: linear-gradient(180deg, #1CB5E0, #000046) !important;
     border-color: rgba(255, 255, 255, 0);
 }
 
 .color-primary {
-    color: #b50027 !important;
+    color: #000046 !important;
 }
 
 .cs-btn-secondary {
@@ -70,7 +70,7 @@ body {
 
 .cs-btn-outline-danger {
     color: #fff !important;
-    background-color: #f5515f !important;
+    background-color: #519ef5 !important;
     border: none;
 }
 
@@ -97,7 +97,7 @@ body {
 
 /* Chỉnh button ở dưới table */
 .pagination-rounded .page-item.active .page-link {
-    background-color: #b50027 !important;
+    background-color: #000046 !important;
 }
 
 /* ------------------------- */
@@ -247,7 +247,7 @@ body {
 
 /* Xử lý chỗ head trên table */
 .table thead{
-    background-color: rgb(216 38 110) !important;
+    background-color: #000046 !important;
 }
 .table thead th,
 thead,
@@ -291,8 +291,8 @@ th {
 /*menu custom*/
 
 #sidebar-menu .mm-active .active {
-    border: 1px solid rgb(216, 38, 110);
-    background-color: rgb(216, 38, 110, 0.4);
+    border: 1px solid #000046;
+    background-color: #000046;
     /* background: linear-gradient(90deg, rgba(220, 20, 60, 0.4), rgba(8, 41, 87, 0)); */
     font-weight: bold;
     border-radius: 10px;
@@ -411,7 +411,7 @@ th {
 }
 
 .table> :not(caption)>*>* {
-    background-color: rgba(222, 55, 122, 0.111) !important;
+    background-color: rgba(102, 55, 222, 0.111) !important;
 }
 
 table tbody tr:nth-child(odd) td {
@@ -443,14 +443,14 @@ table tbody tr:nth-child(odd) td {
 .cs-btn-primary {
     color: #fff;
     /*background-color: #2b569a;*/
-    background-color: rgb(216 38 110) !important;
+    background-color: #000046 !important;
     border: none;
 }
 
 .cs-btn-primary:hover {
     color: #fff !important;
     /*background-color: #103672;*/
-    background-color: #b50027 !important;
+    background-color: #000046 !important;
     border-color: rgba(255, 255, 255, 0);
 }
 

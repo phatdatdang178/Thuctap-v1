@@ -92,24 +92,24 @@ export default {
 </script>
 <template>
   <header id="page-topbar" >
-    <div class="navbar-header" style="background: rgb(216 38 110)">
+    <div class="navbar-header" style="background: #000046">
       <div class="d-flex">
         <!-- LOGO -->
         <div class="navbar-brand-box">
           <router-link to="/" class="logo logo-dark">
             <span class="logo-sm">
-              <img src="@/assets/images/logo-con.png" alt height="22" />
+              <img src="@/assets/images/logoapi-rmbg.png" alt height="22" />
             </span>
             <span class="logo-lg">
-              <img src="@/assets/images/logo-con.png" alt height="17" />
+              <img src="@/assets/images/logoapi-rmbg.png" alt height="17" />
             </span>
           </router-link>
           <router-link to="/" class="logo logo-light">
             <span class="logo-sm">
-              <img src="@/assets/images/logo-con.png" alt height="30" />
+              <img src="@/assets/images/logoapi-rmbg.png" alt height="30" />
             </span>
             <span class="logo-lg">
-              <img src="@/assets/images/logo-con.png" alt height="55" />
+              <img src="@/assets/images/logoapi-rmbg.png" alt height="55" />
             </span>
           </router-link>
         </div>
@@ -124,7 +124,7 @@ export default {
         <!-- App Search-->
         <form class="app-search" style="display: flex; justify-content: center; align-items: center">
           <div class="text-white" style="font-weight: bold; font-size: 15px">
-            FESTIVAL HOA KIỂNG SA ĐÉC
+            HỆ THỐNG GIÁM SÁT API
           </div>
         </form>
        </div>
@@ -137,7 +137,7 @@ export default {
             @click="initFullScreen"
             style="margin-top:5px"
           >
-            <i class="bx bx-fullscreen"></i>
+          <i class='bx bx-fullscreen ' ></i>
           </button>
         </div>
         <b-dropdown
@@ -149,19 +149,7 @@ export default {
           <template v-slot:button-content>
             <span>
               <span v-if=" currentUserAuth != null && currentUserAuth.avatar" >
-                <b-img
-                       :src=" url + `${currentUserAuth.avatar}`"
-                       alt="Avatar"
-                       class="rounded-circle header-profile-user mb-3 logo-con"
-                >
-                </b-img>
-              </span>
-              <span v-else>
-                <img
-                  class="rounded-circle header-profile-user mb-3"
-                  src="@/assets/images/avatar-default.png"
-                  alt="Avatar"
-                />
+                <i class='bx bxs-user-circle' style=" font-size: 30px; color: #fff;"></i>
               </span>
             </span>&nbsp;
             <span class="d-none d-xl-inline-block ms-1 mt-3">

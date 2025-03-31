@@ -205,7 +205,7 @@ export default {
     <!-- Left Menu Start -->
     <ul id="side-menu" class="metismenu list-unstyled">
       <template v-for="item in menu">
-        <li class="menu-title" v-if="item != null && item.isTitle" :key="item._id" style="color: #204b03n">
+        <li class="menu-title" v-if="item != null && item.isTitle" :key="item._id" style="color: #2948ff">
           <i class="mdi mdi-star" aria-hidden="true"></i>
           {{ item.name}}
           <i class="mdi mdi-star" aria-hidden="true"></i>
@@ -250,26 +250,26 @@ export default {
 </template>
 <style type="text/css" scoped>
 .mm-active > a {
-  color: #000 !important;
+  color: white !important;
 }
 #sidebar-menu ul li a:hover {
-  color: rgb(181, 0, 39);
+  color: #000046;
 }
 .mm-active > a i {
-  color: #000 !important;
+  color: white !important;
 }
 #sidebar-menu > ul > li > a:hover i {
-  color: rgb(181, 0, 39);
+  color: #000046;
 }
 #sidebar-menu ul li a:hover i {
-  color: rgb(181, 0, 39);
+  color: #000046;
 }
 .side-nav-link-ref {
   padding-left: 35px !important;
 }
 .menu-title{
   font-size: 14px !important;
-  color: #000;
+  color: white;
 }
 </style>
 
