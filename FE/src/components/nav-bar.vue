@@ -73,6 +73,7 @@ export default {
         localStorage.removeItem("user-token");
         localStorage.removeItem("auth-user");
         localStorage.removeItem("menuItems");
+        localStorage.removeItem("currentMenuId");
         let checkTabData = localStorage.getItem("TabData");
         if(checkTabData){
           localStorage.removeItem("TabData");

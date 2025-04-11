@@ -46,6 +46,7 @@
     "metismenujs": "^1.2.1",
     "moment": "^2.29.2",
     "pdf-viewer-vue": "^0.2.7",
+    "pinia": "^3.0.2",
     "sass": "^1.30.0",
     "sass-loader": "^10.1.0",
     "simplebar-vue": "^1.6.0",

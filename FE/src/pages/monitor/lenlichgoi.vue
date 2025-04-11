@@ -12,7 +12,7 @@ export default {
       title: "Lên lịch gọi api",
       items: [{ text: "Monitor", href: "/monitor" }, { text: "Gọi API & Lịch trình", active: true }],
       fields: [
-        { key: "name", label: "Tên API", sortable: true },
+        { key: "name", label: "Tên API", sortable: true, },
         { key: "url", label: "URL", sortable: true },
         { key: "time", label: "Thời gian", sortable: true },
         { key: "trangThai", label: "Trạng thái", sortable: true },
@@ -165,10 +165,16 @@ export default {
           <b-form-group label="Tên API">
             <b-form-input v-model="scheduleRequest.name" required />
           </b-form-group>
+          <div v-if="submitted && $v.scheduleRequest.name.$error" class="invalid-feedback">
+                <span v-if="!$v.scheduleRequest.name.required">Tên api không được để trống.</span>
+              </div>
           <div class="row">
             <b-form-group class="col-md-3 col-sm-12" label="Phương thức API">
               <multiselect v-model="selectedSchedulePhuongThuc" :options="listPhuongThuc" label="name" track-by="name" placeholder="Chọn phương thức API" />
             </b-form-group>
+            <div v-if="submitted && $v.selectedSchedulePhuongThuc.$error" class="invalid-feedback">
+                <span v-if="!$v.selectedSchedulePhuongThuc.required">Phương thức không được để trống.</span>
+              </div>
             <b-form-group class="col-md-9 col-sm-12" label="URL">
               <b-form-input v-model="scheduleRequest.url" required />
             </b-form-group>

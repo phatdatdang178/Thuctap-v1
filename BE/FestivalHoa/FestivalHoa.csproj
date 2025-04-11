@@ -36,6 +36,7 @@
 
     <ItemGroup>
       <Folder Include="Properties\Files\QRCode\" />
+      <Folder Include="Properties\TemplateFiles\" />
     </ItemGroup>
 
 </Project>

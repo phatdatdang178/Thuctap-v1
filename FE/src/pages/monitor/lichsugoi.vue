@@ -12,10 +12,12 @@ export default {
       title: "Lịch sử gọi API",
       items: [{ text: "Monitor", href: "/monitor" }, { text: "Gọi API & Lịch trình", active: true }],
       fields: [
-        { key: "name", label: "Tên API", sortable: true },
+        { key: "name", label: "Tên API", sortable: true,thClass: 'hidden-sortable',
+        thStyle: {width: '100px', minWidth: '60px'}, },
         { key: "url", label: "URL", sortable: true },
         { key: "time", label: "Thời gian", sortable: true },
-        { key: "trangThai", label: "Trạng thái", sortable: true },
+        { key: "trangThai", label: "Trạng thái", sortable: false, thClass: 'hidden-sortable',
+        thStyle: {width: '100px', minWidth: '60px'}, },
         { key: "phuongThuc", label: "Phương thức", sortable: true },
         { key: "code", label: "Mã phản hồi", sortable: true },
         { key: "actions", label: "Thao tác" }

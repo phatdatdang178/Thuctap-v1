@@ -23,7 +23,7 @@ namespace FestivalHoa.Properties.Controllers.NghiepVu
         {
             _monitorApiService = monitorApiService;
             _scheduleService = scheduleService;
-            _exportCallHistoryToExcel= exportCallHistoryToExcel;
+            _exportCallHistoryToExcel = exportCallHistoryToExcel;
         }
 
 
@@ -48,7 +48,7 @@ namespace FestivalHoa.Properties.Controllers.NghiepVu
         }
 
         [HttpPost("create-schedule")]
-        
+
         public async Task<IActionResult> CreateSchedule([FromBody] ScheduleApiCallRequest request)
         {
             try
@@ -124,18 +124,32 @@ namespace FestivalHoa.Properties.Controllers.NghiepVu
             }
         }
         [HttpGet("export-excel")]
+        [Produces("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")]
         public async Task<IActionResult> ExportExcel()
         {
             try
             {
                 var fileBytes = await _monitorApiService.ExportCallHistoryToExcel();
-                return File(fileBytes, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "LichSuGoiAPI.xlsx");
+
+                if (fileBytes == null || fileBytes.Length == 0)
+                {
+                    return BadRequest(new ResultMessageResponse()
+                        .WithCode(DefaultCode.DATA_NOT_FOUND)
+                        .WithMessage("Không có dữ liệu để xuất Excel"));
+                }
+
+                return File(fileBytes,
+                           "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                           $"LichSuGoiAPI_{DateTime.Now:yyyyMMddHHmmss}.xlsx");
             }
-            catch (Exception ex)
+            catch (FileNotFoundException ex)
             {
-                return BadRequest(new { message = "Lỗi khi xuất Excel: " + ex.Message });
+                return NotFound(new ResultMessageResponse()
+                    .WithCode(DefaultCode.DATA_NOT_FOUND)
+                    .WithMessage(ex.Message));
             }
         }
 
     }
 }
+

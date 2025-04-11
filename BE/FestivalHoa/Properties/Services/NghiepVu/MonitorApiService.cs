@@ -25,7 +25,7 @@ using ClosedXML.Excel;
 
 namespace FestivalHoa.Properties.Services.NghiepVu
 {
-    public class MonitorApiService : IMonitorApiService
+    public class MonitorApiService :    IMonitorApiService
     {
         // Cho phép các job truy cập instance hiện tại (nếu sử dụng singleton)
         public static MonitorApiService Instance { get; private set; }
@@ -467,52 +467,118 @@ namespace FestivalHoa.Properties.Services.NghiepVu
         #region
         public async Task<byte[]> ExportCallHistoryToExcel()
         {
-            var history = await GetAllCallHistory(); // Lấy danh sách lịch sử gọi API
-
-            using (var workbook = new XLWorkbook())
+            try
             {
-                var worksheet = workbook.Worksheets.Add("Lịch sử gọi API");
+                var history = await GetAllCallHistory();
 
-                // Tạo tiêu đề cột
-                worksheet.Cell(1, 1).Value = "STT";
-                worksheet.Cell(1, 2).Value = "URL";
-                worksheet.Cell(1, 3).Value = "Phương thức";
-                worksheet.Cell(1, 4).Value = "Thời gian gọi";
-                worksheet.Cell(1, 5).Value = "Trạng thái";
-                worksheet.Cell(1, 6).Value = "Mã phản hồi";
-                worksheet.Cell(1, 7).Value = "Ghi chú";
-
-                // Định dạng tiêu đề
-                var headerRange = worksheet.Range("A1:G1");
-                headerRange.Style.Font.Bold = true;
-                headerRange.Style.Fill.BackgroundColor = XLColor.LightGray;
-                headerRange.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
-
-                // Điền dữ liệu vào file Excel
-                int row = 2;
-                int index = 1;
-                foreach (var record in history)
+                // Kiểm tra dữ liệu đầu vào
+                if (history == null || !history.Any())
                 {
-                    worksheet.Cell(row, 1).Value = index++;
-                    worksheet.Cell(row, 2).Value = record.Url;
-                    worksheet.Cell(row, 3).Value = record.PhuongThuc?.Name ?? "N/A";
-                    worksheet.Cell(row, 4).Value = record.Time?.ToString("yyyy-MM-dd HH:mm:ss") ?? "N/A";
-                    worksheet.Cell(row, 5).Value = record.TrangThai?.Name ?? "N/A";
-                    worksheet.Cell(row, 6).Value = record.Code;
-                    worksheet.Cell(row, 7).Value = record.GhiChu;
-
-                    row++;
+                    throw new ResponseMessageException()
+                        .WithCode(DefaultCode.DATA_NOT_FOUND)
+                        .WithMessage(DefaultMessage.DATA_NOT_FOUND);
                 }
 
-                // Tự động điều chỉnh độ rộng cột
-                worksheet.Columns().AdjustToContents();
+                string templatePath = Path.Combine(Directory.GetCurrentDirectory(),
+                                                 "Properties",
+                                                 "TemplateFiles",
+                                                 "Lichsucall.xlsx");
 
-                // Xuất file Excel ra dạng byte[]
-                using (var stream = new MemoryStream())
+                if (!File.Exists(templatePath))
                 {
-                    workbook.SaveAs(stream);
-                    return stream.ToArray();
+                    throw new FileNotFoundException("File template không tồn tại", templatePath);
                 }
+
+                using (var workbook = new XLWorkbook(templatePath))
+                {
+                    var worksheet = workbook.Worksheet("Sheet1");
+
+                    // Xác định dòng bắt đầu (sau tiêu đề)
+                    int startRow = 4;
+                    int lastTemplateRow = worksheet.LastRowUsed()?.RowNumber() ?? startRow;
+
+                    // Xóa dữ liệu cũ từ dòng startRow
+                    if (lastTemplateRow >= startRow)
+                    {
+                        // Xóa dữ liệu từ cột A (STT) đến F (Code)
+                        worksheet.Range(startRow, 1, lastTemplateRow, 6).Clear();
+                    }
+
+                    // Điền dữ liệu
+                    int currentRow = startRow;
+                    foreach (var record in history)
+                    {
+                        // Nếu vượt quá số dòng template, chèn thêm dòng mới
+                        if (currentRow > lastTemplateRow)
+                        {
+                            // Chèn dòng mới và copy định dạng từ dòng trước đó
+                            var rowToCopy = currentRow > startRow ? currentRow - 1 : startRow;
+                            worksheet.Row(rowToCopy).CopyTo(worksheet.Row(currentRow));
+                        }
+
+                        // Điền số thứ tự (STT)
+                        worksheet.Cell(currentRow, 1).Value = currentRow - startRow + 1;
+
+                        // Điền dữ liệu vào các cột (phù hợp với template)
+                        worksheet.Cell(currentRow, 2).Value = record.Name ?? "N/A";          // Cột B: Tên api
+                        worksheet.Cell(currentRow, 3).Value = record.Url ?? "N/A";           // Cột C: Url
+                        worksheet.Cell(currentRow, 4).Value = record.PhuongThuc?.Name ?? "N/A"; // Cột D: Phương thức
+                        worksheet.Cell(currentRow, 5).Value = record.TrangThai?.Name ?? "N/A";  // Cột E: Trạng thái
+                        worksheet.Cell(currentRow, 6).Value = record.Code ?? "N/A";           // Cột F: Code
+
+                        // Áp dụng wrap text cho các ô mới
+                        for (int col = 2; col <= 6; col++)
+                        {
+                            worksheet.Cell(currentRow, col).Style.Alignment.WrapText = true;
+                        }
+
+                        currentRow++;
+                    }
+
+                    // Xóa các dòng thừa nếu dữ liệu ít hơn template
+                    if (currentRow < lastTemplateRow)
+                    {
+                        for (int row = lastTemplateRow; row >= currentRow; row--)
+                        {
+                            worksheet.Row(row).Delete();
+                        }
+                    }
+
+                    // Tự động điều chỉnh độ rộng cột
+                    worksheet.Columns().AdjustToContents();
+
+                    // Định dạng bảng
+                    var lastRow = Math.Max(currentRow - 1, startRow);
+                    var range = worksheet.Range(startRow, 1, lastRow, 6);
+                    range.Style.Border.OutsideBorder = XLBorderStyleValues.Thin;
+                    range.Style.Border.InsideBorder = XLBorderStyleValues.Thin;
+
+                    using (var stream = new MemoryStream())
+                    {
+                        workbook.SaveAs(stream);
+                        return stream.ToArray();
+                    }
+                }
+            }
+            catch (ResponseMessageException e)
+            {
+                throw new ResponseMessageException()
+                    .WithCode(DefaultCode.EXCEPTION)
+                    .WithMessage(e.ResultString)
+                    .WithDetail(e.Error);
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("Object reference not set to an instance of an object."))
+                {
+                    throw new ResponseMessageException()
+                        .WithCode(DefaultCode.ERROR_STRUCTURE)
+                        .WithMessage("Cấu trúc gói tin không đúng quy định!");
+                }
+
+                throw new ResponseMessageException()
+                    .WithCode(DefaultCode.EXCEPTION)
+                    .WithMessage(ex.Message);
             }
         }
         #endregion

@@ -116,19 +116,32 @@ export default {
               <b-form-group label="Tên API">
                 <b-form-input v-model="apiRequest.name" required></b-form-input>
               </b-form-group>
+              <div v-if="submitted && $v.apiRequest.name.$error" class="invalid-feedback">
+                <span v-if="!$v.apiRequest.name.required">Tên api không được để trống.</span>
+              </div>
               <div class="row mt-3">
                 <b-form-group class="col-md-4 col-sm-12" label="Phương thức API">
-                  <multiselect v-model="selectedPhuongThuc" :options="listPhuongThuc" label="name" track-by="name" placeholder="Chọn phương thức API" />
+                  <multiselect v-model="selectedPhuongThuc" :options="listPhuongThuc" label="name" track-by="name"
+                    placeholder="Chọn phương thức API" />
                 </b-form-group>
+                <div v-if="submitted && $v.selectedPhuongThuc.$error" class="invalid-feedback">
+                  <span v-if="!$v.selectedPhuongThuc.required">Phương thức không được để trống.</span>
+                </div>
                 <b-form-group class="col-md-8 col-sm-12" label="URL">
                   <b-form-input v-model="apiRequest.url" required></b-form-input>
                 </b-form-group>
+                <div v-if="submitted && $v.apiRequest.url.$error" class="invalid-feedback">
+                  <span v-if="!$v.apiRequest.url.required">Url api không được để trống.</span>
+                </div>
               </div>
               <b-form-group class="mt-3" label="Body (JSON)">
                 <b-form-textarea v-model="apiRequest.body" rows="5" required></b-form-textarea>
               </b-form-group>
+                              <div v-if="submitted && $v.apiRequest.url.$error" class="invalid-feedback">
+                  <span v-if="!$v.apiRequest.url.required">Url api không được để trống.</span>
+                </div>
               <div class="text-center">
-                <b-button class="mt-3 cs-btn-primary" type="submit" variant="primary" >Gọi API</b-button>
+                <b-button class="mt-3 cs-btn-primary" type="submit" variant="primary">Gọi API</b-button>
               </div>
             </b-form>
           </b-card>
@@ -157,12 +170,12 @@ export default {
 }
 
 /* Màu cam khi aria-activedescendant là null-0 */
-.multiselect__input[aria-activedescendant="null-1"]+.multiselect__single {
+.multiselect__input[aria-activedescendant="null-0"]+.multiselect__single {
   color: orange;
 }
 
 /* Màu khác khi aria-activedescendant khác null-0 */
-.multiselect__input[aria-activedescendant="null-0"]+.multiselect__single {
+.multiselect__input[aria-activedescendant="null-1"]+.multiselect__single {
   color: rgb(10, 82, 10);
 }
 
