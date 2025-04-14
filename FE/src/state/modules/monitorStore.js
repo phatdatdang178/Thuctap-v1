@@ -21,7 +21,19 @@ export const actions = {
     return apiClient.get(controller + "/get-all-method");
   },
   async exportExcel({ commit }) {
-    return apiClient.get(controller + "/export-excel", { responseType: "blob" });
-  }
-};
+    return apiClient.get(controller + "/export-excel", {
+      responseType: "blob",
+    });
+  },
+  async delete({ commit }, id) {
+    return await apiClient.post(controller + "/delete" , id);
+  },
 
+  async getById({ commit }, id) {
+    return apiClient.post(controller + "/get-by-id", id);
+  },
+
+  async update({ commit }, id) {
+    return apiClient.post(controller + "/update", id);
+  },
+};

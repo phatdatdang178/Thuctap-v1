@@ -45,9 +45,8 @@ export default {
           key: 'process',
           label: 'Xử lý',
           class: 'text-center',
-          sortable: false,
-          thClass: 'hidden-sortable',
-          thStyle: {width: '100px', minWidth: '60px'},
+          sortable: true,
+          thStyle: {width: '100px', minWidth: '60px'},  
         }
       ],
       currentPage: 1,
@@ -389,7 +388,7 @@ export default {
                 </div>
                 <div class="table-responsive mb-0">
                   <b-table
-                      class="datatables table-admin"
+                      class="datatables   "
                       :items="myProvider"
                       :fields="fields"
                       striped

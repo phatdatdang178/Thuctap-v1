@@ -278,27 +278,50 @@ namespace FestivalHoa.Properties.Services.NghiepVu
         /// </summary>
         public async Task ResumeScheduledCalls()
         {
-            // Lấy tất cả các record lịch từ DB (collection SCHEDUL)
-            var records = await _scheduledCallCollection.Find(Builders<ScheduleApiCallRequest   >.Filter.Empty).ToListAsync();
-            foreach (var record in records)
+            try
             {
-                if (record.SpecificTimes != null)
+                // Lấy tất cả các record lịch từ DB (collection SCHEDUL)
+                var records = await _scheduledCallCollection.Find(Builders<ScheduleApiCallRequest>.Filter.Empty).ToListAsync();
+
+                if (records == null || !records.Any())
                 {
-                    foreach (var timeStr in record.SpecificTimes)
+                    // Không có record nào, bỏ qua
+                    return;
+                }
+
+                foreach (var record in records)
+                {
+                    if (record.SpecificTimes != null)
                     {
-                        if (TimeSpan.TryParse(timeStr, out TimeSpan ts))
+                        foreach (var timeStr in record.SpecificTimes)
                         {
-                            // Tính thời gian dự kiến cho ngày hôm nay dựa trên giá trị ts
-                            DateTime scheduledDateTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day,
-                                ts.Hours, ts.Minutes, 0);
-                            // Nếu thời gian này đã qua, lên lịch cho ngày mai
-                            if (scheduledDateTime < DateTime.Now)
-                                scheduledDateTime = scheduledDateTime.AddDays(1);
-                            // Re-schedule job với Cron trigger hàng ngày, sử dụng .TimeOfDay
-                            await ScheduleJobAt(record, scheduledDateTime.TimeOfDay);
+                            if (TimeSpan.TryParse(timeStr, out TimeSpan ts))
+                            {
+                                // Tính thời gian dự kiến cho ngày hôm nay dựa trên giá trị ts
+                                DateTime scheduledDateTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day,
+                                    ts.Hours, ts.Minutes, 0);
+                                // Nếu thời gian này đã qua, lên lịch cho ngày mai
+                                if (scheduledDateTime < DateTime.Now)
+                                    scheduledDateTime = scheduledDateTime.AddDays(1);
+                                // Re-schedule job với Cron trigger hàng ngày, sử dụng .TimeOfDay
+                                await ScheduleJobAt(record, scheduledDateTime.TimeOfDay);
+                            }
                         }
                     }
                 }
+            }
+            catch (Exception ex) when (ex is MongoException || ex is TimeoutException)
+            {
+                // Xử lý khi có lỗi kết nối MongoDB hoặc timeout
+                // Có thể log lỗi ở đây nếu cần
+                Console.WriteLine($"Không thể kết nối đến MongoDB: {ex.Message}");
+                return; // Bỏ qua chức năng này và tiếp tục chương trình
+            }
+            catch (Exception ex)
+            {
+                // Xử lý các lỗi khác nếu cần
+                Console.WriteLine($"Lỗi khi resume scheduled calls: {ex.Message}");
+                return; // Bỏ qua chức năng này và tiếp tục chương trình
             }
         }
 
