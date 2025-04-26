@@ -120,7 +120,7 @@ export default {
 .form-login {
     color: #000;
     min-height: 100vh;
-    background-image: linear-gradient(to right, #000046, #1CB5E0);
+    background-image: linear-gradient(to right, #0052D4, #1CB5E0);
     background-repeat: no-repeat;
 }
 
@@ -143,7 +143,7 @@ textarea:focus {
     -moz-box-shadow: none !important;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
-    border: 1px solid #000046 !important;
+    border: 1px solid #0052D4 !important;
     outline-width: 0;
     font-weight: 400;
 }
@@ -216,7 +216,7 @@ button:focus {
 .btn-color {
     border-radius: 50px;
     color: #fff;
-    background-image: linear-gradient(to right, #1CB5E0, #000046);
+    background-image: linear-gradient(to right, #1CB5E0, #0052D4);
     padding: 15px;
     cursor: pointer;
     border: none !important;
@@ -224,21 +224,21 @@ button:focus {
 
 .btn-color:hover {
     color: #fff;
-    background-image: linear-gradient(to right, #000046, #1CB5E0);
+    background-image: linear-gradient(to right, #0052D4, #1CB5E0);
 }
 
 .btn-white {
     border-radius: 50px;
-    color: #000046;
+    color: #0052D4;
     background-color: #fff;
     padding: 8px 40px;
     cursor: pointer;
-    border: 2px solid #000046 !important;
+    border: 2px solid #0052D4 !important;
 }
 
 .btn-white:hover {
     color: #fff;
-    background-image: linear-gradient(to right, #1CB5E0, #000046);
+    background-image: linear-gradient(to right, #1CB5E0, #0052D4);
 }
 
 a {
@@ -273,7 +273,7 @@ a:hover {
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
-    color: #000046;
+    color: #0052D4;
     font-size: 18px;
 }
 

@@ -205,10 +205,10 @@ export default {
     <!-- Left Menu Start -->
     <ul id="side-menu" class="metismenu list-unstyled">
       <template v-for="item in menu">
-        <li class="menu-title" v-if="item != null && item.isTitle" :key="item._id" style="color: #2948ff">
-          <i class="mdi mdi-star" aria-hidden="true"></i>
+        <li class="menu-title" v-if="item != null" :key="item._id" style="color: #0052D4">
+          
           {{ item.name}}
-          <i class="mdi mdi-star" aria-hidden="true"></i>
+          
         </li>
         <template v-if="hasItems(item)">
           <li v-for="(value) in item.children" :key="value._id">
@@ -253,16 +253,16 @@ export default {
   color: white !important;
 }
 #sidebar-menu ul li a:hover {
-  color: #000046;
+  color: #0052D4;
 }
 .mm-active > a i {
   color: white !important;
 }
 #sidebar-menu > ul > li > a:hover i {
-  color: #000046;
+  color: #0052D4;
 }
 #sidebar-menu ul li a:hover i {
-  color: #000046;
+  color: #0052D4;
 }
 .side-nav-link-ref {
   padding-left: 35px !important;

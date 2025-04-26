@@ -93,7 +93,7 @@ export default {
 </script>
 <template>
   <header id="page-topbar" >
-    <div class="navbar-header" style="background: #000046">
+    <div class="navbar-header" style="background: #0052D4">
       <div class="d-flex">
         <!-- LOGO -->
         <div class="navbar-brand-box">

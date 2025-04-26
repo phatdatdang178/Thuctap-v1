@@ -4,7 +4,6 @@ import PageHeader from "@/components/page-header";
 import Multiselect from "vue-multiselect";
 import DatePicker from "vue2-datepicker";
 
-
 export default {
   components: { Layout, PageHeader, Multiselect },
   data() {
@@ -21,6 +20,7 @@ export default {
         { key: "actions", label: "Thao tác" }
       ],
       itemsData: [],
+      submitted: false, // Add this line to fix the error
 
       apiRequest: {
         method: "",
@@ -56,6 +56,8 @@ export default {
 
   methods: {
     async create() {
+      this.submitted = true; // Set submitted to true when form is submitted
+      
       try {
         if (!this.selectedPhuongThuc || !this.selectedPhuongThuc.name) {
           this.$bvToast.toast("Vui lòng chọn phương thức API!", { variant: "warning" });

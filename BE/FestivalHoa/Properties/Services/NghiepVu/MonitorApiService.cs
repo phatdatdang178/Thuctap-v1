@@ -414,8 +414,12 @@ namespace FestivalHoa.Properties.Services.NghiepVu
         {
             try
             {
+
                 var filter = Builders<MonitorApiModel>.Filter.Empty;
+                var builder = Builders<MonitorApiModel>.Filter;
+                filter = builder.And(filter, builder.Eq("IsDeleted", false));
                 var allRecords = await _context.APIDB.Find(filter).ToListAsync();
+
 
                 // Sắp xếp API thất bại lên đầu, sau đó là theo thời gian giảm dần
                 var sortedRecords = allRecords

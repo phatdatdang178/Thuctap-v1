@@ -17,7 +17,7 @@ body {
 }
 
 .text-primary {
-    color: #000046 !important;
+    color: #0052D4 !important;
 }
 
 .text-secondary {
@@ -25,11 +25,11 @@ body {
 }
 
 .cs-bg-primary {
-    background-color: #000046 !important;
+    background-color: #0052D4 !important;
 }
 
 .background-primary {
-    color-primary: #000046 !important;
+    color-primary: #0052D4 !important;
 }
 
 .cs-btn-primary {
@@ -48,12 +48,12 @@ body {
 .cs-btn-primary:hover {
     color: #fff !important;
     /*background-color: #103672;*/
-    background: linear-gradient(180deg, #1CB5E0, #000046) !important;
+    background: linear-gradient(180deg, #1CB5E0, #0052D4) !important;
     border-color: rgba(255, 255, 255, 0);
 }
 
 .color-primary {
-    color: #000046 !important;
+    color: #0052D4 !important;
 }
 
 .cs-btn-secondary {
@@ -97,7 +97,7 @@ body {
 
 /* Chỉnh button ở dưới table */
 .pagination-rounded .page-item.active .page-link {
-    background-color: #000046 !important;
+    background-color: #0052D4 !important;
 }
 
 /* ------------------------- */
@@ -247,7 +247,7 @@ body {
 
 /* Xử lý chỗ head trên table */
 .table thead{
-    background-color: #000046 !important;
+    background-color: #0052D4 !important;
 }
 .table thead th,
 thead,
@@ -291,8 +291,8 @@ th {
 /*menu custom*/
 
 #sidebar-menu .mm-active .active {
-    border: 1px solid #000046;
-    background-color: #000046;
+    border: 1px solid #0052D4;
+    background-color: #0052D4;
     /* background: linear-gradient(90deg, rgba(220, 20, 60, 0.4), rgba(8, 41, 87, 0)); */
     font-weight: bold;
     border-radius: 10px;
@@ -443,14 +443,14 @@ table tbody tr:nth-child(odd) td {
 .cs-btn-primary {
     color: #fff;
     /*background-color: #2b569a;*/
-    background-color: #000046 !important;
+    background-color: #0052D4 !important;
     border: none;
 }
 
 .cs-btn-primary:hover {
     color: #fff !important;
     /*background-color: #103672;*/
-    background-color: #000046 !important;
+    background-color: #0052D4 !important;
     border-color: rgba(255, 255, 255, 0);
 }
 

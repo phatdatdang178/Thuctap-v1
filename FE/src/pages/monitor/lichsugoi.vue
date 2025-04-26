@@ -46,6 +46,7 @@ export default {
       showDeleteModal: false,
       showModal: false,
       isLoading: false,
+      submitted: false,
       listPhuongThuc: []
     };
   },
@@ -81,7 +82,7 @@ export default {
       
       this.isLoading = true;
       try {
-        const res = await this.$store.dispatch("monitorStore/delete", { 
+        const res = await this.$store.dispatch("monitorStore/deleted", { 
           _id: this.model._id 
         });
         

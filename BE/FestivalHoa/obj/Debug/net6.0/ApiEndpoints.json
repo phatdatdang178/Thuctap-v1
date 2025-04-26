@@ -576,6 +576,38 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "FestivalHoa.Properties.Controllers.Core.DefaultReposityController\u00601[[FestivalHoa.Properties.Models.NghiepVu.MonitorApiModel, FestivalHoa, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Delete",
+    "RelativePath": "api/v1/MonitorApi/delete",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "FestivalHoa.Properties.FromBodyModels.IdFromBodyModel",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FestivalHoa.Properties.Controllers.Core.DefaultReposityController\u00601[[FestivalHoa.Properties.Models.NghiepVu.MonitorApiModel, FestivalHoa, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Deleted",
+    "RelativePath": "api/v1/MonitorApi/deleted",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "FestivalHoa.Properties.FromBodyModels.IdFromBodyModel",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "FestivalHoa.Properties.Controllers.NghiepVu.MonitorApiController",
     "Method": "ExportExcel",
     "RelativePath": "api/v1/MonitorApi/export-excel",
@@ -596,6 +628,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "FestivalHoa.Properties.Controllers.Core.DefaultReposityController\u00601[[FestivalHoa.Properties.Models.NghiepVu.MonitorApiModel, FestivalHoa, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetAllData",
+    "RelativePath": "api/v1/MonitorApi/get-all-core",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "FestivalHoa.Properties.Controllers.NghiepVu.MonitorApiController",
     "Method": "GetAllSchedule",
     "RelativePath": "api/v1/MonitorApi/get-all-schedule",
@@ -603,6 +645,22 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FestivalHoa.Properties.Controllers.Core.DefaultReposityController\u00601[[FestivalHoa.Properties.Models.NghiepVu.MonitorApiModel, FestivalHoa, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetById",
+    "RelativePath": "api/v1/MonitorApi/get-by-id-core",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "FestivalHoa.Properties.FromBodyModels.IdFromBodyModel",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -616,6 +674,22 @@
       {
         "Name": "pagingParam",
         "Type": "FestivalHoa.Properties.Models.PagingParam.PagingParam",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FestivalHoa.Properties.Controllers.Core.DefaultReposityController\u00601[[FestivalHoa.Properties.Models.NghiepVu.MonitorApiModel, FestivalHoa, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetPagingCore",
+    "RelativePath": "api/v1/MonitorApi/get-paging-params-core",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pagingParam",
+        "Type": "FestivalHoa.Properties.Models.PagingParam.PagingParamDefault",
         "IsRequired": false
       }
     ],

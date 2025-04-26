@@ -8,23 +8,33 @@ using FestivalHoa.Properties.Constants;
 using System.Threading.Tasks;
 using FestivalHoa.Properties.Helpers;
 using Microsoft.AspNetCore.Authorization;
+using FestivalHoa.Properties.Controllers.Core;
+using FestivalHoa.Properties.Installers;
 
 namespace FestivalHoa.Properties.Controllers.NghiepVu
 {
     [Route("api/v1/[controller]")]
     [Authorize]
-    public class MonitorApiController : ControllerBase
+    public class MonitorApiController : DefaultReposityController<MonitorApiModel>
     {
         private readonly IMonitorApiService _monitorApiService;
         private readonly IMonitorApiService _scheduleService;
         private readonly IMonitorApiService _exportCallHistoryToExcel;
-
-        public MonitorApiController(IMonitorApiService monitorApiService, IMonitorApiService scheduleService, IMonitorApiService exportCallHistoryToExcel)
+        private DataContext _dataContext;
+        private static string NameCollection = DefaultNameCollection.LOGCALLAPI;
+        public MonitorApiController(
+            DataContext context,
+            IMonitorApiService monitorApiService,
+            IMonitorApiService scheduleService,
+            IMonitorApiService exportCallHistoryToExcel
+            ) : base(context, NameCollection)
         {
             _monitorApiService = monitorApiService;
             _scheduleService = scheduleService;
             _exportCallHistoryToExcel = exportCallHistoryToExcel;
+            _dataContext = context;
         }
+
 
 
         [HttpPost("create")]

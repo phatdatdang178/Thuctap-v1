@@ -25,6 +25,10 @@ export const actions = {
       responseType: "blob",
     });
   },
+  async deleted({ commit }, id) {
+    return await apiClient.post(controller + "/deleted" , id);
+  },
+
   async delete({ commit }, id) {
     return await apiClient.post(controller + "/delete" , id);
   },

@@ -109,6 +109,7 @@ export default {
           console.log("LOG UPDATE MENU :" ,this.model)
           await this.$store.dispatch("menuStore/update", this.model).then((res) => {
             if (res.code === 0) {
+              console.log("test: ")
               this.GetTreeList();
               this.showModal = false;
               this.model = {};

@@ -44,7 +44,8 @@ export default {
       selectedSchedulePhuongThuc: null,
       searchQuery: "",
       perPage: 10,
-      currentPage: 1
+      submitted: false,
+      currentPage: 1,
     };
   },
 
