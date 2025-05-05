@@ -11,7 +11,7 @@ export const actions = {
         return apiClient.post(controller + "/create", values);
     },
     async update({commit, dispatch}, values) {
-        return apiClient.put(controller + "/update", values);
+        return apiClient.post(controller + "/update", values);
     },
     async delete({commit}, id) {
         return await apiClient.post(controller + "/delete/" , id);

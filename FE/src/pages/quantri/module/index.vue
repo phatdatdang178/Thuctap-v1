@@ -169,7 +169,7 @@ export default {
       }
       this.submitted = false;
     },
-    myProvider (ctx) {
+    myProvider (ctx) {      
       const params = {
         start: ctx.currentPage,
         limit: ctx.perPage,

@@ -45,6 +45,7 @@
     "liquor-tree": "^0.2.70",
     "metismenujs": "^1.2.1",
     "moment": "^2.29.2",
+    "moment-timezone": "^0.5.48",
     "pdf-viewer-vue": "^0.2.7",
     "pinia": "^3.0.2",
     "sass": "^1.30.0",

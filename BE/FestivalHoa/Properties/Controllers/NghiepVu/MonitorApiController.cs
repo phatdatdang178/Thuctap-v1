@@ -5,37 +5,36 @@ using FestivalHoa.Properties.Models.PagingParam;
 using FestivalHoa.Properties.FromBodyModels;
 using FestivalHoa.Properties.Interfaces.NghiepVu;
 using FestivalHoa.Properties.Constants;
+using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using FestivalHoa.Properties.Helpers;
 using Microsoft.AspNetCore.Authorization;
 using FestivalHoa.Properties.Controllers.Core;
 using FestivalHoa.Properties.Installers;
+using FestivalHoa.Properties.Helpers;
 
 namespace FestivalHoa.Properties.Controllers.NghiepVu
 {
     [Route("api/v1/[controller]")]
-    [Authorize]
+
     public class MonitorApiController : DefaultReposityController<MonitorApiModel>
     {
         private readonly IMonitorApiService _monitorApiService;
         private readonly IMonitorApiService _scheduleService;
         private readonly IMonitorApiService _exportCallHistoryToExcel;
-        private DataContext _dataContext;
-        private static string NameCollection = DefaultNameCollection.LOGCALLAPI;
+        private static readonly string NameCollection = DefaultNameCollection.LOGCALLAPI;
+
         public MonitorApiController(
             DataContext context,
             IMonitorApiService monitorApiService,
             IMonitorApiService scheduleService,
             IMonitorApiService exportCallHistoryToExcel
-            ) : base(context, NameCollection)
+        ) : base(context, NameCollection)
         {
             _monitorApiService = monitorApiService;
             _scheduleService = scheduleService;
             _exportCallHistoryToExcel = exportCallHistoryToExcel;
-            _dataContext = context;
         }
-
-
 
         [HttpPost("create")]
         public async Task<IActionResult> Create([FromBody] MonitorApiModel model)
@@ -58,13 +57,14 @@ namespace FestivalHoa.Properties.Controllers.NghiepVu
         }
 
         [HttpPost("create-schedule")]
-
         public async Task<IActionResult> CreateSchedule([FromBody] ScheduleApiCallRequest request)
         {
             try
             {
                 await _monitorApiService.ScheduleApiCalls(request);
-                return Ok("Lịch gọi API đã được tạo thành công!");
+                return Ok(new ResultMessageResponse()
+                    .WithCode(DefaultCode.SUCCESS)
+                    .WithMessage("Lịch gọi API đã được tạo thành công!"));
             }
             catch (ResponseMessageException ex)
             {
@@ -80,19 +80,33 @@ namespace FestivalHoa.Properties.Controllers.NghiepVu
         {
             try
             {
-                var response = await _monitorApiService.GetPaging(pagingParam);
-                return Ok(new ResultMessageResponse()
-                    .WithData(response)
-                    .WithCode(DefaultCode.SUCCESS)
-                    .WithMessage(DefaultMessage.GET_DATA_SUCCESS));
+                // Gọi service phân trang dựa trên lịch sử call
+                var paged = await _monitorApiService.GetPaging(pagingParam);
+                return Ok(new
+                {
+                    code = 0,
+                    data = new
+                    {
+                        TotalRows = paged.TotalRows,
+                        Data = paged.Data
+                    }
+                });
             }
             catch (ResponseMessageException ex)
             {
                 return Ok(new ResultMessageResponse()
                     .WithCode(ex.ResultCode)
-                    .WithMessage(ex.ResultString));
+                    .WithMessage(ex.ResultString)
+                    .WithDetail(ex.Error));
+            }
+            catch (Exception ex)
+            {
+                return Ok(new ResultMessageResponse()
+                    .WithCode(DefaultCode.EXCEPTION)
+                    .WithMessage(ex.Message));
             }
         }
+
         [HttpGet("get-all-call-history")]
         [AllowAnonymous]
         public async Task<IActionResult> GetAllCallHistory()
@@ -133,6 +147,7 @@ namespace FestivalHoa.Properties.Controllers.NghiepVu
                     .WithDetail(ex.Error));
             }
         }
+
         [HttpGet("export-excel")]
         [Produces("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")]
         public async Task<IActionResult> ExportExcel()
@@ -140,17 +155,16 @@ namespace FestivalHoa.Properties.Controllers.NghiepVu
             try
             {
                 var fileBytes = await _monitorApiService.ExportCallHistoryToExcel();
-
                 if (fileBytes == null || fileBytes.Length == 0)
                 {
                     return BadRequest(new ResultMessageResponse()
                         .WithCode(DefaultCode.DATA_NOT_FOUND)
                         .WithMessage("Không có dữ liệu để xuất Excel"));
                 }
-
-                return File(fileBytes,
-                           "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-                           $"LichSuGoiAPI_{DateTime.Now:yyyyMMddHHmmss}.xlsx");
+                return File(
+                    fileBytes,
+                    "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                    $"LichSuGoiAPI_{DateTime.Now:yyyyMMddHHmmss}.xlsx");
             }
             catch (FileNotFoundException ex)
             {
@@ -159,7 +173,5 @@ namespace FestivalHoa.Properties.Controllers.NghiepVu
                     .WithMessage(ex.Message));
             }
         }
-
     }
 }
-

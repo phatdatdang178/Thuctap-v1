@@ -8,9 +8,9 @@ export const actions = {
   async createSchedule({ commit }, params) {
     return apiClient.post(controller + "/create-schedule", params);
   },
-  async getpagingParams({ commit }, params) {
-    return apiClient.post(controller + "/get-paging-params", params);
-  },
+    async getPagingParams({commit}, params) {
+        return apiClient.post(controller +"/get-paging-params-core", params);
+    },
   async getallcallHistory({ commit }) {
     return apiClient.get(controller + "/get-all-call-history");
   },

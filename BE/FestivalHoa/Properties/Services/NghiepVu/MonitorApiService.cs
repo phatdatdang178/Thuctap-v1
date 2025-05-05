@@ -353,59 +353,51 @@ namespace FestivalHoa.Properties.Services.NghiepVu
             }
         }
         #endregion
-        #region GetPaging (phân trang)
+        #region GetPaging (phân trang dựa trên lịch sử call)
+
         public async Task<dynamic> GetPaging(PagingParam pagingParam)
         {
-            // Khởi tạo đối tượng kết quả phân trang.
-            PagingModel<dynamic> result = new PagingModel<dynamic>();
+            // Kết quả phân trang
+            PagingModel<MonitorApiModel> result = new PagingModel<MonitorApiModel>();
 
-            // Tạo bộ lọc (filter) cho MongoDB: bắt đầu với filter rỗng.
-            var builder = Builders<MonitorApiModel>.Filter;
-            var filter = builder.Empty;
+            // Filter IsDeleted = false
+            var builder = Builders<MonitorApiModel>.Filter; 
+            var filter = builder.Eq(x => x.IsDeleted, false);
 
-            // Chỉ lấy những record mà IsDeleted = false.
-            filter = builder.And(filter, builder.Eq("IsDeleted", false));
-
-            // Nếu có lọc theo mã trạng thái (TrangThaiCode) được truyền vào,
-            // thêm điều kiện lọc vào filter.
+            // (Tuỳ chọn) lọc theo mã trạng thái
             if (!string.IsNullOrEmpty(pagingParam.TrangThaiCode))
             {
                 filter = builder.And(filter, builder.Eq("TrangThai.Code", pagingParam.TrangThaiCode));
             }
 
-            // Đếm tổng số bản ghi phù hợp với filter, lưu vào TotalRows.
-            result.TotalRows = await _context.APIDB.CountDocumentsAsync(filter);
+            // Đếm tổng số bản ghi
+            result.TotalRows = (int)await _context.APIDB.CountDocumentsAsync(filter);
 
-            // Xác định thứ tự sắp xếp dựa trên thuộc tính SortBy và SortDesc.
-            // Nếu SortBy được set thành "Time", thì sắp xếp theo trường Time.
-            // Nếu SortDesc là true, sắp xếp theo giảm dần (mới nhất trước); ngược lại, sắp xếp theo tăng dần (cũ nhất trước).
-            IFindFluent<MonitorApiModel, MonitorApiModel> query = _context.APIDB.Find(filter);
-            if (!string.IsNullOrEmpty(pagingParam.SortBy) && pagingParam.SortBy.Equals("Time", StringComparison.OrdinalIgnoreCase))
+            // Tạo query với sort theo Time hoặc CreatedAt
+            var query = _context.APIDB.Find(filter);
+            if (string.Equals(pagingParam.SortBy, "Time", StringComparison.OrdinalIgnoreCase))
             {
-                if (pagingParam.SortDesc)
-                {
-                    query = query.SortByDescending(x => x.Time);
-                }
-                else
-                {
-                    query = query.SortBy(x => x.Time);
-                }
+                query = pagingParam.SortDesc
+                    ? query.SortByDescending(x => x.Time)
+                    : query.SortBy(x => x.Time);
             }
             else
             {
-                // Nếu SortBy không được set hoặc không phải "Time", sử dụng "CreatedAt" mặc định.
-                // Giả sử mặc định sắp xếp theo CreatedAt giảm dần (mới nhất trước).
-                query = query.SortByDescending(x => x.CreatedAt)
-                             .ThenByDescending(x => x.CreatedAt);
+                // Mặc định sort giảm dần theo CreatedAt
+                query = query.SortByDescending(x => x.CreatedAt);
             }
 
-            // Áp dụng phân trang: bỏ qua số record tương ứng với Skip và giới hạn số record bằng Limit.
-            result.Data = await query.Skip(pagingParam.Skip)
-                                      .Limit(pagingParam.Limit)
-                                      .ToListAsync();
+            // Áp dụng skip/limit
+            var data = await query
+                .Skip(pagingParam.Skip)
+                .Limit(pagingParam.Limit)
+                .ToListAsync();
 
+            // Gán kết quả
+            result.Data = data;
             return result;
         }
+
         #endregion
 
         #region Get All Call History

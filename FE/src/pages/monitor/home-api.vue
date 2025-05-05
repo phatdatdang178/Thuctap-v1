@@ -1,6 +1,7 @@
 <script>
 import Vue from "vue";
 import { required } from "vuelidate/lib/validators";
+import { notifyModel } from "@/models/notifyModel";
 
 export default {
     data() {
@@ -8,10 +9,6 @@ export default {
             model: {
                 userName: "",
                 password: "",
-            },
-            modelAuth: {
-                isAuthError: false,
-                message: null
             },
             submitted: false,
             showPassword: false,
@@ -29,7 +26,9 @@ export default {
             this.$v.$touch();
 
             if (this.$v.$invalid) {
-                this.$notify({ group: "foo", type: "warn", text: "Vui lòng nhập đầy đủ tài khoản và mật khẩu" });
+                this.$store.dispatch("snackBarStore/addNotify", 
+                    notifyModel.addMessage({code: -1, message: "Vui lòng nhập đầy đủ tài khoản và mật khẩu"})
+                );
                 return;
             }
 
@@ -43,7 +42,9 @@ export default {
                     Vue.prototype.$auth_token = res.data.token;
 
                     // Hiện thông báo thành công
-                    this.$notify({ group: "foo", title: "Thành công", type: "success", text: "Đăng nhập thành công!" });
+                    this.$store.dispatch("snackBarStore/addNotify", 
+                        notifyModel.addMessage({code: 0, message: "Đăng nhập thành công"})
+                    );
 
                     // Chuyển trang sau 1 giây
                     setTimeout(() => {
@@ -51,11 +52,15 @@ export default {
                     }, 1000);
                 } else {
                     // Thông báo lỗi từ server
-                    this.$notify({ group: "foo", title: "Thông báo", type: "warn", text: res.message });
+                    this.$store.dispatch("snackBarStore/addNotify", 
+                        notifyModel.addMessage(res)
+                    );
                 }
             } catch (error) {
                 console.error("Login error:", error);
-                this.$notify({ group: "foo", title: "Lỗi", type: "error", text: "Có lỗi xảy ra khi đăng nhập. Vui lòng thử lại!" });
+                this.$store.dispatch("snackBarStore/addNotify", 
+                    notifyModel.addMessage({code: -1, message: "Có lỗi xảy ra khi đăng nhập. Vui lòng thử lại!"})
+                );
             } finally {
                 loader.hide();
             }
@@ -63,6 +68,7 @@ export default {
     },
 };
 </script>
+
 <template>
     <div class="form-login container p-0 d-flex justify-content-center align-items-center vh-100">
         <div class="card card0">
@@ -97,14 +103,10 @@ export default {
                                 </div>
                             </div>
 
-
                             <div class="row justify-content-center my-3 px-3">
                                 <button type="submit" class="btn-block btn-color">Đăng nhập</button>
                             </div>
-
                         </form>
-                        <notifications group="foo" position="top center" />
-
                     </div>
                 </div>
                 <div class="card card2">
@@ -113,10 +115,10 @@ export default {
             </div>
         </div>
     </div>
-
 </template>
 
 <style scoped>
+/* Giữ nguyên toàn bộ phần style như cũ */
 .form-login {
     color: #000;
     min-height: 100vh;
@@ -164,12 +166,10 @@ button:focus {
 
 .card1 {
     width: 50%;
-    /* padding: 40px 30px 10px 30px; */
 }
 
 .card2 {
     width: 50%;
-
 }
 
 .card2 img {
@@ -195,22 +195,9 @@ button:focus {
     opacity: 1;
 }
 
-:-ms-input-placeholder {
-    color: #000 !important;
-}
-
-::-ms-input-placeholder {
-    color: #000 !important;
-}
-
 .form-control-label {
     font-size: 12px;
     margin-left: 15px;
-}
-
-.msg-info {
-    padding-left: 15px;
-    margin-bottom: 30px;
 }
 
 .btn-color {
@@ -225,37 +212,6 @@ button:focus {
 .btn-color:hover {
     color: #fff;
     background-image: linear-gradient(to right, #0052D4, #1CB5E0);
-}
-
-.btn-white {
-    border-radius: 50px;
-    color: #0052D4;
-    background-color: #fff;
-    padding: 8px 40px;
-    cursor: pointer;
-    border: 2px solid #0052D4 !important;
-}
-
-.btn-white:hover {
-    color: #fff;
-    background-image: linear-gradient(to right, #1CB5E0, #0052D4);
-}
-
-a {
-    color: #000;
-}
-
-a:hover {
-    color: #000;
-}
-
-.bottom {
-    width: 100%;
-    margin-top: 50px !important;
-}
-
-.sm-text {
-    font-size: 15px;
 }
 
 .input-wrapper {
@@ -280,13 +236,16 @@ a:hover {
 .invalid-feedback {
     display: block;
     margin-top: 5px;
+    color: #dc3545;
 }
 
+.is-invalid {
+    border-color: #dc3545 !important;
+}
 
 @media screen and (max-width: 992px) {
     .card1 {
         width: 100%;
-        /* padding: 40px 30px 10px 30px; */
     }
 
     .card2 {
