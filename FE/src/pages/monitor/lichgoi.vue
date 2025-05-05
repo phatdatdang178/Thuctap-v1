@@ -4,13 +4,13 @@ import PageHeader from "@/components/page-header";
 import { monitorModel } from "@/models/monitorModel";
 import { pagingModel } from "@/models/pagingModel";
 import {notifyModel} from "@/models/notifyModel";
-import moment from 'moment-timezone';
+
 
 export default {
   components: { Layout, PageHeader },
   data() {
     return {
-      title: "Lịch sử gọi API",
+      title: "Lịch gọi API",
       items: [
         { text: "Monitor", href: "/monitor" },
         { text: "Gọi API & Lịch trình", active: true }
@@ -199,34 +199,29 @@ export default {
       <PageHeader :title="title" :items="items" />
 
       <b-card>
-        <!-- Phần header responsive -->
-        <div class="row mb-3">
-          <div class="col-md-6 col-12 mb-2 mb-md-0">
-            <div class="search-box">
-              <div class="position-relative">
-                <input
-                  v-model="filter"
-                  type="text"
-                  class="form-control"
-                  placeholder="Tìm kiếm..."
-                />
-                <i class="bx bx-search-alt search-icon"></i>
-              </div>
-            </div>
-          </div>
-          
-          <div class="col-md-6 col-12 d-flex flex-wrap align-items-center justify-content-md-end">
-            <div class="d-flex align-items-center me-2 mb-2 mb-md-0">
-              <span class="me-2 d-none d-sm-inline">Hiển thị</span>
-              <b-form-select
-                class="form-select-sm"
-                v-model="perPage"
-                :options="pageOptions"
-                style="width: 70px"
-                @change="refreshTable"
-              />
-              <span class="ms-2 d-none d-sm-inline">dòng</span>
-            </div>
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <div class="search-box me-2 mb-2 d-inline-block">
+                  <div class="position-relative">
+                    <input
+                        v-model = "filter"
+                        type="text"
+                        class="form-control"
+                        placeholder="Tìm kiếm ..."
+                    />
+                    <i class="bx bx-search-alt search-icon"></i>
+                  </div>
+                </div>
+
+          <div class="d-flex align-items-center">
+            <span class="me-2">Hiển thị</span>
+            <b-form-select
+              class="form-select-sm"
+              v-model="perPage"
+              :options="pageOptions"
+              style="width: 70px"
+              @change="refreshTable"
+            />
+            <span class="mx-2">dòng</span>
             <b-button 
               class="cs-btn-primary"
               variant="success"
@@ -234,102 +229,90 @@ export default {
               :disabled="isLoading"
             >
               <i class="fas fa-file-excel"></i>
-              <span class="d-none d-md-inline">
-                {{ isLoading ? "Đang xử lý..." : "Xuất Excel" }}
-              </span>
+              {{ isLoading ? "Đang xử lý..." : "Xuất Excel" }}
             </b-button>
           </div>
         </div>
 
-        <!-- Bảng dữ liệu - Giữ nguyên template gốc -->
-        <div class="table-responsive">
-          <b-table
-            ref="apiTable"
-            hover
-            striped
-            responsive
-            show-empty
-            primary-key="_id"
-            :filter-included-fields="filterOn"
-            :filter="filter"
-            :items="myProvider"
-            :fields="fields"
-            :per-page="perPage"
-            :current-page="currentPage"
-            :sort-by.sync="sortBy"
-            :sort-desc.sync="sortDesc"
-            :busy.sync="isLoading"
-            :tbody-tr-class="row => row.trangThai === 'FAILED' ? 'table-danger' : ''"
-            @sort-changed="refreshTable"
-          >
-            <template #table-busy>
-              <div class="text-center text-primary my-2">
-                <b-spinner class="align-middle"></b-spinner>
-                <strong>Đang tải...</strong>
-              </div>
-            </template>
-
-            <template #cell(thongTin)="row">
-              <div class="combined-info">
-                <div class="api-name font-weight-bold">{{ row.item.name }}</div>
-                <div class="api-url text-muted small">{{ row.item.url }}</div>
-                <div class="api-time text-muted small">
-                  <i class="far fa-clock me-1"></i>
-                  {{formatDateTime(row.item.time) }}
-                </div>
-              </div>
-            </template>
-
-            <template #cell(phuongThuc)="row">
-              {{ row.item.phuongThuc?.name || "Không xác định" }}
-            </template>
-
-            <template #cell(trangThai)="row">
-              <span
-                :class="{
-                  'text-danger': row.item.trangThai?.name !== 'Thành công',
-                  'text-success': row.item.trangThai?.name === 'Thành công'
-                }"
-                v-b-tooltip.hover
-                :title="'Mã phản hồi: ' + row.item.code"
-              >
-                <i
-                  v-if="row.item.trangThai?.name !== 'Thành công'"
-                  class="fas fa-exclamation-triangle me-1"
-                ></i>
-                {{ row.item.trangThai?.name || "N/A" }} - {{ row.item.code }}
-              </span>
-            </template>
-
-            <template #cell(actions)="row">
-              <b-button
-                size="sm"
-                variant="outline-danger"
-                @click="confirmDelete(row.item)"
-                :disabled="deletingId === row.item._id"
-              >
-                <i class="fas fa-trash-alt"></i>
-              </b-button>
-            </template>
-          </b-table>
-        </div>
-
-        <!-- Phần phân trang responsive -->
-        <div class="row mt-3">
-          <div class="col-md-6 mb-2 mb-md-0 d-flex align-items-center">
-            <span>Hiển thị {{ numberOfElement }} / {{ totalRows }} dòng</span>
-          </div>
-          <div class="col-md-6">
-            <div class="d-flex justify-content-md-end">
-              <b-pagination
-                v-model="currentPage"
-                :total-rows="totalRows"
-                :per-page="perPage"
-                class="pagination pagination-rounded mb-0"
-                @change="refreshTable"
-              />
+        <b-table
+          ref="apiTable"
+          hover
+          striped
+          responsive
+          show-empty
+          primary-key="_id"
+          :filter-included-fields="filterOn"
+          :filter="filter"
+          :items="myProvider"
+          :fields="fields"
+          :per-page="perPage"
+          :current-page="currentPage"
+          :sort-by.sync="sortBy"
+          :sort-desc.sync="sortDesc"
+          :busy.sync="isLoading"
+          :tbody-tr-class="row => row.trangThai === 'FAILED' ? 'table-danger' : ''"
+          @sort-changed="refreshTable"
+        >
+          <template #table-busy>
+            <div class="text-center text-primary my-2">
+              <b-spinner class="align-middle"></b-spinner>
+              <strong>Đang tải...</strong>
             </div>
-          </div>
+          </template>
+
+          <template #cell(thongTin)="row">
+            <div class="combined-info">
+              <div class="api-name font-weight-bold">{{ row.item.name }}</div>
+              <div class="api-url text-muted small">{{ row.item.url }}</div>
+              <div class="api-time text-muted small">
+                <i class="far fa-clock me-1"></i>
+                {{formatDateTime(row.item.time) }}
+              </div>
+            </div>
+          </template>
+
+          <template #cell(phuongThuc)="row">
+            {{ row.item.phuongThuc?.name || "Không xác định" }}
+          </template>
+
+          <template #cell(trangThai)="row">
+            <span
+              :class="{
+                'text-danger': row.item.trangThai?.name !== 'Thành công',
+                'text-success': row.item.trangThai?.name === 'Thành công'
+              }"
+              v-b-tooltip.hover
+              :title="'Mã phản hồi: ' + row.item.code"
+            >
+              <i
+                v-if="row.item.trangThai?.name !== 'Thành công'"
+                class="fas fa-exclamation-triangle me-1"
+              ></i>
+              {{ row.item.trangThai?.name || "N/A" }} - {{ row.item.code }}
+            </span>
+          </template>
+
+          <template #cell(actions)="row">
+            <b-button
+              size="sm"
+              variant="outline-danger"
+              @click="confirmDelete(row.item)"
+              :disabled="deletingId === row.item._id"
+            >
+              <i class="fas fa-trash-alt"></i>
+            </b-button>
+          </template>
+        </b-table>
+
+        <div class="d-flex justify-content-between align-items-center mt-3">
+          <div>Hiển thị {{ numberOfElement }} / {{ totalRows }} dòng</div>
+          <b-pagination
+            v-model="currentPage"
+            :total-rows="totalRows"
+            :per-page="perPage"
+            class="pagination pagination-rounded mb-0"
+            @change="refreshTable"
+          />
         </div>
       </b-card>
     </div>
@@ -337,21 +320,6 @@ export default {
 </template>
 
 <style scoped>
-/* CSS chỉ tập trung vào responsive */
-.search-box {
-  max-width: 300px;
-}
-
-@media (max-width: 768px) {
-  .search-box {
-    max-width: 100%;
-  }
-  
-  .table th, .table td {
-    padding: 0.5rem;
-  }
-}
-
 .table th {
   text-align: center;
 }
@@ -368,6 +336,23 @@ export default {
 .api-time {
   font-size: 0.85rem;
 }
+.table th {
+  text-align: center;
+}
+
+.combined-info {
+  line-height: 1.4;
+}
+
+.api-name {
+  font-size: 1rem;
+}
+
+.api-url,
+.api-time {
+  font-size: 0.85rem;
+}
+
 
 .td-actions {
   text-align: center;

@@ -16,7 +16,7 @@
             </div>
           </b-form-group>
 
-          <div class="row">
+          <div class="row mt-3">
             <!-- Phương thức API -->
             <b-form-group class="col-md-3 col-sm-12" label="Phương thức API">
               <multiselect 
@@ -152,7 +152,7 @@
               <i class="fas fa-redo mr-1"></i> Đặt lại
             </b-button>
             <b-button type="submit" variant="primary" class="cs-btn-primary">
-              <i class="fas fa-calendar-plus mr-1"></i> Lên lịch API
+              <i class="fas fa-calendar-plus mr-1"></i> Lên lịch 
             </b-button>
           </div>
         </b-form>

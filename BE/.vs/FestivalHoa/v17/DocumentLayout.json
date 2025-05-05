@@ -186,8 +186,7 @@
               "ViewState": "AgIAAGoAAAAAAAAAAAAkwBIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-19T02:07:11.19Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -197,7 +196,7 @@
               "RelativeDocumentMoniker": "FestivalHoa\\Properties\\Services\\NghiepVu\\MonitorApiService.cs",
               "ToolTip": "C:\\Users\\phatd\\OneDrive\\M\u00E1y t\u00EDnh\\THUCTAP\\ThucTapNew\\Thuctap-v1\\BE\\FestivalHoa\\Properties\\Services\\NghiepVu\\MonitorApiService.cs",
               "RelativeToolTip": "FestivalHoa\\Properties\\Services\\NghiepVu\\MonitorApiService.cs",
-              "ViewState": "AgIAAKQBAAAAAAAAAAAcwFwCAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-19T02:13:52.642Z",
               "IsPinned": true,
@@ -253,8 +252,7 @@
               "RelativeToolTip": "FestivalHoa\\Properties\\Services\\Core\\DefaultRepositoryService.cs",
               "ViewState": "AgIAAMUAAAAAAAAAAAAWwM4AAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T02:03:19.191Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-19T02:03:19.191Z"
             },
             {
               "$type": "Document",
