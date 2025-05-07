@@ -173,7 +173,7 @@ export default {
   components: { Layout, PageHeader, Multiselect, DatePicker },
   data() {
     return {
-      title: "Lên lịch gọi API",
+      title: "Lên lịch kiểm tra API",
       items: [{ text: "Monitor", href: "/monitor" }, { text: "Gọi API & Lịch trình", active: true }],
       scheduleRequest: {
         name: "",

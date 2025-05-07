@@ -49,6 +49,7 @@ export default {
           sortable: false,
           thStyle: "text-align:center",
           thClass: 'hidden-sortable'
+          
         },
         {
           key: "sdt",

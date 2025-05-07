@@ -10,7 +10,7 @@ export default {
   components: { Layout, PageHeader, Multiselect },
   data() {
     return {
-      title: "Gọi API",
+      title: "Kiểm tra API",
       items: [{ text: "Monitor", href: "/monitor" }, { text: "Gọi API & Lịch trình", active: true }],
       fields: [
         { key: "name", label: "Tên API", sortable: true },

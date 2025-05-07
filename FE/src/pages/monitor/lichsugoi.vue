@@ -10,37 +10,39 @@ export default {
   components: { Layout, PageHeader },
   data() {
     return {
-      title: "Lịch sử gọi API",
+      title: "Lịch sử kiểm tra API",
       items: [
         { text: "Monitor", href: "/monitor" },
         { text: "Gọi API & Lịch trình", active: true }
       ],
-      fields: [
-        {
-          key: "thongTin",
-          label: "Thông tin API",
-          thStyle: "text-align:center",
-          thClass: "hidden-sortable"
-        },
-        {
-          key: "trangThai",
-          label: "Trạng thái",
-          sortable: true,
-          thStyle: "text-align:center"
-        },
-        {
-          key: "phuongThuc",
-          label: "Phương thức",
-          sortable: true,
-          thStyle: "text-align:center"
-        },
-        {
-          key: "actions",
-          label: "Thao tác",
-          thClass: "hidden-sortable",
-          tdClass: "text-center"
-        }
-      ],
+  fields: [
+    {
+      key: "thongTin",
+      label: "Thông tin API",
+      thStyle: "text-align:center",
+      thClass: "hidden-sortable"
+    },
+    {
+      key: "trangThai",
+      label: "Trạng thái",
+      sortable: true,
+      thStyle: "text-align:center",
+      tdClass: "text-center"
+    },
+    {
+      key: "phuongThuc",
+      label: "Phương thức",
+      sortable: false,
+      thStyle: "text-align:center",
+      thClass: 'hidden-sortable'
+    },
+    {
+      key: "actions",
+      label: "Thao tác",
+      thClass: "hidden-sortable",
+      tdClass: "text-center"
+    }
+  ],
       model: monitorModel.baseJson(),
       searchQuery: "",
       perPage: 10,
@@ -337,7 +339,7 @@ export default {
 </template>
 
 <style scoped>
-/* CSS chỉ tập trung vào responsive */
+
 .search-box {
   max-width: 300px;
 }
@@ -379,4 +381,30 @@ export default {
   justify-content: center;
   align-items: center;
 }
+/* Ghi đè hoàn toàn lớp sr-only cho các icon sort */
+::v-deep th.sortable .b-table-sort-icon:not(.sr-only),
+::v-deep th.sortable .b-icon-sort {
+  clip: auto !important;
+  clip-path: none !important;
+  height: auto !important;
+  overflow: visible !important;
+  position: relative !important;
+  white-space: normal !important;
+  width: auto !important;
+  display: inline-block !important;
+  opacity: 1 !important;
+  margin-left: 6px;
+  font-size: 0.8em;
+  color: #6c757d;
+}
+
+/* Style khi active sort */
+::v-deep th.sortable[aria-sort="ascending"] .b-table-sort-icon {
+  color: #405189;
+}
+
+::v-deep th.sortable[aria-sort="descending"] .b-table-sort-icon {
+  color: #405189;
+}
+
 </style>

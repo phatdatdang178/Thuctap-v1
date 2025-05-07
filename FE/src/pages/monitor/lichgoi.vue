@@ -31,8 +31,10 @@ export default {
         {
           key: "phuongThuc",
           label: "Phương thức",
-          sortable: true,
+          sortable: false,
+          thClass: "hidden-sortable",
           thStyle: "text-align:center"
+          
         },
         {
           key: "actions",

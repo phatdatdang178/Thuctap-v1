@@ -13,7 +13,7 @@ export default {
     title: "Danh mục Menu",
     meta: [{name: "description", content: appConfig.description}],
   },
-  components: {Layout, PageHeader, Treeselect, Switches},
+  components: {Layout, PageHeader, Treeselect},
   data() {
     return {
       data: [],
@@ -283,7 +283,7 @@ export default {
                   </div>
                 </div>
               </div>
-              <div class="row card-baiviet">
+              <!-- <div class="row card-baiviet">
                     <div class="mt-3">
                       <p class="card-name">Quản lý tạo bài viết</p>
                     </div>
@@ -361,7 +361,7 @@ export default {
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div> -->
               <div class="text-end pt-2 mt-3">
                 <b-button v-if="model._id" type="button" variant="warning" class="ms-1"
                           v-on:click="handleResetForm"
